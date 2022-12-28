@@ -15,6 +15,8 @@ module.exports = {
           'linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 55.21%, rgba(0, 0, 0, 0) 100%), linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 55.21%, rgba(0, 0, 0, 0) 100%)',
         'top-gradient':
           'linear-gradient(187.16deg, #181623 0.07%, #191725 51.65%, #0D0B14 98.75%)',
+        'footer-gradient':
+          'linear-gradient(#181623 0,07%, #191725 50.66%, #0D0B14 96.88%)',
         interstellar: "url('/assets/interstellar.png')",
         lord: "url('/assets/lord.png')",
         royal: "url('/assets/royal.png')",

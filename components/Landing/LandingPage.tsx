@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { Footer } from './LandingFooter';
 import { LandingMovie } from './LandingMovies';
 
 const LandingPage = () => {
@@ -37,6 +38,8 @@ const LandingPage = () => {
         fear that would take the 
         heart of me....'
       />
+
+      <Footer />
     </Fragment>
   );
 };
