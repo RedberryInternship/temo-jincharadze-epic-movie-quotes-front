@@ -10,14 +10,14 @@ const LandingMovie: React.FC<PropsTypes> = (props) => {
 
       <div className='top-[20rem] absolute flex z-20 ml-9'>
         <h1 className='flex text-white'>
-          <div className='w-[1.0625rem] bg-white h-[0.125rem] mt-3 mr-2' />
+          <div className='w-[1.0625rem] lg:w-[3.3125rem] bg-white h-[0.125rem] mt-4 lg:mt-9 mr-2 lg:mr-4' />
           <div className='flex flex-col'>
             <h1
-              className={`max-w-[19rem] w-full text-xl leading-8 ${props.width}`}
+              className={`max-w-[19rem] font-bold w-full text-xl lg:text-[3.125rem] leading-8 lg:leading-[4.6875rem]  ${props.width}`}
             >
               “{props.quote}”
             </h1>
-            <h1 className='mt-3 text-base text-custom-zinc-300'>
+            <h1 className='mt-3 lg:mt-4 text-base lg:text-3xl text-custom-zinc-300 font-bold'>
               {props.movie}
             </h1>
           </div>
