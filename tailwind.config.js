@@ -11,6 +11,8 @@ module.exports = {
         'custom-zinc-300': '#D9D9D9',
       },
       backgroundImage: {
+        'starting-gradient':
+          'linear-gradient(180deg, #000000 10%, rgba(0, 0, 0, 0) 65.21%, rgba(0, 0, 0, 0) 100%)',
         'movies-gradient':
           'linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 55.21%, rgba(0, 0, 0, 0) 100%), linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 55.21%, rgba(0, 0, 0, 0) 100%)',
         'top-gradient':

@@ -5,12 +5,13 @@ import { LandingMovie } from './LandingMovies';
 const LandingPage = () => {
   return (
     <Fragment>
+      <div className='bg-starting-gradient absolute z-20 top-0 w-screen h-screen' />
       <div className='h-[30.3125rem] bg-top-gradient w-full flex justify-center items-center flex-col'>
-        <h1 className='text-custom-orange-200 text-2xl text-center'>
+        <h1 className='text-custom-orange-200 text-2xl text-center relative z-30'>
           Find any quote in <br />
           millions of movie lines
         </h1>
-        <button className='text-white px-[0.875rem] py-[0.4375rem] bg-custom-red-600 rounded mt-8'>
+        <button className='text-white px-[0.875rem] py-[0.4375rem] bg-custom-red-600 rounded mt-8 relative z-30'>
           Get started
         </button>
       </div>
