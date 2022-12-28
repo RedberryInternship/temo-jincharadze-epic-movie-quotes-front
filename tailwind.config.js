@@ -1,10 +1,13 @@
 module.exports = {
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: [
+    './pages/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {},
   },
   plugins: [
-    require("@tailwindcss/forms"),
-    require("tailwindcss-animation-delay"),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-animation-delay'),
   ],
 };
