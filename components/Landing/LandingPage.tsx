@@ -20,7 +20,7 @@ const LandingPage = () => {
         width='max-w-[19rem] lg:max-w-3xl'
         image='bg-interstellar'
         movie='Interstellar, 2014'
-        quote='You have to leave somethig behind to go forward'
+        quote='You have to leave something behind to go forward'
       />
       <LandingMovie
         width='max-w-[17.063rem] lg:max-w-[62rem]'
