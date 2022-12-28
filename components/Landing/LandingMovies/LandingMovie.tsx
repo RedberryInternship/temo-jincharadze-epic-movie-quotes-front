@@ -12,7 +12,9 @@ const LandingMovie: React.FC<PropsTypes> = (props) => {
         <h1 className='flex text-white'>
           <div className='w-[1.0625rem] bg-white h-[0.125rem] mt-3 mr-2' />
           <div className='flex flex-col'>
-            <h1 className='max-w-[19rem] w-full text-xl leading-8'>
+            <h1
+              className={`max-w-[19rem] w-full text-xl leading-8 ${props.width}`}
+            >
               “{props.quote}”
             </h1>
             <h1 className='mt-3 text-base text-custom-zinc-300'>

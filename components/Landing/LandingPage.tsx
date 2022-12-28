@@ -15,12 +15,14 @@ const LandingPage = () => {
       </div>
 
       <LandingMovie
+        width='max-w-[19rem]'
         image='bg-interstellar'
         movie='Interstellar, 2014'
         quote='You have to leave somethig behind to go forward'
       />
       <LandingMovie
-        image='bg-royal'
+        width='max-w-[17.063rem]'
+        image='bg-royal '
         movie='The Royal Tenenbaums,2001'
         quote='I think we’re just gonna
         have to be secretly in love
@@ -28,6 +30,7 @@ const LandingPage = () => {
         leave it that'
       />
       <LandingMovie
+        width='max-w-[18.32rem]'
         image='bg-lord'
         movie='The Lord of the Rings, 2003  '
         quote='I see in your eyes the same
