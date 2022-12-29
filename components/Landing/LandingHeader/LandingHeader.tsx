@@ -1,9 +1,7 @@
-import { LanguageSelector } from 'components';
-import { useTranslation } from 'next-i18next';
-import React from 'react';
+import { LanguageSelector, useLandingHeader } from 'components';
 
 const LandingHeader = () => {
-  const { t } = useTranslation('common');
+  const { t } = useLandingHeader();
 
   return (
     <div className='fixed z-40 text-white px-9 py-6 w-full'>
