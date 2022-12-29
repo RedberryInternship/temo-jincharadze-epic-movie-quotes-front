@@ -5,12 +5,8 @@ const LanguageSelector = () => {
   const { toggle, toggleClickHandler, refEl } = useLanguageSelector();
 
   return (
-    <div className='relative'>
-      <div
-        className='flex items-center'
-        onClick={toggleClickHandler}
-        ref={refEl}
-      >
+    <div className='relative' ref={refEl}>
+      <div className='flex items-center' onClick={toggleClickHandler}>
         <div className='mr-[0.64rem] font-normal text-base'>Eng</div>
         <ArrowDown />
       </div>
