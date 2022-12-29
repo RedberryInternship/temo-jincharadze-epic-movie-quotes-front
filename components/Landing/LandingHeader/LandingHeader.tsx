@@ -10,10 +10,17 @@ const LandingHeader = () => {
           <h1 className='uppercase text-base font-medium text-custom-orange-200'>
             Movie quotes
           </h1>
-          <LanguageSelector />
-          <button className='font-normal text-base text-white border border-white rounded-[0.25rem] px-[1.5938rem] py-2'>
-            {t('header.login')}
-          </button>
+          <div className='flex items-center'>
+            <LanguageSelector />
+            <div className='pr-4 hidden md:flex'>
+              <button className='font-normal text-base text-white bg-custom-red-600 rounded-[0.25rem] h-10 w-28'>
+                {t('header.signUp')}
+              </button>
+            </div>
+            <button className='font-normal text-base text-white border border-white rounded-[0.25rem] h-10 w-24'>
+              {t('header.login')}
+            </button>
+          </div>
         </div>
       </header>
     </div>

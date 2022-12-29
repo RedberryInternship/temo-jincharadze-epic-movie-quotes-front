@@ -5,7 +5,7 @@ const LanguageSelector = () => {
   const { toggle, toggleClickHandler, refEl, language } = useLanguageSelector();
 
   return (
-    <div className='relative' ref={refEl}>
+    <div className='relative pr-10 pl-1' ref={refEl}>
       <div
         className='flex items-center cursor-pointer'
         onClick={toggleClickHandler}
