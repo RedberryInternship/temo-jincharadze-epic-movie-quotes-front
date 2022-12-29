@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
-import { Footer, LandingMovie } from 'components';
+import { Footer, LandingMovie, LandingHeader } from 'components';
 
 const LandingPage = () => {
   return (
     <Fragment>
       <div className='bg-starting-gradient absolute z-20 top-0 w-screen h-screen' />
+      <LandingHeader />
       <div className='h-[30.3125rem] md:h-[50.5rem] bg-top-gradient w-full flex justify-center items-center flex-col'>
         <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-30 leading-9 md:leading-[5.625rem] font-bold'>
           Find any quote in <br />
