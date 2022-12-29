@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
-import { Footer } from './LandingFooter';
-import { LandingMovie } from './LandingMovies';
+import { Footer, LandingMovie } from 'components';
 
 const LandingPage = () => {
   return (
