@@ -1,3 +1,4 @@
+import { LanguageSelector } from 'components';
 import React from 'react';
 
 const LandingHeader = () => {
@@ -8,6 +9,7 @@ const LandingHeader = () => {
           <h1 className='uppercase text-base font-medium text-custom-orange-200'>
             Movie quotes
           </h1>
+          <LanguageSelector />
           <button className='font-normal text-base text-white border border-white rounded-[0.25rem] px-[1.5938rem] py-2'>
             Log in
           </button>
