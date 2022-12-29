@@ -1,5 +1,4 @@
 import { ArrowDown, useLanguageSelector } from 'components';
-import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 const LanguageSelector = () => {
