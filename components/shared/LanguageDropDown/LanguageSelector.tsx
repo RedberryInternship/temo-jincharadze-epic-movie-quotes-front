@@ -1,8 +1,9 @@
 import { ArrowDown, useLanguageSelector } from 'components';
+import { useTranslation } from 'next-i18next';
 import React from 'react';
 
 const LanguageSelector = () => {
-  const { toggle, toggleClickHandler, refEl } = useLanguageSelector();
+  const { toggle, toggleClickHandler, refEl, language } = useLanguageSelector();
 
   return (
     <div className='relative' ref={refEl}>
@@ -10,7 +11,9 @@ const LanguageSelector = () => {
         className='flex items-center cursor-pointer'
         onClick={toggleClickHandler}
       >
-        <div className='mr-[0.64rem] font-normal text-base'>Eng</div>
+        <div className='mr-[0.64rem] font-normal text-base'>
+          {language === 'ka' ? 'ქართ' : 'Eng'}
+        </div>
         <ArrowDown />
       </div>
       {toggle && (
