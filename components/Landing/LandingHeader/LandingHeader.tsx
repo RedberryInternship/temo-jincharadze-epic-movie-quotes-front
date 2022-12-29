@@ -8,9 +8,9 @@ const LandingHeader = () => {
           <h1 className='uppercase text-base font-medium text-custom-orange-200'>
             Movie quotes
           </h1>
-          <div className='border border-white rounded-[0.25rem] px-[1.5938rem] py-2'>
-            <button className='font-normal text-base text-white'>Log in</button>
-          </div>
+          <button className='font-normal text-base text-white border border-white rounded-[0.25rem] px-[1.5938rem] py-2'>
+            Log in
+          </button>
         </div>
       </header>
     </div>
