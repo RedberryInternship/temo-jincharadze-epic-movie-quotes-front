@@ -13,11 +13,11 @@ const LandingHeader = () => {
           <div className='flex items-center'>
             <LanguageSelector />
             <div className='pr-4 hidden md:flex'>
-              <button className='font-normal text-base text-white bg-custom-red-600 rounded-[0.25rem] h-10 w-28'>
+              <button className='font-normal text-base text-white bg-custom-red-600 hover:bg-red-400 rounded-[0.25rem] h-10 w-28'>
                 {t('header.signUp')}
               </button>
             </div>
-            <button className='font-normal text-base text-white border border-white rounded-[0.25rem] h-10 w-24'>
+            <button className='font-normal text-base text-white border border-white hover:bg-white hover:text-black rounded-[0.25rem] h-10 w-24'>
               {t('header.login')}
             </button>
           </div>
