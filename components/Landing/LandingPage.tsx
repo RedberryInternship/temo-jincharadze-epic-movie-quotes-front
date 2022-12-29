@@ -17,7 +17,7 @@ const LandingPage = () => {
         <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-30 leading-9 md:leading-[5.625rem] font-bold max-w-[17.59rem] md:max-w-[44rem]'>
           {t('landing.about')}
         </h1>
-        <button className='text-white px-[0.875rem] md:px-[1rem] py-[0.4375rem] md:py-[0.5625rem]  bg-custom-red-600 rounded mt-8 relative z-30 text-base md:text-xl font-normal'>
+        <button className='text-white px-[0.875rem] md:px-[1rem] py-[0.4375rem] md:py-[0.5625rem] bg-custom-red-600 rounded mt-8 relative z-30 text-base md:text-xl font-normal'>
           {t('landing.getStarted')}
         </button>
       </div>

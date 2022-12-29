@@ -1,8 +1,8 @@
 import { ArrowDown, useLanguageSelector } from 'components';
-import React from 'react';
 
 const LanguageSelector = () => {
-  const { toggle, toggleClickHandler, refEl, language } = useLanguageSelector();
+  const { toggle, toggleClickHandler, refEl, language, localeHandler } =
+    useLanguageSelector();
 
   return (
     <div className='relative pr-10 pl-1' ref={refEl}>
@@ -17,10 +17,16 @@ const LanguageSelector = () => {
       </div>
       {toggle && (
         <div className='absolute bg-white top-10'>
-          <div className='py-2 text-black px-3 text-base hover:bg-black hover:text-white cursor-pointer'>
+          <div
+            className='py-2 text-black px-3 text-base hover:bg-black hover:text-white cursor-pointer'
+            onClick={() => localeHandler('ka')}
+          >
             ქართული
           </div>
-          <div className='text-black py-2 px-3 text-base hover:bg-black hover:text-white cursor-pointer'>
+          <div
+            className='text-black py-2 px-3 text-base hover:bg-black hover:text-white cursor-pointer'
+            onClick={() => localeHandler('en')}
+          >
             English
           </div>
         </div>
