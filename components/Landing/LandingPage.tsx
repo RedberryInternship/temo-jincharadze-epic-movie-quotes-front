@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import {
   Footer,
   LandingMovie,
@@ -10,7 +9,7 @@ const LandingPage = () => {
   const { t } = useLandingPage();
 
   return (
-    <Fragment>
+    <>
       <div className='bg-starting-gradient absolute z-20 top-0 w-screen h-screen' />
       <LandingHeader />
       <div className='h-[30.3125rem] md:h-[50.5rem]  bg-top-gradient w-full flex justify-center items-center flex-col'>
@@ -42,7 +41,7 @@ const LandingPage = () => {
       />
 
       <Footer />
-    </Fragment>
+    </>
   );
 };
 
