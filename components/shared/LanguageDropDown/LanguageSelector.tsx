@@ -10,7 +10,7 @@ const LanguageSelector = () => {
         className='flex items-center cursor-pointer'
         onClick={toggleClickHandler}
       >
-        <div className='mr-[0.64rem] font-normal text-base'>
+        <div className='mr-[0.7rem] font-normal text-base'>
           {language === 'ka' ? 'ქართ' : 'Eng'}
         </div>
         <ArrowDown />
