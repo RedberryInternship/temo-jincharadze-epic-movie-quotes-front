@@ -11,13 +11,13 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className='bg-starting-gradient absolute z-20 top-0 w-screen h-screen' />
+      <div className='bg-starting-gradient absolute z-[2] top-0 w-screen h-screen' />
       <LandingHeader />
       <div className='h-[30.3125rem] md:h-[50.5rem]  bg-top-gradient w-full flex justify-center items-center flex-col'>
-        <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-30 leading-9 md:leading-[5.6rem] font-bold max-w-[17rem] md:max-w-[44rem]'>
+        <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-[3] leading-9 md:leading-[5.6rem] font-bold max-w-[17rem] md:max-w-[44rem]'>
           {t('landing.about')}
         </h1>
-        <Button className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-30 md:text-xl'>
+        <Button className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-[3] md:text-xl'>
           {t('landing.getStarted')}
         </Button>
       </div>

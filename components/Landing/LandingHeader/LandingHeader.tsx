@@ -4,7 +4,7 @@ const LandingHeader = () => {
   const { t } = useLandingHeader();
 
   return (
-    <div className='fixed z-40 text-white px-9 py-6 w-full'>
+    <div className='fixed z-[4] text-white px-9 py-6 w-full'>
       <header>
         <div className='flex items-center justify-between'>
           <h1 className='uppercase text-base font-medium text-custom-orange-200'>

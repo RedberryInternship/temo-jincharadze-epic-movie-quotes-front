@@ -10,7 +10,7 @@ const Modal: React.FC<ModalProps> = (props) => {
         document.getElementById('backdrop')!
       )}
       {createPortal(
-        <div className='fixed z-50 text-white'>{props.children}</div>,
+        <div className='fixed z-[6] text-white'>{props.children}</div>,
         document.getElementById('modal')!
       )}
     </>
