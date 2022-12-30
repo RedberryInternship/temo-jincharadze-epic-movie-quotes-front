@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        s: '8px',
+      },
       colors: {
         'custom-orange-200': '#DDCCAA',
         'custom-red-600': '#E31221',
