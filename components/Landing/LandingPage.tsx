@@ -3,6 +3,7 @@ import {
   LandingMovie,
   LandingHeader,
   useLandingPage,
+  Button,
 } from 'components';
 
 const LandingPage = () => {
@@ -16,9 +17,9 @@ const LandingPage = () => {
         <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-30 leading-9 md:leading-[5.6rem] font-bold max-w-[17rem] md:max-w-[44rem]'>
           {t('landing.about')}
         </h1>
-        <button className='text-white px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-30 text-base md:text-xl font-normal'>
+        <Button className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-30 md:text-xl'>
           {t('landing.getStarted')}
-        </button>
+        </Button>
       </div>
 
       <LandingMovie
