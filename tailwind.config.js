@@ -22,6 +22,7 @@ module.exports = {
         'custom-orange-200': '#DDCCAA',
         'custom-red-600': '#E31221',
         'custom-zinc-300': '#D9D9D9',
+        'blur-bg': 'rgba(0, 0, 0, 0.54)',
       },
       backgroundImage: {
         'starting-gradient':
