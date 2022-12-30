@@ -1,6 +1,7 @@
 import { Button, LanguageSelector, useLandingHeader } from 'components';
+import { LandingHeaderProps } from './types';
 
-const LandingHeader = () => {
+const LandingHeader: React.FC<LandingHeaderProps> = (props) => {
   const { t } = useLandingHeader();
 
   return (
@@ -13,11 +14,17 @@ const LandingHeader = () => {
           <div className='flex items-center'>
             <LanguageSelector />
             <div className='pr-4 hidden md:flex'>
-              <Button className='bg-custom-red-600 hover:bg-red-400 rounded-s h-10 w-28'>
+              <Button
+                className='bg-custom-red-600 hover:bg-red-400 rounded-s h-10 w-28'
+                onClick={props.onSignUpClick}
+              >
                 {t('header.signUp')}
               </Button>
             </div>
-            <Button className='border-white border hover:bg-white hover:text-black rounded-s h-10 w-24'>
+            <Button
+              className='border-white border hover:bg-white hover:text-black rounded-s h-10 w-24'
+              onClick={props.onLoginClick}
+            >
               {t('header.login')}
             </Button>
           </div>

@@ -3,17 +3,32 @@ import { useState } from 'react';
 
 const useLandingPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [modalForm, setModalForm] = useState<string>('');
   const { t } = useTranslation('common');
 
   const closeModalHandler = () => {
     setShowModal(false);
   };
 
-  const openModalHandler = () => {
+  const onSignUpHandler = () => {
     setShowModal(true);
+    setModalForm('signUp');
   };
 
-  return { t, closeModalHandler, openModalHandler, showModal };
+  const onLoginHandler = () => {
+    setShowModal(true);
+    setModalForm('login');
+  };
+
+  return {
+    t,
+    closeModalHandler,
+    showModal,
+    setModalForm,
+    modalForm,
+    onSignUpHandler,
+    onLoginHandler,
+  };
 };
 
 export default useLandingPage;
