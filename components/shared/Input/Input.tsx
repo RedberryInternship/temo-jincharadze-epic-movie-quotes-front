@@ -14,7 +14,7 @@ const Input: React.FC<InputProps> = (props) => {
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}
-          className='h-[2.4rem] px-2 pl-3 w-full border border-custom-gray-300 text-base focus:ring-0 focus:border-current font-normal'
+          className='rounded h-[2.4rem] px-2 pl-3 w-full border focus:ring-0 border-custom-gray-300 text-base focus:border-custom-gray-300 focus:outline-none outline-none font-normal'
         />
       </div>
     </div>
