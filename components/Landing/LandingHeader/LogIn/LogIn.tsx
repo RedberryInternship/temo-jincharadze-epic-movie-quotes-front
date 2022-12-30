@@ -1,6 +1,7 @@
 import { Button, Google, Input } from 'components';
+import { LoginProps } from './types';
 
-const LogIn = () => {
+const LogIn: React.FC<LoginProps> = (props) => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -54,7 +55,12 @@ const LogIn = () => {
         <div className='mt-8 flex justify-center'>
           <p className='text-base font-normal text-custom-gray-500'>
             Don't have an account?
-            <span className='text-custom-blue-600 underline ml-1'>Sign up</span>
+            <span
+              className='text-custom-blue-600 underline ml-1 cursor-pointer'
+              onClick={props.onSignUpClick}
+            >
+              Sign up
+            </span>
           </p>
         </div>
       </div>

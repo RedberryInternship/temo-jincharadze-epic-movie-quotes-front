@@ -29,7 +29,7 @@ const LandingPage = () => {
               onClose={closeModalHandler}
               className='md:h-[44rem] md:w-[37.5rem]'
             >
-              <SignUp />
+              <SignUp onLoginClick={onLoginHandler} />
             </FormWrapper>
           )}
           {modalForm === 'login' && (
@@ -37,7 +37,7 @@ const LandingPage = () => {
               onClose={closeModalHandler}
               className='md:h-[35rem] md:w-[37.5rem]'
             >
-              <LogIn />
+              <LogIn onSignUpClick={onSignUpHandler} />
             </FormWrapper>
           )}
         </Modal>
