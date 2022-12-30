@@ -21,8 +21,11 @@ module.exports = {
       colors: {
         'custom-orange-200': '#DDCCAA',
         'custom-red-600': '#E31221',
+        'custom-red-500': '#DC3545',
         'custom-zinc-300': '#D9D9D9',
+        'custom-zinc-800': '#222030',
         'blur-bg': 'rgba(0, 0, 0, 0.54)',
+        'custom-gray-300': '#CED4DA',
       },
       backgroundImage: {
         'starting-gradient':
