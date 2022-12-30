@@ -4,7 +4,9 @@ const SignUp = () => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white text-2xl font-medium'>Create an account</h2>
+        <h2 className='text-white text-2xl font-medium text-3.5'>
+          Create an account
+        </h2>
         <p className='text-custom-gray-500 text-base font-normal mt-3'>
           Start your journey!
         </p>
@@ -15,7 +17,7 @@ const SignUp = () => {
             label='Name'
             type='text'
             name='username'
-            placeholder='Enter your name'
+            placeholder='At least 3 & max.15 lower case characters'
           />
           <Input
             containerClass='mt-8'
@@ -29,7 +31,7 @@ const SignUp = () => {
             label='Password'
             type='password'
             name='password'
-            placeholder='Password'
+            placeholder='At least 8 & max.15 lower case characters'
           />
           <Input
             containerClass='mt-8'
