@@ -1,4 +1,4 @@
-import { LanguageSelector, useLandingHeader } from 'components';
+import { Button, LanguageSelector, useLandingHeader } from 'components';
 
 const LandingHeader = () => {
   const { t } = useLandingHeader();
@@ -13,13 +13,13 @@ const LandingHeader = () => {
           <div className='flex items-center'>
             <LanguageSelector />
             <div className='pr-4 hidden md:flex'>
-              <button className='font-normal text-base text-white bg-custom-red-600 hover:bg-red-400 rounded-s h-10 w-28'>
+              <Button className='bg-custom-red-600 hover:bg-red-400 rounded-s h-10 w-28'>
                 {t('header.signUp')}
-              </button>
+              </Button>
             </div>
-            <button className='font-normal text-base text-white border border-white hover:bg-white hover:text-black rounded-s h-10 w-24'>
+            <Button className='border-white border hover:bg-white hover:text-black rounded-s h-10 w-24'>
               {t('header.login')}
-            </button>
+            </Button>
           </div>
         </div>
       </header>
