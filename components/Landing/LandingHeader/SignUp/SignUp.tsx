@@ -48,6 +48,12 @@ const SignUp = () => {
             <span className='ml-2'>Sign up with Google</span>
           </div>
         </Button>
+        <div className='mt-8 flex justify-center'>
+          <p className='text-base font-normal text-custom-gray-500'>
+            Already have an account?
+            <span className='text-custom-blue-600 underline ml-1'>Log in</span>
+          </p>
+        </div>
       </div>
     </div>
   );
