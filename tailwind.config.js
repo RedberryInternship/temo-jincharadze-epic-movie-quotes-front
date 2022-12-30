@@ -27,6 +27,7 @@ module.exports = {
         'blur-bg': 'rgba(0, 0, 0, 0.54)',
         'custom-gray-300': '#CED4DA',
         'custom-gray-500': '#6C757D',
+        'custom-blue-600': '#0D6EFD',
       },
       backgroundImage: {
         'starting-gradient':
