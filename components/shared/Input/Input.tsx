@@ -2,7 +2,16 @@ import { Eye } from 'components';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = (props) => {
-  return (
+  return props.type === 'checkbox' ? (
+    <div className={props.containerClass}>
+      <input
+        type='checkbox'
+        name={props.name}
+        className='rounded-[0.25rem] mr-2'
+      />
+      <label className='text-white text-base font-normal'>{props.label}</label>
+    </div>
+  ) : (
     <div className={props.containerClass}>
       <div className='mb-2'>
         <label className='text-white text-base font-normal'>

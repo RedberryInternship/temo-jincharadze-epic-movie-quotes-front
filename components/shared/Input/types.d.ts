@@ -5,6 +5,6 @@ export type InputProps = {
   label: string;
   type: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   register?: UseFormRegister<FieldValues>;
 };

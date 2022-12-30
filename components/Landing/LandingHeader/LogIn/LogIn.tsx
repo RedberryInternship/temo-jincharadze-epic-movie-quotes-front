@@ -25,8 +25,21 @@ const LogIn = () => {
             label='Password'
             type='password'
             name='password'
-            placeholder='At least 8 & max.15 lower case characters'
+            placeholder='Password'
           />
+
+          <div className='flex items-center justify-between mt-8'>
+            <Input
+              type='checkbox'
+              name='remember'
+              label='Remember me'
+              containerClass='flex items-center h-4'
+            />
+
+            <div className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'>
+              Forgot password
+            </div>
+          </div>
 
           <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
             Sign in
@@ -35,7 +48,7 @@ const LogIn = () => {
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
           <div className='flex items-center justify-center'>
             <Google />
-            <span className='ml-2'>Sign up with Google</span>
+            <span className='ml-2'>Sign in with Google</span>
           </div>
         </Button>
         <div className='mt-8 flex justify-center'>
