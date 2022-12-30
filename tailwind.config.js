@@ -4,6 +4,9 @@ module.exports = {
     './components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    screens: {
+      md: '850px',
+    },
     extend: {
       height: {
         s: '2px',
