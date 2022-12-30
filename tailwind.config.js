@@ -5,11 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        s: '2px',
+      },
       borderRadius: {
         s: '4px',
       },
       fontSize: {
         s: '8px',
+        5.5: '50px',
       },
       colors: {
         'custom-orange-200': '#DDCCAA',
