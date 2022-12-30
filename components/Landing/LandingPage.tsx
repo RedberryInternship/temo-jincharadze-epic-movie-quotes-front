@@ -6,6 +6,7 @@ import {
   Button,
   FormWrapper,
   Modal,
+  LogIn,
 } from 'components';
 import { SignUp } from './LandingHeader/SignUp';
 
@@ -25,6 +26,7 @@ const LandingPage = () => {
         <Modal onClose={closeModalHandler}>
           <FormWrapper onClose={closeModalHandler}>
             {modalForm === 'signUp' && <SignUp />}
+            {modalForm === 'login' && <LogIn />}
           </FormWrapper>
         </Modal>
       )}
