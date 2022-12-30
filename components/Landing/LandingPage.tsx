@@ -24,10 +24,22 @@ const LandingPage = () => {
     <>
       {showModal && (
         <Modal onClose={closeModalHandler}>
-          <FormWrapper onClose={closeModalHandler}>
-            {modalForm === 'signUp' && <SignUp />}
-            {modalForm === 'login' && <LogIn />}
-          </FormWrapper>
+          {modalForm === 'signUp' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[44rem] md:w-[37.5rem]'
+            >
+              <SignUp />
+            </FormWrapper>
+          )}
+          {modalForm === 'login' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[35rem] md:w-[37.5rem]'
+            >
+              <LogIn />
+            </FormWrapper>
+          )}
         </Modal>
       )}
 
