@@ -1,4 +1,4 @@
 export type ModalProps = {
-  onClick: MouseEvent<HTMLDivElement>;
+  onClose: MouseEvent<HTMLDivElement>;
   children: React.ReactNode;
 };

@@ -1,3 +1,3 @@
 export type BackDropProps = {
-  onClick: MouseEvent<HTMLDivElement>;
+  onClose: MouseEvent<HTMLDivElement>;
 };

@@ -7,7 +7,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     return (
       <>
         {createPortal(
-          <BackDrop onClick={props.onClick} />,
+          <BackDrop onClose={props.onClose} />,
           document.getElementById('backdrop')!
         )}
         {createPortal(
