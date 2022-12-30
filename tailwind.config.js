@@ -26,6 +26,7 @@ module.exports = {
         'custom-zinc-800': '#222030',
         'blur-bg': 'rgba(0, 0, 0, 0.54)',
         'custom-gray-300': '#CED4DA',
+        'custom-gray-500': '#6C757D',
       },
       backgroundImage: {
         'starting-gradient':
