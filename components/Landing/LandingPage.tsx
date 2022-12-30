@@ -4,13 +4,25 @@ import {
   LandingHeader,
   useLandingPage,
   Button,
+  FormWrapper,
+  Modal,
 } from 'components';
+import { SignUp } from './LandingHeader/SignUp';
 
 const LandingPage = () => {
-  const { t } = useLandingPage();
+  const { t, closeModalHandler, openModalHandler, showModal } =
+    useLandingPage();
 
   return (
     <>
+      {showModal && (
+        <Modal onClose={closeModalHandler}>
+          <FormWrapper onClose={closeModalHandler}>
+            <SignUp />
+          </FormWrapper>
+        </Modal>
+      )}
+
       <div className='bg-starting-gradient absolute z-[2] top-0 w-screen h-screen' />
       <LandingHeader />
       <div className='h-[30.3125rem] md:h-[50.5rem]  bg-top-gradient w-full flex justify-center items-center flex-col'>
@@ -21,7 +33,6 @@ const LandingPage = () => {
           {t('landing.getStarted')}
         </Button>
       </div>
-
       <LandingMovie
         width='max-w-[19rem] md:max-w-3xl'
         image='bg-interstellar'
