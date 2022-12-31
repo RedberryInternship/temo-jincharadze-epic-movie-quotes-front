@@ -14,5 +14,27 @@
     "signUpWithGoogle": "გუგლით რეგისტრაცია",
     "alreadyHaveAnAccount": "გაქვთ უკვე პროფილი?",
     "logIn": "შესვლა"
+  },
+  "logIn": {
+    "about": "პროფილში შესვლა",
+    "description": "გთხოვთ შეიყვანოთ თქვენი დეტალები.",
+    "email": "ელ-ფოსტა",
+    "emailPlaceholder": "შეიყვანეთ თქვენი ელ-ფოსტა",
+    "password": "პაროლი",
+    "passwordPlaceholder": "პაროლი",
+    "btn": "შესვლა",
+    "googleBtn": "გუგლით შესვლა",
+    "remember": "დამახსოვრება",
+    "forgotPassword": "დაგავიწყდათ პაროლი?",
+    "dontHaveAnAccount": "არ გაქვთ პროფილი?",
+    "signUp": "რეგისტრაცია"
+  },
+  "forgotPassword": {
+    "about": "დაგავიწყდათ პაროლი?",
+    "description": "შეიყვანეთ მეილი სადაც გამოგეგზავნებათ პაროლის აღდგენის ინსტრუქცია",
+    "email": "ელ-ფოსტა",
+    "emailPlaceholder": "შეიყვანეთ თქვენი ელ-ფოსტა",
+    "btn": "ინსტრუქციის გაგზავნა",
+    "backToLogin": "დაბრუნდით ავტორიზაციის გვერდზე"
   }
 }

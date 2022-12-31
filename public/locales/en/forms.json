@@ -14,5 +14,27 @@
     "signUpWithGoogle": "Sign up with Google",
     "alreadyHaveAnAccount": "Already have an account?",
     "logIn": "Log In"
+  },
+  "logIn": {
+    "about": "Log in to your account",
+    "description": "Welcome back! Please enter your details.",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "btn": "Sign in",
+    "googleBtn": "Sign in with Google",
+    "remember": "Remember me",
+    "forgotPassword": "Forgot password",
+    "dontHaveAnAccount": "Don't have an account?",
+    "signUp": "Sign up"
+  },
+  "forgotPassword": {
+    "about": "Forgot password?",
+    "description": "Enter the email and we’ll send an email with instructions to reset your password",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "btn": "Send instructions",
+    "backToLogin": "Back to log in"
   }
 }

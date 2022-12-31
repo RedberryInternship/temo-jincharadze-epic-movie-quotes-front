@@ -1,39 +1,41 @@
 import { Button, Google, Input } from 'components';
 import { LoginProps } from './types';
+import useLogin from './useLogin';
 
 const LogIn: React.FC<LoginProps> = (props) => {
+  const { t } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
         <h2 className='text-white text-2xl font-medium text-3.5'>
-          Log in to your account
+          {t('logIn.btn')}
         </h2>
         <p className='text-custom-gray-500 text-base font-normal mt-3'>
-          Welcome back! Please enter your details.
+          {t('logIn.description')}
         </p>
       </div>
       <div className='w-full'>
         <form>
           <Input
             containerClass='mt-8'
-            label='Email'
+            label={t('logIn.email')}
             type='email'
             name='email'
-            placeholder='Enter your email'
+            placeholder={t('logIn.emailPlaceholder')!}
           />
           <Input
             containerClass='mt-8'
-            label='Password'
+            label={t('logIn.password')}
             type='password'
             name='password'
-            placeholder='Password'
+            placeholder={t('logIn.passwordPlaceholder')!}
           />
 
           <div className='flex items-center justify-between mt-8'>
             <Input
               type='checkbox'
               name='remember'
-              label='Remember me'
+              label={t('logIn.remember')}
               containerClass='flex items-center h-4'
             />
 
@@ -41,28 +43,28 @@ const LogIn: React.FC<LoginProps> = (props) => {
               className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
               onClick={props.onForgotPassword}
             >
-              Forgot password
+              {t('logIn.forgotPassword')}
             </div>
           </div>
 
           <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
-            Sign in
+            {t('logIn.btn')}
           </Button>
         </form>
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
           <div className='flex items-center justify-center'>
             <Google />
-            <span className='ml-2'>Sign in with Google</span>
+            <span className='ml-2'>{t('logIn.googleBtn')}</span>
           </div>
         </Button>
         <div className='mt-8 flex justify-center'>
           <p className='text-base font-normal text-custom-gray-500'>
-            Don't have an account?
+            {t('logIn.dontHaveAnAccount')}
             <span
               className='text-custom-blue-600 underline ml-1 cursor-pointer'
               onClick={props.onSignUpClick}
             >
-              Sign up
+              {t('logIn.signUp')}
             </span>
           </p>
         </div>
