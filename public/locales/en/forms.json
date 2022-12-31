@@ -1,0 +1,18 @@
+{
+  "signUp": {
+    "about": "Create an account",
+    "description": "Start your journey!",
+    "username": "Name",
+    "usernamePlaceholder": "At least 3 & max.15 lower case characters",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "At least 8 & max.15 lower case characters",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Password",
+    "getStarted": "Get started",
+    "signUpWithGoogle": "Sign up with Google",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "logIn": "Log In"
+  }
+}

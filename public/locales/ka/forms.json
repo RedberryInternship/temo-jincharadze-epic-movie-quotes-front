@@ -1,0 +1,18 @@
+{
+  "signUp": {
+    "about": "პროფილის შექმნა",
+    "description": "დაიწყე შენი მოგზაურობა!",
+    "username": "სახელი",
+    "usernamePlaceholder": "მინ 3 & მაქს.15 პატარა სიმბოლო",
+    "email": "ელ-ფოსტა",
+    "emailPlaceholder": "შეიყვანეთ თქვენი ელ-ფოსტა",
+    "password": "პაროლი",
+    "passwordPlaceholder": "მინ 8 & მაქს.15 პატარა სიმბოლო",
+    "confirmPassword": "გაიმეორე პაროლი",
+    "confirmPasswordPlaceholder": "პაროლი",
+    "getStarted": "რეგისტრაცია",
+    "signUpWithGoogle": "გუგლით რეგისტრაცია",
+    "alreadyHaveAnAccount": "გაქვთ უკვე პროფილი?",
+    "logIn": "შესვლა"
+  }
+}

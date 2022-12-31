@@ -8,8 +8,8 @@ import {
   Modal,
   LogIn,
   ForgotPassword,
+  SignUp,
 } from 'components';
-import { SignUp } from './LandingHeader/SignUp';
 
 const LandingPage = () => {
   const {
