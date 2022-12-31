@@ -37,7 +37,10 @@ const LogIn: React.FC<LoginProps> = (props) => {
               containerClass='flex items-center h-4'
             />
 
-            <div className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'>
+            <div
+              className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
+              onClick={props.onForgotPassword}
+            >
               Forgot password
             </div>
           </div>

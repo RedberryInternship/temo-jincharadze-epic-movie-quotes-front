@@ -1,3 +1,3 @@
 export type ForgotPasswordTypes = {
-  backToLoginClick: MouseEvent<HTMLSpanElement>;
+  backToLoginClick: MouseEvent<HTMLDivElement>;
 };

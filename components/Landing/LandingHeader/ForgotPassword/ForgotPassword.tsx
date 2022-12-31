@@ -27,16 +27,13 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
             Send instructions
           </Button>
         </form>
-        <div className='mt-8 flex justify-center'>
+        <div
+          className='mt-8 flex justify-center items-center cursor-pointer'
+          onClick={props.backToLoginClick}
+        >
           <ArrowLeft />
-          <p className='text-base font-normal text-custom-gray-500'>
+          <p className='text-base font-normal text-custom-gray-500 ml-3'>
             Back to log in
-            <span
-              className='text-custom-blue-600 underline ml-1 cursor-pointer'
-              onClick={props.backToLoginClick}
-            >
-              Sign up
-            </span>
           </p>
         </div>
       </div>

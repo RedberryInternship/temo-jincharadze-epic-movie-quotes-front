@@ -20,6 +20,11 @@ const useLandingPage = () => {
     setModalForm('login');
   };
 
+  const onForgotPasswordHandler = () => {
+    setShowModal(true);
+    setModalForm('forgotPassword');
+  };
+
   return {
     t,
     closeModalHandler,
@@ -28,6 +33,7 @@ const useLandingPage = () => {
     modalForm,
     onSignUpHandler,
     onLoginHandler,
+    onForgotPasswordHandler,
   };
 };
 

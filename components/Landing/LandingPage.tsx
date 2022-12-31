@@ -7,6 +7,7 @@ import {
   FormWrapper,
   Modal,
   LogIn,
+  ForgotPassword,
 } from 'components';
 import { SignUp } from './LandingHeader/SignUp';
 
@@ -18,6 +19,7 @@ const LandingPage = () => {
     modalForm,
     onSignUpHandler,
     onLoginHandler,
+    onForgotPasswordHandler,
   } = useLandingPage();
 
   return (
@@ -37,7 +39,18 @@ const LandingPage = () => {
               onClose={closeModalHandler}
               className='md:h-[35rem] md:w-[37.5rem]'
             >
-              <LogIn onSignUpClick={onSignUpHandler} />
+              <LogIn
+                onSignUpClick={onSignUpHandler}
+                onForgotPassword={onForgotPasswordHandler}
+              />
+            </FormWrapper>
+          )}
+          {modalForm === 'forgotPassword' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:w-[37.5rem] md:h-[25.1rem]'
+            >
+              <ForgotPassword backToLoginClick={onLoginHandler} />
             </FormWrapper>
           )}
         </Modal>
@@ -52,7 +65,10 @@ const LandingPage = () => {
         <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-[3] leading-9 md:leading-[5.6rem] font-bold max-w-[17rem] md:max-w-[44rem]'>
           {t('landing.about')}
         </h1>
-        <Button className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-[3] md:text-xl'>
+        <Button
+          className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-[3] md:text-xl'
+          onClick={onSignUpHandler}
+        >
           {t('landing.getStarted')}
         </Button>
       </div>
