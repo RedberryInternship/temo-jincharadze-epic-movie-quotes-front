@@ -19,6 +19,7 @@ const useSignUp = () => {
     control,
     register,
     getValues,
+    getFieldState,
   } = form;
 
   const username = useWatch({ control: control, name: 'username' });
@@ -31,8 +32,10 @@ const useSignUp = () => {
 
   return {
     t,
+    form,
     getValues,
     register,
+    getFieldState,
     formState: { errors, isValid },
   };
 };

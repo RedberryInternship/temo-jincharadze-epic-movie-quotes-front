@@ -1,5 +1,6 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { Button, Google, Input, Message, useSignUp } from 'components';
+import { FormProvider } from 'react-hook-form';
 import { SignUpProps } from './types';
 
 const SignUp: React.FC<SignUpProps> = (props) => {
@@ -7,6 +8,8 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     t,
     getValues,
     register,
+    getFieldState,
+    form,
     formState: { errors, isValid },
   } = useSignUp();
 
@@ -21,101 +24,99 @@ const SignUp: React.FC<SignUpProps> = (props) => {
         </p>
       </div>
       <div className='w-full'>
-        <form>
-          <Input
-            error={errors.username}
-            register={register('username', {
-              required: { value: true, message: t('errors.required') },
-              minLength: { value: 3, message: t('errors.min') },
-              maxLength: { value: 15, message: t('errors.max') },
-              pattern: {
-                value: /^[a-z0-9]*$/,
-                message: t('errors.usernamePattern'),
-              },
-            })}
-            label={t('signUp.username')}
-            type='text'
-            name='username'
-            placeholder={t('signUp.usernamePlaceholder')!}
-          />
-          <div className='h-7 mt-1'>
-            <ErrorMessage
+        <FormProvider {...form}>
+          <form>
+            <Input
+              register={register('username', {
+                required: { value: true, message: t('errors.required') },
+                minLength: { value: 3, message: t('errors.min') },
+                maxLength: { value: 15, message: t('errors.max') },
+                pattern: {
+                  value: /^[a-z0-9]*$/,
+                  message: t('errors.usernamePattern'),
+                },
+              })}
+              label={t('signUp.username')}
+              type='text'
               name='username'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
+              placeholder={t('signUp.usernamePlaceholder')!}
             />
-          </div>
-          <Input
-            error={errors.email}
-            register={register('email', {
-              required: { value: true, message: t('errors.required') },
-              pattern: {
-                value: /.*\@(.{2,}\.)+.{2,}/,
-                message: t('errors.emailPattern'),
-              },
-            })}
-            label={t('signUp.email')}
-            type='email'
-            name='email'
-            placeholder={t('signUp.emailPlaceholder')!}
-          />
-
-          <div className='h-7 mt-1'>
-            <ErrorMessage
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='username'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
+            <Input
+              register={register('email', {
+                required: { value: true, message: t('errors.required') },
+                pattern: {
+                  value: /.*\@(.{2,}\.)+.{2,}/,
+                  message: t('errors.emailPattern'),
+                },
+              })}
+              label={t('signUp.email')}
+              type='email'
               name='email'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
+              placeholder={t('signUp.emailPlaceholder')!}
             />
-          </div>
 
-          <Input
-            error={errors.password}
-            register={register('password', {
-              required: { value: true, message: t('errors.required') },
-              minLength: { value: 8, message: t('errors.minPassword') },
-              maxLength: { value: 15, message: t('errors.max') },
-              pattern: {
-                value: /^[a-z0-9]*$/,
-                message: t('errors.passwordPattern'),
-              },
-            })}
-            label={t('signUp.password')}
-            type='password'
-            name='password'
-            placeholder={t('signUp.passwordPlaceholder')!}
-          />
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='email'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
 
-          <div className='h-7 mt-1'>
-            <ErrorMessage
+            <Input
+              register={register('password', {
+                required: { value: true, message: t('errors.required') },
+                minLength: { value: 8, message: t('errors.minPassword') },
+                maxLength: { value: 15, message: t('errors.max') },
+                pattern: {
+                  value: /^[a-z0-9]*$/,
+                  message: t('errors.passwordPattern'),
+                },
+              })}
+              label={t('signUp.password')}
+              type='password'
               name='password'
-              errors={errors}
-              render={({ message }) => <Message message={message} />}
+              placeholder={t('signUp.passwordPlaceholder')!}
             />
-          </div>
 
-          <Input
-            error={errors.confirm_password}
-            register={register('confirm_password', {
-              validate: (value) => value === getValues('password'),
-            })}
-            label={t('signUp.confirmPassword')}
-            type='password'
-            name='confirm_password'
-            placeholder={t('signUp.confirmPasswordPlaceholder')!}
-          />
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='password'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
 
-          <div className='h-7 mt-1'>
-            <ErrorMessage
+            <Input
+              register={register('confirm_password', {
+                validate: (value) => value === getValues('password'),
+              })}
+              label={t('signUp.confirmPassword')}
+              type='password'
               name='confirm_password'
-              errors={errors}
-              render={() => <Message message={t('errors.confirmPassword')} />}
+              placeholder={t('signUp.confirmPasswordPlaceholder')!}
             />
-          </div>
 
-          <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-1 rounded'>
-            {t('signUp.getStarted')}
-          </Button>
-        </form>
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='confirm_password'
+                errors={errors}
+                render={() => <Message message={t('errors.confirmPassword')} />}
+              />
+            </div>
+
+            <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-1 rounded'>
+              {t('signUp.getStarted')}
+            </Button>
+          </form>
+        </FormProvider>
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
           <div className='flex items-center justify-center'>
             <Google />
