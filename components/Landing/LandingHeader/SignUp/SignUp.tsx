@@ -1,9 +1,16 @@
-import { Button, Google, Input } from 'components';
+import { Button, Google, Input, useSignUp } from 'components';
 import { SignUpProps } from './types';
-import useSignUp from './useSignUp';
 
 const SignUp: React.FC<SignUpProps> = (props) => {
-  const { t } = useSignUp();
+  const {
+    t,
+    getValues,
+    register,
+    formState: { errors, isValid },
+  } = useSignUp();
+
+  console.log(isValid);
+
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -17,12 +24,29 @@ const SignUp: React.FC<SignUpProps> = (props) => {
       <div className='w-full'>
         <form>
           <Input
+            register={register('username', {
+              required: { value: true, message: 'The field is required' },
+              min: { value: 3, message: 'At least 3 characters' },
+              max: { value: 15, message: 'Maximum 15 symbols' },
+              pattern: {
+                value: /^[a-z0-9]*$/,
+                message:
+                  'Must contain only lowercase Latin characters and numbers',
+              },
+            })}
             label={t('signUp.username')}
             type='text'
             name='username'
             placeholder={t('signUp.usernamePlaceholder')!}
           />
           <Input
+            register={register('email', {
+              required: { value: true, message: 'The field is required' },
+              pattern: {
+                value: /(.*)@.*\./i,
+                message: 'Must be a valid email address.',
+              },
+            })}
             containerClass='mt-8'
             label={t('signUp.email')}
             type='email'
@@ -30,6 +54,16 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             placeholder={t('signUp.emailPlaceholder')!}
           />
           <Input
+            register={register('password', {
+              required: { value: true, message: 'The field is required' },
+              min: { value: 8, message: 'At least 3 characters' },
+              max: { value: 15, message: 'Maximum 15 symbols' },
+              pattern: {
+                value: /^[a-z0-9]*$/,
+                message:
+                  'Must contain only lowercase Latin characters and numbers',
+              },
+            })}
             containerClass='mt-8'
             label={t('signUp.password')}
             type='password'
@@ -37,6 +71,10 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             placeholder={t('signUp.passwordPlaceholder')!}
           />
           <Input
+            register={register('confirm_password', {
+              required: { value: true, message: 'The field is required' },
+              validate: (value) => value === getValues('password'),
+            })}
             containerClass='mt-8'
             label={t('signUp.confirmPassword')}
             type='password'
