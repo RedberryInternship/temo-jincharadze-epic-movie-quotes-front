@@ -2,14 +2,7 @@ import { Button, Google, Input, useSignUp } from 'components';
 import { SignUpProps } from './types';
 
 const SignUp: React.FC<SignUpProps> = (props) => {
-  const {
-    t,
-    getValues,
-    register,
-    formState: { errors, isValid },
-  } = useSignUp();
-
-  console.log(isValid);
+  const { t, getValues, register } = useSignUp();
 
   return (
     <div className='w-[22.5rem]'>

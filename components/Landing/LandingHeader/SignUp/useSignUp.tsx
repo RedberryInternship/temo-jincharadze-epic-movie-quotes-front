@@ -31,7 +31,6 @@ const useSignUp = () => {
 
   return {
     t,
-    password,
     getValues,
     username,
     register,
