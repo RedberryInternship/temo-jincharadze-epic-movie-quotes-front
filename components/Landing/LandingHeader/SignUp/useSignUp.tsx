@@ -1,8 +1,13 @@
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { SignUpForm } from './types';
 
 const useSignUp = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
+
   const form = useForm<SignUpForm>({
     mode: 'all',
     defaultValues: {
@@ -30,6 +35,14 @@ const useSignUp = () => {
     name: 'confirm_password',
   });
 
+  const showPasswordhandler = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const showConfirmPasswordhandler = () => {
+    setShowConfirmPassword((prev) => !prev);
+  };
+
   return {
     t,
     form,
@@ -37,6 +50,10 @@ const useSignUp = () => {
     register,
     getFieldState,
     formState: { errors, isValid },
+    showPasswordhandler,
+    showPassword,
+    showConfirmPasswordhandler,
+    showConfirmPassword,
   };
 };
 

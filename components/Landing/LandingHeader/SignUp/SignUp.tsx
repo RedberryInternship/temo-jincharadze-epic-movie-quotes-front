@@ -8,8 +8,11 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     t,
     getValues,
     register,
-    getFieldState,
+    showPassword,
+    showPasswordhandler,
     form,
+    showConfirmPasswordhandler,
+    showConfirmPassword,
     formState: { errors, isValid },
   } = useSignUp();
 
@@ -71,6 +74,8 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             </div>
 
             <Input
+              showPassword={showPassword}
+              hasEye={true}
               register={register('password', {
                 required: { value: true, message: t('errors.required') },
                 minLength: { value: 8, message: t('errors.minPassword') },
@@ -81,8 +86,9 @@ const SignUp: React.FC<SignUpProps> = (props) => {
                 },
               })}
               label={t('signUp.password')}
-              type='password'
+              type={showPassword ? 'text' : 'password'}
               name='password'
+              onPasswordShow={showPasswordhandler}
               placeholder={t('signUp.passwordPlaceholder')!}
             />
 
@@ -95,11 +101,14 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             </div>
 
             <Input
+              showPassword={showConfirmPassword}
+              hasEye={true}
               register={register('confirm_password', {
                 validate: (value) => value === getValues('password'),
               })}
               label={t('signUp.confirmPassword')}
-              type='password'
+              type={showConfirmPassword ? 'text' : 'password'}
+              onPasswordShow={showConfirmPasswordhandler}
               name='confirm_password'
               placeholder={t('signUp.confirmPasswordPlaceholder')!}
             />

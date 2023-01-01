@@ -5,6 +5,9 @@ export type InputProps = {
   label: string;
   type: string;
   name: string;
+  hasEye?: boolean;
+  showPassword?: boolean;
   placeholder?: string;
+  onPasswordShow?: MouseEvent<HTMLDivElement>;
   register?: UseFormRegisterReturn<string>;
 };

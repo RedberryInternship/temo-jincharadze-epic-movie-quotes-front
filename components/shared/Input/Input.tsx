@@ -1,4 +1,4 @@
-import { Eye, InputError, useInput, Valid } from 'components';
+import { Eye, InputError, ShowEye, useInput, Valid } from 'components';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = (props) => {
@@ -37,18 +37,18 @@ const Input: React.FC<InputProps> = (props) => {
           }  text-base focus:outline-none border-solid  outline-none font-normal`}
         />
 
-        {props.type !== 'password' && invalid && (
+        {!props.hasEye && invalid && (
           <div className='absolute top-0 pt-[0.7rem] right-0 pr-3'>
             <InputError />
           </div>
         )}
 
-        {props.type !== 'password' && !invalid && isDirty && (
+        {!props.hasEye && !invalid && isDirty && (
           <div className='absolute top-0 pt-[0.7rem] right-0 pr-3 z-[2]'>
             <Valid />
           </div>
         )}
-        {props.type === 'password' && (
+        {props.hasEye === true && (
           <>
             {!invalid && isDirty && (
               <div className='absolute top-[0.7rem] right-10 z-[2]'>
@@ -61,9 +61,16 @@ const Input: React.FC<InputProps> = (props) => {
               </div>
             )}
             <div className='absolute top-0 pt-[0.8rem] right-0 pr-[0.9rem] cursor-pointer'>
-              <div>
-                <Eye />
-              </div>
+              {props.name === 'password' && (
+                <div onClick={props.onPasswordShow}>
+                  {!props.showPassword ? <Eye /> : <ShowEye />}
+                </div>
+              )}
+              {props.name === 'confirm_password' && (
+                <div onClick={props.onPasswordShow}>
+                  {!props.showPassword ? <Eye /> : <ShowEye />}
+                </div>
+              )}
             </div>
           </>
         )}
