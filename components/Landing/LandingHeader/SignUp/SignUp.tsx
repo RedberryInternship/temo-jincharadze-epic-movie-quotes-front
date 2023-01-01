@@ -92,7 +92,6 @@ const SignUp: React.FC<SignUpProps> = (props) => {
 
           <Input
             register={register('confirm_password', {
-              required: { value: true, message: t('errors.required') },
               validate: (value) => value === getValues('password'),
             })}
             label={t('signUp.confirmPassword')}
@@ -105,9 +104,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <ErrorMessage
               name='confirm_password'
               errors={errors}
-              render={({ message }) => (
-                <Message message={t('errors.confirmPassword')} />
-              )}
+              render={() => <Message message={t('errors.confirmPassword')} />}
             />
           </div>
 
