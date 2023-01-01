@@ -44,6 +44,7 @@
     "usernamePattern": "Only lowercase Latin characters and numbers",
     "emailPattern": "Must be a valid email address.",
     "minPassword": "At least 8 characters",
-    "passwordPattern": "Only lowercase Latin characters and numbers"
+    "passwordPattern": "Only lowercase Latin characters and numbers",
+    "confirmPassword": "Password doesn't match."
   }
 }
