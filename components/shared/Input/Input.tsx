@@ -2,7 +2,7 @@ import { Eye, InputError, useInput, Valid } from 'components';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = (props) => {
-  const { invalid, isTouched } = useInput(props.name);
+  const { invalid, isDirty } = useInput(props.name);
 
   return props.type === 'checkbox' ? (
     <div className={props.containerClass}>
@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = (props) => {
           }  pl-3 w-full border focus:ring-0 ${
             invalid
               ? 'border-custom-red-600 focus:border-custom-red-600'
-              : isTouched && !invalid
+              : isDirty && !invalid
               ? 'border-custom-green-700 focus:border-custom-green-700'
               : 'border-custom-gray-300 focus:border-custom-gray-300'
           }  text-base focus:outline-none border-solid  outline-none font-normal`}
@@ -43,20 +43,20 @@ const Input: React.FC<InputProps> = (props) => {
           </div>
         )}
 
-        {props.type !== 'password' && isTouched && !invalid && (
-          <div className='absolute top-0 pt-[0.7rem] right-0 pr-3'>
+        {props.type !== 'password' && !invalid && isDirty && (
+          <div className='absolute top-0 pt-[0.7rem] right-0 pr-3 z-[2]'>
             <Valid />
           </div>
         )}
         {props.type === 'password' && (
           <>
-            {!invalid && isTouched && (
-              <div className='absolute top-[0.7rem] right-10 '>
+            {!invalid && isDirty && (
+              <div className='absolute top-[0.7rem] right-10 z-[2]'>
                 <Valid />
               </div>
             )}
             {invalid && (
-              <div className='absolute top-[0.7rem] right-10 '>
+              <div className='absolute top-[0.7rem] right-10'>
                 <InputError />
               </div>
             )}

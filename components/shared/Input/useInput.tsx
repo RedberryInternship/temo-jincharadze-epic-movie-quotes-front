@@ -1,10 +1,11 @@
 import { useFormContext } from 'react-hook-form';
 
 const useInput = (name: string) => {
-  const { getFieldState } = useFormContext();
-  const { invalid, isTouched } = getFieldState(name);
+  const { getFieldState, getValues } = useFormContext();
 
-  return { invalid, isTouched };
+  const { invalid, isDirty } = getFieldState(name);
+
+  return { invalid, isDirty };
 };
 
 export default useInput;
