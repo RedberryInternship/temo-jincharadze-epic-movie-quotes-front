@@ -7,7 +7,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     t,
     getValues,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useSignUp();
 
   return (
@@ -48,7 +48,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             register={register('email', {
               required: { value: true, message: t('errors.required') },
               pattern: {
-                value: /(.*)@.*\./i,
+                value: /.*\@(.{2,}\.)+.{2,}/,
                 message: t('errors.emailPattern'),
               },
             })}
@@ -105,7 +105,9 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <ErrorMessage
               name='confirm_password'
               errors={errors}
-              render={({ message }) => <Message message={message} />}
+              render={({ message }) => (
+                <Message message={t('errors.confirmPassword')} />
+              )}
             />
           </div>
 
