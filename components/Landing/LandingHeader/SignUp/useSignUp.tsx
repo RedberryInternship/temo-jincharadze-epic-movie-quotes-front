@@ -27,12 +27,9 @@ const useSignUp = () => {
     getFieldState,
   } = form;
 
-  const username = useWatch({ control: control, name: 'username' });
-  const email = useWatch({ control: control, name: 'email' });
-  const password = useWatch({ control: control, name: 'password' });
-  const confirmPassword = useWatch({
+  const [username, email, password, confirmPassword] = useWatch({
     control: control,
-    name: 'confirm_password',
+    name: ['username', 'email', 'password', 'confirm_password'],
   });
 
   const showPasswordhandler = () => {
