@@ -1,9 +1,10 @@
 import { Button, Google, Input } from 'components';
+import { FormProvider } from 'react-hook-form';
 import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const LogIn: React.FC<LoginProps> = (props) => {
-  const { t } = useLogin();
+  const { t, form } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -15,42 +16,44 @@ const LogIn: React.FC<LoginProps> = (props) => {
         </p>
       </div>
       <div className='w-full'>
-        <form>
-          <Input
-            containerClass='mt-8'
-            label={t('logIn.email')}
-            type='email'
-            name='email'
-            placeholder={t('logIn.emailPlaceholder')!}
-          />
-          <Input
-            containerClass='mt-8'
-            label={t('logIn.password')}
-            type='password'
-            name='password'
-            placeholder={t('logIn.passwordPlaceholder')!}
-          />
-
-          <div className='flex items-center justify-between mt-8'>
+        <FormProvider {...form}>
+          <form>
             <Input
-              type='checkbox'
-              name='remember'
-              label={t('logIn.remember')}
-              containerClass='flex items-center h-4'
+              containerClass='mt-8'
+              label={t('logIn.email')}
+              type='email'
+              name='email'
+              placeholder={t('logIn.emailPlaceholder')!}
+            />
+            <Input
+              containerClass='mt-8'
+              label={t('logIn.password')}
+              type='password'
+              name='password'
+              placeholder={t('logIn.passwordPlaceholder')!}
             />
 
-            <div
-              className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
-              onClick={props.onForgotPassword}
-            >
-              {t('logIn.forgotPassword')}
-            </div>
-          </div>
+            <div className='flex items-center justify-between mt-8'>
+              <Input
+                type='checkbox'
+                name='remember'
+                label={t('logIn.remember')}
+                containerClass='flex items-center h-4'
+              />
 
-          <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
-            {t('logIn.btn')}
-          </Button>
-        </form>
+              <div
+                className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
+                onClick={props.onForgotPassword}
+              >
+                {t('logIn.forgotPassword')}
+              </div>
+            </div>
+
+            <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
+              {t('logIn.btn')}
+            </Button>
+          </form>
+        </FormProvider>
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
           <div className='flex items-center justify-center'>
             <Google />
