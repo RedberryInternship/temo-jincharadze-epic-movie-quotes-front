@@ -43,14 +43,14 @@ const Input: React.FC<InputProps> = (props) => {
           </div>
         )}
 
-        {props.type !== 'password' && !invalid && (
+        {props.type !== 'password' && isTouched && !invalid && (
           <div className='absolute top-0 pt-[0.7rem] right-0 pr-3'>
             <Valid />
           </div>
         )}
         {props.type === 'password' && (
           <>
-            {!invalid && (
+            {!invalid && isTouched && (
               <div className='absolute top-[0.7rem] right-10 '>
                 <Valid />
               </div>
