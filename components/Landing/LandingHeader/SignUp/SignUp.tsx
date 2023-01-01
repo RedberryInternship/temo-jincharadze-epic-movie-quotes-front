@@ -52,7 +52,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               register={register('email', {
                 required: { value: true, message: t('errors.required') },
                 pattern: {
-                  value: /.*\@(.{2,}\.)+.{2,}/,
+                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
                   message: t('errors.emailPattern'),
                 },
               })}
