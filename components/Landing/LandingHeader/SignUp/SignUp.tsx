@@ -23,6 +23,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
       <div className='w-full'>
         <form>
           <Input
+            error={errors.username}
             register={register('username', {
               required: { value: true, message: t('errors.required') },
               minLength: { value: 3, message: t('errors.min') },
@@ -45,6 +46,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             />
           </div>
           <Input
+            error={errors.email}
             register={register('email', {
               required: { value: true, message: t('errors.required') },
               pattern: {
@@ -67,6 +69,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
           </div>
 
           <Input
+            error={errors.password}
             register={register('password', {
               required: { value: true, message: t('errors.required') },
               minLength: { value: 8, message: t('errors.minPassword') },
@@ -91,6 +94,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
           </div>
 
           <Input
+            error={errors.confirm_password}
             register={register('confirm_password', {
               validate: (value) => value === getValues('password'),
             })}
