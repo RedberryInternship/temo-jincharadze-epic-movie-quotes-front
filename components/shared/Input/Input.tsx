@@ -27,8 +27,10 @@ const Input: React.FC<InputProps> = (props) => {
           className='text-custom-gray-500 rounded h-[2.4rem] px-2 pl-3 w-full border focus:ring-0 border-custom-gray-300 text-base focus:border-custom-gray-300 focus:outline-none outline-none font-normal'
         />
         {props.type === 'password' && (
-          <div className='absolute top-[0.8rem] right-[0.9rem] cursor-pointer'>
-            <Eye />
+          <div className='absolute top-0 pt-[0.8rem] right-0 pr-[0.9rem] cursor-pointer bg-white h-full z-[2]'>
+            <div>
+              <Eye />
+            </div>
           </div>
         )}
       </div>
