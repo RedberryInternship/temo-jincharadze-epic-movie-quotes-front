@@ -1,8 +1,14 @@
+import { ErrorMessage } from '@hookform/error-message';
 import { Button, Google, Input, useSignUp } from 'components';
 import { SignUpProps } from './types';
 
 const SignUp: React.FC<SignUpProps> = (props) => {
-  const { t, getValues, register } = useSignUp();
+  const {
+    t,
+    getValues,
+    register,
+    formState: { errors },
+  } = useSignUp();
 
   return (
     <div className='w-[22.5rem]'>
@@ -32,6 +38,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             name='username'
             placeholder={t('signUp.usernamePlaceholder')!}
           />
+          <ErrorMessage name='username' errors={errors} />
           <Input
             register={register('email', {
               required: { value: true, message: 'The field is required' },

@@ -33,6 +33,7 @@ const useSignUp = () => {
     t,
     getValues,
     register,
+    formState: { errors },
   };
 };
 
