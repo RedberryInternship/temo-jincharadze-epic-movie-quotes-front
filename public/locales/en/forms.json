@@ -36,5 +36,14 @@
     "emailPlaceholder": "Enter your email",
     "btn": "Send instructions",
     "backToLogin": "Back to log in"
+  },
+  "errors": {
+    "required": "The field is required",
+    "min": "At least 3 characters",
+    "max": "Maximum 15 symbols",
+    "usernamePattern": "Only lowercase Latin characters and numbers",
+    "emailPattern": "Must be a valid email address.",
+    "minPassword": "At least 8 characters",
+    "passwordPattern": "Only lowercase Latin characters and numbers"
   }
 }

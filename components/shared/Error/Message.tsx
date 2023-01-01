@@ -1,6 +1,6 @@
 const Message: React.FC<{ message: string }> = ({ message }) => {
   return (
-    <p className='text-base font-normal text-custom-orange-600 pl-5 whitespace-nowrap'>
+    <p className='text-sm font-normal text-red-500 pl-1 whitespace-nowrap'>
       {message}
     </p>
   );

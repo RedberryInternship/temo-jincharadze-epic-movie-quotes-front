@@ -1,5 +1,5 @@
 import { ErrorMessage } from '@hookform/error-message';
-import { Button, Google, Input, useSignUp } from 'components';
+import { Button, Google, Input, Message, useSignUp } from 'components';
 import { SignUpProps } from './types';
 
 const SignUp: React.FC<SignUpProps> = (props) => {
@@ -24,13 +24,12 @@ const SignUp: React.FC<SignUpProps> = (props) => {
         <form>
           <Input
             register={register('username', {
-              required: { value: true, message: 'The field is required' },
-              min: { value: 3, message: 'At least 3 characters' },
-              max: { value: 15, message: 'Maximum 15 symbols' },
+              required: { value: true, message: t('errors.required') },
+              minLength: { value: 3, message: t('errors.min') },
+              maxLength: { value: 15, message: t('errors.max') },
               pattern: {
                 value: /^[a-z0-9]*$/,
-                message:
-                  'Must contain only lowercase Latin characters and numbers',
+                message: t('errors.usernamePattern'),
               },
             })}
             label={t('signUp.username')}
@@ -38,49 +37,78 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             name='username'
             placeholder={t('signUp.usernamePlaceholder')!}
           />
-          <ErrorMessage name='username' errors={errors} />
+          <div className='h-7 mt-1'>
+            <ErrorMessage
+              name='username'
+              errors={errors}
+              render={({ message }) => <Message message={message} />}
+            />
+          </div>
           <Input
             register={register('email', {
-              required: { value: true, message: 'The field is required' },
+              required: { value: true, message: t('errors.required') },
               pattern: {
                 value: /(.*)@.*\./i,
-                message: 'Must be a valid email address.',
+                message: t('errors.emailPattern'),
               },
             })}
-            containerClass='mt-8'
             label={t('signUp.email')}
             type='email'
             name='email'
             placeholder={t('signUp.emailPlaceholder')!}
           />
+
+          <div className='h-7 mt-1'>
+            <ErrorMessage
+              name='email'
+              errors={errors}
+              render={({ message }) => <Message message={message} />}
+            />
+          </div>
+
           <Input
             register={register('password', {
-              required: { value: true, message: 'The field is required' },
-              min: { value: 8, message: 'At least 3 characters' },
-              max: { value: 15, message: 'Maximum 15 symbols' },
+              required: { value: true, message: t('errors.required') },
+              minLength: { value: 8, message: t('errors.minPassword') },
+              maxLength: { value: 15, message: t('errors.max') },
               pattern: {
                 value: /^[a-z0-9]*$/,
-                message:
-                  'Must contain only lowercase Latin characters and numbers',
+                message: t('errors.passwordPattern'),
               },
             })}
-            containerClass='mt-8'
             label={t('signUp.password')}
             type='password'
             name='password'
             placeholder={t('signUp.passwordPlaceholder')!}
           />
+
+          <div className='h-7 mt-1'>
+            <ErrorMessage
+              name='password'
+              errors={errors}
+              render={({ message }) => <Message message={message} />}
+            />
+          </div>
+
           <Input
             register={register('confirm_password', {
-              required: { value: true, message: 'The field is required' },
+              required: { value: true, message: t('errors.required') },
               validate: (value) => value === getValues('password'),
             })}
-            containerClass='mt-8'
             label={t('signUp.confirmPassword')}
             type='password'
             name='confirm_password'
             placeholder={t('signUp.confirmPasswordPlaceholder')!}
           />
+
+          <div className='h-7 mt-1'>
+            <ErrorMessage
+              name='confirm_password'
+              errors={errors}
+              render={({ message }) => <Message message={message} />}
+            />
+          </div>
+
           <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
             {t('signUp.getStarted')}
           </Button>
