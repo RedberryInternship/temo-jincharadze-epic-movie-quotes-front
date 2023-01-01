@@ -32,9 +32,7 @@ const useSignUp = () => {
   return {
     t,
     getValues,
-    username,
     register,
-    formState: { errors, isValid },
   };
 };
 
