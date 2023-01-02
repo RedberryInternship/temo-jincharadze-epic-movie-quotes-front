@@ -73,7 +73,7 @@ const LandingPage = () => {
         </Button>
       </div>
       <LandingMovie
-        width='max-w-[19rem] md:max-w-3xl'
+        width='max-w-[25rem] md:max-w-4xl'
         image='bg-interstellar'
         movie={t('landing.interstellarMovie.name')}
         quote={t('landing.interstellarMovie.quote')}
