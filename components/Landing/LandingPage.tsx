@@ -62,7 +62,7 @@ const LandingPage = () => {
         onLoginClick={onLoginHandler}
       />
       <div className='h-[30.3125rem] md:h-[50.5rem]  bg-top-gradient w-full flex justify-center items-center flex-col'>
-        <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-[3] leading-9 md:leading-[5.6rem] font-bold max-w-[17rem] md:max-w-[44rem]'>
+        <h1 className='text-custom-orange-200 text-2xl md:text-6xl  text-center relative z-[3] leading-9 md:leading-[5.6rem] font-bold max-w-[20rem] md:max-w-[50rem]'>
           {t('landing.about')}
         </h1>
         <Button
