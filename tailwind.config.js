@@ -40,9 +40,9 @@ module.exports = {
           'linear-gradient(187.16deg, #181623 0.07%, #191725 51.65%, #0D0B14 98.75%)',
         'footer-gradient':
           'linear-gradient(#181623 0,07%, #191725 50.66%, #0D0B14 96.88%)',
-        interstellar: "url('/assets/interstellar.png')",
-        lord: "url('/assets/lord.png')",
-        royal: "url('/assets/royal.png')",
+        interstellar: "url('/assets/images/interstellar.png')",
+        lord: "url('/assets/images/lord.png')",
+        royal: "url('/assets/images/royal.png')",
       },
     },
   },
