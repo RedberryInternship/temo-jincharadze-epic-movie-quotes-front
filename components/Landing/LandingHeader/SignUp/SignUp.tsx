@@ -19,10 +19,8 @@ const SignUp: React.FC<SignUpProps> = (props) => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white text-2xl font-medium text-3.5'>
-          {t('signUp.about')}
-        </h2>
-        <p className='text-custom-gray-500 text-base font-normal mt-3'>
+        <h2 className='text-white text-2xl font-medium'>{t('signUp.about')}</h2>
+        <p className='text-custom-gray-500 text-xs font-normal mt-3'>
           {t('signUp.description')}
         </p>
       </div>

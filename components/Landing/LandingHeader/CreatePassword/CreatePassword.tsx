@@ -5,10 +5,8 @@ const CreatePassword: React.FC<CreatePasswordProps> = (props) => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white text-2xl font-medium text-3.5'>
-          Create new password
-        </h2>
-        <p className='text-custom-gray-500 text-base font-normal mt-3'>
+        <h2 className='text-white text-2xl font-medium'>Create new password</h2>
+        <p className='text-custom-gray-500 text-xs font-normal mt-3'>
           Your new password must be different from previous used passwords
         </p>
       </div>

@@ -6,10 +6,10 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white font-medium text-3.5'>
+        <h2 className='text-white font-medium text-2xl'>
           {t('forgotPassword.about')}
         </h2>
-        <p className='text-custom-gray-500 text-base font-normal mt-3'>
+        <p className='text-custom-gray-500 text-xs font-normal mt-3'>
           {t('forgotPassword.description')}
         </p>
       </div>
