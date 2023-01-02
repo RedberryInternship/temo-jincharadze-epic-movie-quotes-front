@@ -1,10 +1,19 @@
+import { useTranslation } from 'next-i18next';
 import { Html, Head, NextScript, Main } from 'next/document';
 
 export default function Document() {
+  const { i18n } = useTranslation();
+
   return (
     <Html>
       <Head />
-      <body>
+      <body
+        className={
+          i18n.language === 'ka'
+            ? 'font-Helvetica-Neue-Geo'
+            : 'font-Helvetica-Neue'
+        }
+      >
         <div id='backdrop'></div>
         <div id='modal'></div>
         <Main />

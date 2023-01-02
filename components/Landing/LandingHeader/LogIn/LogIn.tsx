@@ -9,7 +9,7 @@ const LogIn: React.FC<LoginProps> = (props) => {
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
         <h2 className='text-white text-2xl font-medium text-3.5'>
-          {t('logIn.btn')}
+          {t('logIn.about')}
         </h2>
         <p className='text-custom-gray-500 text-base font-normal mt-3'>
           {t('logIn.description')}
