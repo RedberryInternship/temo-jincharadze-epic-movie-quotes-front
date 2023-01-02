@@ -26,7 +26,7 @@ const CreatePassword: React.FC<CreatePasswordProps> = (props) => {
             name='confirm_password'
             placeholder='Password'
           />
-          <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
+          <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
             Reset password
           </Button>
         </form>

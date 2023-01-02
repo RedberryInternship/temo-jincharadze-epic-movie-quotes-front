@@ -23,7 +23,7 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
             placeholder={t('forgotPassword.emailPlaceholder')!}
           />
 
-          <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
+          <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
             {t('forgotPassword.btn')}
           </Button>
         </form>

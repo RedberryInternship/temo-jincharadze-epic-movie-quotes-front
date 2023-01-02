@@ -47,7 +47,7 @@ const LogIn: React.FC<LoginProps> = (props) => {
               </div>
             </div>
 
-            <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
+            <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
               {t('logIn.btn')}
             </Button>
           </form>

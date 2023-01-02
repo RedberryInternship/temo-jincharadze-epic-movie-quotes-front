@@ -119,7 +119,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               />
             </div>
 
-            <Button className='bg-custom-red-600 hover:bg-red-400 w-full text-white text-center h-[2.4rem] mt-1 rounded'>
+            <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-1 rounded'>
               {t('signUp.getStarted')}
             </Button>
           </form>

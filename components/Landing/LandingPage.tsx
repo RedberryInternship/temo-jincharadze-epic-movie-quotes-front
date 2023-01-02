@@ -66,7 +66,7 @@ const LandingPage = () => {
           {t('landing.about')}
         </h1>
         <Button
-          className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 rounded mt-8 relative z-[3] md:text-xl'
+          className='px-[0.9rem] md:px-4 py-[0.4rem] md:py-[0.5rem] bg-custom-red-600 hover:bg-custom-red-700 rounded mt-8 relative z-[3] md:text-xl'
           onClick={onSignUpHandler}
         >
           {t('landing.getStarted')}

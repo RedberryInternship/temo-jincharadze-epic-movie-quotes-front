@@ -15,7 +15,7 @@ const LandingHeader: React.FC<LandingHeaderProps> = (props) => {
             <LanguageSelector />
             <div className='pr-4 hidden md:flex'>
               <Button
-                className='bg-custom-red-600 hover:bg-red-400 rounded-s h-10 w-28'
+                className='bg-custom-red-600 hover:bg-custom-red-700 rounded-s h-10 w-28'
                 onClick={props.onSignUpClick}
               >
                 {t('header.signUp')}
