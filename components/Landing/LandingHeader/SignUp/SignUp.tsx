@@ -13,7 +13,8 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     form,
     showConfirmPasswordhandler,
     showConfirmPassword,
-    formState: { errors, isValid },
+    handleRegister,
+    formState: { errors },
   } = useSignUp();
 
   return (
@@ -119,7 +120,10 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               />
             </div>
 
-            <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-1 rounded'>
+            <Button
+              className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-1 rounded'
+              onClick={handleRegister}
+            >
               {t('signUp.getStarted')}
             </Button>
           </form>
