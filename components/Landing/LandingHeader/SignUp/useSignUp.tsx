@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { registereUser } from 'services';
 import { SignUpForm } from './types';
 
 const useSignUp = () => {
@@ -24,6 +25,7 @@ const useSignUp = () => {
     control,
     register,
     getValues,
+    setError,
     getFieldState,
   } = form;
 
@@ -40,6 +42,35 @@ const useSignUp = () => {
     setShowConfirmPassword((prev) => !prev);
   };
 
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (isValid) {
+      const values = getValues();
+      const newFormData = {
+        name: values.username,
+        email: values.email,
+        password: values.password,
+        confirm_password: values.confirm_password,
+      };
+
+      try {
+        const sendData = await registereUser(newFormData);
+      } catch (err: any) {
+        if (err.response.data.errors.name) {
+          setError('username', {
+            message: t('unique.name')!,
+          });
+        }
+        if (err.response.data.errors.email) {
+          setError('email', {
+            message: t('unique.email')!,
+          });
+        }
+      }
+    }
+  };
+
   return {
     t,
     form,
@@ -51,6 +82,7 @@ const useSignUp = () => {
     showPassword,
     showConfirmPasswordhandler,
     showConfirmPassword,
+    handleRegister,
   };
 };
 
