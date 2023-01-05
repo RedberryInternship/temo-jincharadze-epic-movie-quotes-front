@@ -9,13 +9,13 @@ import {
   LogIn,
   ForgotPassword,
   SignUp,
+  EmailVerification,
 } from 'components';
 
 const LandingPage = () => {
   const {
     t,
     closeModalHandler,
-    showModal,
     modalForm,
     onSignUpHandler,
     onLoginHandler,
@@ -24,9 +24,9 @@ const LandingPage = () => {
 
   return (
     <>
-      {showModal && (
+      {modalForm.isOpen && (
         <Modal onClose={closeModalHandler}>
-          {modalForm === 'signUp' && (
+          {modalForm.value === 'signUp' && (
             <FormWrapper
               onClose={closeModalHandler}
               className='md:h-[44rem] md:w-[37.5rem]'
@@ -34,7 +34,15 @@ const LandingPage = () => {
               <SignUp onLoginClick={onLoginHandler} />
             </FormWrapper>
           )}
-          {modalForm === 'login' && (
+          {modalForm.value === 'emailSent' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[26rem] md:w-[33.5rem]'
+            >
+              <EmailVerification />
+            </FormWrapper>
+          )}
+          {modalForm.value === 'login' && (
             <FormWrapper
               onClose={closeModalHandler}
               className='md:h-[40rem] md:w-[40rem]'
@@ -45,7 +53,7 @@ const LandingPage = () => {
               />
             </FormWrapper>
           )}
-          {modalForm === 'forgotPassword' && (
+          {modalForm.value === 'forgotPassword' && (
             <FormWrapper
               onClose={closeModalHandler}
               className='md:w-[37.5rem] md:h-[25.1rem]'

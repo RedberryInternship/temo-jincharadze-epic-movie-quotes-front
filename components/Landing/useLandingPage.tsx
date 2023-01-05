@@ -1,35 +1,39 @@
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { showModalActions } from 'store';
+import { useSelector } from 'react-redux';
+import { ModalForm } from 'types';
 
 const useLandingPage = () => {
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [modalForm, setModalForm] = useState<string>('');
+  const modalForm = useSelector(
+    (state: { modal: ModalForm }) => state.modal.modal
+  );
+
+  const dispatch = useDispatch();
   const { t } = useTranslation('common');
 
   const closeModalHandler = () => {
-    setShowModal(false);
+    dispatch(showModalActions.setModalIsOpen(false));
   };
 
   const onSignUpHandler = () => {
-    setShowModal(true);
-    setModalForm('signUp');
+    dispatch(showModalActions.setModalIsOpen(true));
+    dispatch(showModalActions.setModalValue('signUp'));
   };
 
   const onLoginHandler = () => {
-    setShowModal(true);
-    setModalForm('login');
+    dispatch(showModalActions.setModalIsOpen(true));
+    dispatch(showModalActions.setModalValue('login'));
   };
 
   const onForgotPasswordHandler = () => {
-    setShowModal(true);
-    setModalForm('forgotPassword');
+    dispatch(showModalActions.setModalIsOpen(true));
+    dispatch(showModalActions.setModalValue('forgotPassword'));
   };
 
   return {
     t,
     closeModalHandler,
-    showModal,
-    setModalForm,
     modalForm,
     onSignUpHandler,
     onLoginHandler,
