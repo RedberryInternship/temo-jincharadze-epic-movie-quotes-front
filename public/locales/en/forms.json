@@ -46,5 +46,9 @@
     "minPassword": "At least 8 characters",
     "passwordPattern": "Only lowercase Latin characters and numbers",
     "confirmPassword": "Password doesn't match."
+  },
+  "unique": {
+    "email": "The email has already been taken.",
+    "name": "The username has already been taken."
   }
 }
