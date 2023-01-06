@@ -6,7 +6,7 @@ const useEmailVerified = () => {
 
   const showLoginHandler = () => {
     dispatch(showModalActions.setModalIsOpen(true));
-    dispatch(showModalActions.setModalValue('accountVerified'));
+    dispatch(showModalActions.setModalValue('login'));
   };
 
   return { showLoginHandler };
