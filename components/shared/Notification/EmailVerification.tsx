@@ -7,7 +7,7 @@ const EmailVerification = () => {
       <div className='text-center flex flex-col items-center'>
         <SentIcon />
         <h2 className='text-white text-2xl font-medium mt-4'>Thank you!</h2>
-        <p className='text-white font-normal mt-6 text-xs text-center'>
+        <p className='text-white font-normal mt-6 text-base text-center'>
           Please check your email and follow the instructions to activate your
           account.
         </p>
