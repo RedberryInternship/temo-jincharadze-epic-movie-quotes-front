@@ -23,6 +23,7 @@ module.exports = {
         s: '8px',
         5.5: '50px',
         3.5: '32px',
+        47: '47px',
       },
       colors: {
         'custom-orange-200': '#DDCCAA',
