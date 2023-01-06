@@ -11,6 +11,7 @@ import {
   SignUp,
   EmailVerification,
   EmailVerified,
+  EmailAlreadyVerified,
 } from 'components';
 
 const LandingPage = () => {
@@ -51,6 +52,16 @@ const LandingPage = () => {
               <EmailVerified />
             </FormWrapper>
           )}
+
+          {modalForm.value === 'accountAlreadyVerified' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[26rem] md:w-[33.5rem]'
+            >
+              <EmailAlreadyVerified />
+            </FormWrapper>
+          )}
+
           {modalForm.value === 'login' && (
             <FormWrapper
               onClose={closeModalHandler}
