@@ -7,13 +7,7 @@ export default function Document() {
   return (
     <Html>
       <Head />
-      <body
-        className={
-          i18n.language === 'ka'
-            ? 'font-Helvetica-Neue-Geo'
-            : 'font-Helvetica-Neue'
-        }
-      >
+      <body className='font-Helvetica-Neue'>
         <div id='backdrop'></div>
         <div id='modal'></div>
         <Main />

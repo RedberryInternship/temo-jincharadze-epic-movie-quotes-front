@@ -10,8 +10,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'Helvetica-Neue': 'Helvetica-Neue',
-        'Helvetica-Neue-Geo': 'Helvetica-Neue-Geo',
+        'Helvetica-Neue': 'Helvetica-Neue-Geo',
       },
       height: {
         s: '2px',
