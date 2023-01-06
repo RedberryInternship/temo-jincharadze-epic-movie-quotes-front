@@ -8,3 +8,4 @@ export { default as Valid } from './Valid';
 export { default as ShowEye } from './ShowEye';
 export { default as SentIcon } from './SentIcon';
 export { default as Verified } from './Verified';
+export { default as Gandolf } from './Gandolf';
