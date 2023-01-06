@@ -10,6 +10,7 @@ const useSignUp = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -59,7 +60,9 @@ const useSignUp = () => {
       };
 
       try {
+        setIsLoading(true);
         const sendData = await registereUser(newFormData);
+        setIsLoading(false);
         dispatch(showModalActions.setModalValue('emailSent'));
       } catch (err: any) {
         if (err.response.data.errors.name) {
@@ -87,6 +90,7 @@ const useSignUp = () => {
     showPassword,
     showConfirmPasswordhandler,
     showConfirmPassword,
+    isLoading,
     handleRegister,
   };
 };

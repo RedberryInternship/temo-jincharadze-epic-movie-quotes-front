@@ -36,6 +36,7 @@ module.exports = {
         'custom-blue-600': '#0D6EFD',
         'custom-green-700': '#198754',
         'custom-red-700': '#CC0E10',
+        'custom-rose-500': '#EC4C57',
       },
       backgroundImage: {
         'starting-gradient':

@@ -11,6 +11,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     showPassword,
     showPasswordhandler,
     form,
+    isLoading,
     showConfirmPasswordhandler,
     showConfirmPassword,
     handleRegister,
@@ -121,8 +122,13 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             </div>
 
             <Button
-              className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-1 rounded'
+              className={`${
+                isLoading
+                  ? 'bg-custom-rose-500'
+                  : 'bg-custom-red-600 hover:bg-custom-red-700'
+              }  w-full text-white text-center h-[2.4rem] mt-1 rounded`}
               onClick={handleRegister}
+              disabled={isLoading}
             >
               {t('signUp.getStarted')}
             </Button>
