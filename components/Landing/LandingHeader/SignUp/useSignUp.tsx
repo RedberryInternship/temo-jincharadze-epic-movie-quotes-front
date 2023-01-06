@@ -65,6 +65,7 @@ const useSignUp = () => {
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('emailSent'));
       } catch (err: any) {
+        setIsLoading(false);
         if (err.response.data.errors.name) {
           setError('username', {
             message: t('unique.name')!,
