@@ -1,13 +1,17 @@
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { registereUser } from 'services';
+import { showModalActions } from 'store';
 import { SignUpForm } from './types';
 
 const useSignUp = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   const form = useForm<SignUpForm>({
     mode: 'all',
@@ -56,6 +60,7 @@ const useSignUp = () => {
 
       try {
         const sendData = await registereUser(newFormData);
+        dispatch(showModalActions.setModalValue('emailSent'));
       } catch (err: any) {
         if (err.response.data.errors.name) {
           setError('username', {
