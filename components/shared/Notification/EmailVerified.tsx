@@ -1,11 +1,11 @@
-import { SentIcon, useEmailVerified } from 'components';
+import { useEmailVerified, Verified } from 'components';
 
 const EmailVerified = () => {
   const { showLoginHandler } = useEmailVerified();
   return (
     <div className='w-[22.5rem]'>
       <div className='text-center flex flex-col items-center'>
-        <SentIcon />
+        <Verified />
         <h2 className='text-white text-2xl font-medium mt-10'>Thank you!</h2>
         <p className='text-white font-normal mt-8 text-base text-center'>
           Your account has been activated.
