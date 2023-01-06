@@ -10,6 +10,7 @@ import {
   ForgotPassword,
   SignUp,
   EmailVerification,
+  EmailVerified,
 } from 'components';
 
 const LandingPage = () => {
@@ -40,6 +41,14 @@ const LandingPage = () => {
               className='md:h-[26rem] md:w-[33.5rem]'
             >
               <EmailVerification />
+            </FormWrapper>
+          )}
+          {modalForm.value === 'accountVerified' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[26rem] md:w-[33.5rem]'
+            >
+              <EmailVerified />
             </FormWrapper>
           )}
           {modalForm.value === 'login' && (
