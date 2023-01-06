@@ -1,15 +1,14 @@
 import { Verified } from 'components/icons';
-import React from 'react';
-import useEmailVerified from './useEmailVerified';
+import { useNotificationLang } from 'hooks';
 
 const EmailAlreadyVerified = () => {
-  const { showLoginHandler } = useEmailVerified();
+  const { showLoginHandler, t } = useNotificationLang();
   return (
     <div className='w-[22.5rem]'>
       <div className='text-center flex flex-col items-center'>
         <Verified />
         <h2 className='text-white text-2xl font-medium mt-10'>
-          Email is already verified!
+          {t('email.alreadyVerified.title')}
         </h2>
       </div>
       <div className='mt-8 text-center'>
@@ -18,7 +17,7 @@ const EmailAlreadyVerified = () => {
           md:w-full h-10 text-center rounded'
           onClick={showLoginHandler}
         >
-          Login
+          {t('email.alreadyVerified.btn')}
         </button>
       </div>
     </div>

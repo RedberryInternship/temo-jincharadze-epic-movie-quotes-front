@@ -1,0 +1,24 @@
+{
+  "email": {
+    "alreadyVerified": {
+      "title": "Email is already verified!",
+      "btn": "Login"
+    },
+    "emailVerification": {
+      "title": "Thank you!",
+      "description": "Please check your email and follow the instructions to activate your account.",
+      "btn": "Go to my email"
+    },
+    "emailVerified": {
+      "title": "Thank you!",
+      "description": "Your account has been activated.",
+      "btn": "Login"
+    }
+  },
+
+  "forbidden": {
+    "title": "You shall not pass!",
+    "description": "Sorry, but you don’t have permission to access this page",
+    "btn": "Return home"
+  }
+}

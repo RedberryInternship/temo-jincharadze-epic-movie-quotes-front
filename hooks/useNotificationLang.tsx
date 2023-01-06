@@ -1,7 +1,10 @@
+import { useTranslation } from 'next-i18next';
 import { useDispatch } from 'react-redux';
 import { showModalActions } from 'store';
 
-const useEmailVerified = () => {
+const useNotificationLang = () => {
+  const { t } = useTranslation('notification');
+
   const dispatch = useDispatch();
 
   const showLoginHandler = () => {
@@ -9,7 +12,7 @@ const useEmailVerified = () => {
     dispatch(showModalActions.setModalValue('login'));
   };
 
-  return { showLoginHandler };
+  return { t, showLoginHandler };
 };
 
-export default useEmailVerified;
+export default useNotificationLang;
