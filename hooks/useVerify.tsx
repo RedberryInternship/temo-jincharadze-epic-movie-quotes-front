@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
+import { useDispatch } from 'react-redux';
 import { verifyEmail } from 'services';
 
 const useVerify = () => {
+  const dispatch = useDispatch();
   const { query } = useRouter();
   let link: string;
 
@@ -26,7 +28,7 @@ const useVerify = () => {
     enabled: !!query.verify && !!query.signature && !!query.expires,
     queryFn: async () => verifyEmail(link),
   });
-  return { data };
+  return { data, dispatch };
 };
 
 export default useVerify;
