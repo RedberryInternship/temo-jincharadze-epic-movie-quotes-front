@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { registereUser } from 'services';
+import { registerUser } from 'services';
 import { showModalActions } from 'store';
 import { SignUpForm } from './types';
 
@@ -61,7 +61,7 @@ const useSignUp = () => {
 
       try {
         setIsLoading(true);
-        const sendData = await registereUser(newFormData);
+        const sendData = await registerUser(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('emailSent'));
       } catch (err: any) {
