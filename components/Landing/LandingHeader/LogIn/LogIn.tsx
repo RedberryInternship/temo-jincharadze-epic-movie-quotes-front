@@ -4,7 +4,7 @@ import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const LogIn: React.FC<LoginProps> = (props) => {
-  const { t, form } = useLogin();
+  const { t, form, register, handleLogin } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -17,13 +17,19 @@ const LogIn: React.FC<LoginProps> = (props) => {
         <FormProvider {...form}>
           <form>
             <Input
+              register={register('login', {
+                required: { value: true, message: t('errors.required') },
+              })}
               containerClass='mt-8'
               label={t('logIn.email')}
-              type='email'
-              name='email'
+              type='text'
+              name='login'
               placeholder={t('logIn.emailPlaceholder')!}
             />
             <Input
+              register={register('password', {
+                required: { value: true, message: t('errors.required') },
+              })}
               containerClass='mt-8'
               label={t('logIn.password')}
               type='password'
@@ -33,8 +39,10 @@ const LogIn: React.FC<LoginProps> = (props) => {
 
             <div className='flex items-center justify-between mt-8'>
               <Input
+                register={register('remember')}
                 type='checkbox'
                 name='remember'
+                value='1'
                 label={t('logIn.remember')}
                 containerClass='flex items-center h-4'
               />
@@ -47,7 +55,10 @@ const LogIn: React.FC<LoginProps> = (props) => {
               </div>
             </div>
 
-            <Button className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'>
+            <Button
+              className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'
+              onClick={handleLogin}
+            >
               {t('logIn.btn')}
             </Button>
           </form>
