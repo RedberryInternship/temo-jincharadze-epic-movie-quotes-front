@@ -6,6 +6,7 @@ export type InputProps = {
   type: string;
   name: string;
   hasEye?: boolean;
+  value?: string;
   showPassword?: boolean;
   placeholder?: string;
   onPasswordShow?: MouseEvent<HTMLDivElement>;

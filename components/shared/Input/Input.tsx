@@ -7,11 +7,15 @@ const Input: React.FC<InputProps> = (props) => {
   return props.type === 'checkbox' ? (
     <div className={props.containerClass}>
       <input
+        {...props.register}
         type='checkbox'
         name={props.name}
         className='rounded-[0.25rem] mr-2'
+        value={props.value}
       />
-      <label className='text-white text-base font-normal'>{props.label}</label>
+      <label className='text-white text-base font-normal' htmlFor={props.name}>
+        {props.label}
+      </label>
     </div>
   ) : (
     <div className={props.containerClass}>
