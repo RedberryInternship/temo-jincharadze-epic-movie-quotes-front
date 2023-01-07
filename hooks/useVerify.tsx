@@ -14,7 +14,7 @@ const useVerify = () => {
       let params = new URLSearchParams(url.search);
       params.append('expires', query.expires as string);
       params.append('signature', query.signature as string);
-      link = '/verify-account' + '?' + params;
+      link = '/api/verify-account' + '?' + params;
     } catch (err) {}
   };
 
