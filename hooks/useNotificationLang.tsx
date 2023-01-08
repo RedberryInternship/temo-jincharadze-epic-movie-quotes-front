@@ -12,7 +12,12 @@ const useNotificationLang = () => {
     dispatch(showModalActions.setModalValue('login'));
   };
 
-  return { t, showLoginHandler };
+  const closeModal = () => {
+    dispatch(showModalActions.setModalIsOpen(false));
+    dispatch(showModalActions.setModalValue(''));
+  };
+
+  return { t, showLoginHandler, closeModal };
 };
 
 export default useNotificationLang;
