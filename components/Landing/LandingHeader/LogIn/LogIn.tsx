@@ -9,8 +9,10 @@ const LogIn: React.FC<LoginProps> = (props) => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white text-2xl font-medium'>{t('logIn.about')}</h2>
-        <p className='text-custom-gray-500  font-normal mt-3 text-xs'>
+        <h2 className='text-white text-2xl md:text-3.5 font-medium'>
+          {t('logIn.about')}
+        </h2>
+        <p className='text-custom-gray-500  font-normal mt-3 text-base'>
           {t('logIn.description')}
         </p>
       </div>
