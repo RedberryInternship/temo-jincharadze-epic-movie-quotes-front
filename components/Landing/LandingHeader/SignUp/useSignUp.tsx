@@ -23,7 +23,7 @@ const useSignUp = () => {
       confirm_password: '',
     },
   });
-  const { t } = useTranslation('forms');
+  const { t, i18n } = useTranslation('forms');
 
   const {
     formState: { errors, isValid },
@@ -57,6 +57,7 @@ const useSignUp = () => {
         email: values.email,
         password: values.password,
         confirm_password: values.confirm_password,
+        lang: i18n.language,
       };
 
       try {
