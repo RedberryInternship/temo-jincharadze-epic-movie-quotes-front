@@ -15,6 +15,23 @@
       "btn": "Login"
     }
   },
+  "password": {
+    "alreadyVerified": {
+      "title": "You already changed password!",
+      "btn": "Login"
+    },
+    "verification": {
+      "title": "Check your email",
+      "description": "We have sent a password recover instructions to your email.",
+      "btn": "Go to my email",
+      "skip": "Skip, I’ll confirm later"
+    },
+    "verified": {
+      "title": "Success!",
+      "description": "Your password changed successfully",
+      "btn": "Login"
+    }
+  },
 
   "forbidden": {
     "title": "You shall not pass!",
