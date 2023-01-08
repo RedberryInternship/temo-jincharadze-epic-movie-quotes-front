@@ -26,7 +26,7 @@ const useVerify = () => {
     refetchOnWindowFocus: false,
     retry: 0,
     enabled: !!query.verify && !!query.signature && !!query.expires,
-    queryFn: async () => verifyEmail(link),
+    queryFn: async () => await verifyEmail(link),
   });
   return { data, dispatch };
 };
