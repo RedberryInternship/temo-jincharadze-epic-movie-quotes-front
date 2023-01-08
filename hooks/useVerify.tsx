@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { verifyEmail } from 'services';
+import Router from 'next/router';
+import { showModalActions } from 'store';
 
 const useVerify = () => {
   const dispatch = useDispatch();
@@ -20,14 +22,38 @@ const useVerify = () => {
 
   checkEmail();
 
+  const verifyAccount: any = async () => {
+    try {
+      const response = await verifyEmail(link);
+      if (response.data === 'Verified') {
+        Router.replace('/');
+        dispatch(showModalActions.setModalIsOpen(true));
+        dispatch(showModalActions.setModalValue('accountVerified'));
+      }
+
+      if (response.data === 'Email is already verified') {
+        Router.replace('/');
+        dispatch(showModalActions.setModalIsOpen(true));
+        dispatch(showModalActions.setModalValue('accountAlreadyVerified'));
+      }
+    } catch (err: any) {
+      if (err.response.data === 'Route expired') {
+        Router.replace('/403');
+      }
+    }
+  };
+
   const { data } = useQuery({
     queryKey: ['verify email'],
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     retry: 0,
     enabled: !!query.verify && !!query.signature && !!query.expires,
-    queryFn: async () => await verifyEmail(link),
+    queryFn: verifyAccount,
   });
+
+  console.log(data);
+
   return { data, dispatch };
 };
 
