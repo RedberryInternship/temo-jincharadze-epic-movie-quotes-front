@@ -9,10 +9,7 @@ import { useTranslation } from 'next-i18next';
 const useVerify = () => {
   const dispatch = useDispatch();
   const { query } = useRouter();
-  const { i18n } = useTranslation();
   let link: string;
-
-  console.log(i18n.language);
 
   const checkEmail = async () => {
     try {
