@@ -1,10 +1,11 @@
-import { Button, Google, Input } from 'components';
+import { ErrorMessage } from '@hookform/error-message';
+import { Button, Google, Input, Message } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const LogIn: React.FC<LoginProps> = (props) => {
-  const { t, form, register, handleLogin } = useLogin();
+  const { t, form, register, handleLogin, errors } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -26,18 +27,33 @@ const LogIn: React.FC<LoginProps> = (props) => {
               name='login'
               placeholder={t('logIn.emailPlaceholder')!}
             />
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='login'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
             <Input
               register={register('password', {
                 required: { value: true, message: t('errors.required') },
               })}
-              containerClass='mt-8'
+              containerClass='mt-2'
               label={t('logIn.password')}
               type='password'
               name='password'
               placeholder={t('logIn.passwordPlaceholder')!}
             />
 
-            <div className='flex items-center justify-between mt-8'>
+            <div className='h-7 mt-1'>
+              <ErrorMessage
+                name='password'
+                errors={errors}
+                render={({ message }) => <Message message={message} />}
+              />
+            </div>
+
+            <div className='flex items-center justify-between mt-2'>
               <Input
                 register={register('remember')}
                 type='checkbox'

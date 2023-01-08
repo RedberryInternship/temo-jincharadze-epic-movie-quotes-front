@@ -14,8 +14,9 @@ const useLogin = () => {
   const {
     control,
     register,
-    getValues,
-    formState: { isValid },
+    setError,
+    trigger,
+    formState: { isValid, errors },
   } = form;
 
   const [login, password, remember] = useWatch({
@@ -31,13 +32,25 @@ const useLogin = () => {
       try {
         await getCsrfToken();
         const response = await loginUser(data);
-      } catch (error) {
+      } catch (error: any) {
+        if (error.response.data.message === 'Email not found!') {
+          setError('login', { message: 'Email not found.' });
+        }
+        if (error.response.data.message === 'Username not found!') {
+          setError('login', { message: 'Username not found.' });
+        }
+        if (error.response.data.message === 'Your email is not verified.') {
+          setError('login', { message: 'Your email is not verified.' });
+        }
+        if (error.response.data.message === 'Invalid Credentials') {
+          setError('password', { message: 'Invalid password.' });
+        }
         deleteCookie('XSRF-TOKEN');
       }
     }
   };
 
-  return { t, form, register, handleLogin };
+  return { t, form, register, handleLogin, errors };
 };
 
 export default useLogin;
