@@ -12,6 +12,9 @@ import {
   EmailVerification,
   EmailVerified,
   EmailAlreadyVerified,
+  PasswordVerification,
+  PasswordVerified,
+  CreatePassword,
 } from 'components';
 
 const LandingPage = () => {
@@ -36,7 +39,7 @@ const LandingPage = () => {
               <SignUp onLoginClick={onLoginHandler} />
             </FormWrapper>
           )}
-          {modalForm.value === 'emailSent' && (
+          {modalForm.value === 'email sent' && (
             <FormWrapper
               onClose={closeModalHandler}
               className='md:h-[26rem] md:w-[33.5rem]'
@@ -59,6 +62,33 @@ const LandingPage = () => {
               className='md:h-[26rem] md:w-[33.5rem]'
             >
               <EmailAlreadyVerified />
+            </FormWrapper>
+          )}
+
+          {modalForm.value === 'password reset sent' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[26rem] md:w-[33.5rem]'
+            >
+              <PasswordVerification />
+            </FormWrapper>
+          )}
+
+          {modalForm.value === 'show create password' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[31rem] md:w-[33.5rem]'
+            >
+              <CreatePassword />
+            </FormWrapper>
+          )}
+
+          {modalForm.value === 'password changed' && (
+            <FormWrapper
+              onClose={closeModalHandler}
+              className='md:h-[26rem] md:w-[33.5rem]'
+            >
+              <PasswordVerified />
             </FormWrapper>
           )}
 
