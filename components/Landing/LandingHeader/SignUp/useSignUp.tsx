@@ -64,7 +64,7 @@ const useSignUp = () => {
         setIsLoading(true);
         const sendData = await registerUser(newFormData);
         setIsLoading(false);
-        dispatch(showModalActions.setModalValue('emailSent'));
+        dispatch(showModalActions.setModalValue('email sent'));
       } catch (err: any) {
         setIsLoading(false);
         if (err.response.data.errors.name) {
