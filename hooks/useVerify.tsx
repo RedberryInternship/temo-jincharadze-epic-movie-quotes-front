@@ -42,7 +42,7 @@ const useVerify = () => {
       }
     } catch (err: any) {
       if (err.response.data === 'Route expired') {
-        Router.push('/403');
+        Router.replace('/403');
       }
     }
   };
