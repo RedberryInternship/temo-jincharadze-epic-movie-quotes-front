@@ -4,11 +4,15 @@ import { useDispatch } from 'react-redux';
 import { verifyEmail } from 'services';
 import Router from 'next/router';
 import { showModalActions } from 'store';
+import { useTranslation } from 'next-i18next';
 
 const useVerify = () => {
   const dispatch = useDispatch();
   const { query } = useRouter();
+  const { i18n } = useTranslation();
   let link: string;
+
+  console.log(i18n.language);
 
   const checkEmail = async () => {
     try {
@@ -38,7 +42,7 @@ const useVerify = () => {
       }
     } catch (err: any) {
       if (err.response.data === 'Route expired') {
-        Router.replace('/403');
+        Router.push('/403');
       }
     }
   };
@@ -51,8 +55,6 @@ const useVerify = () => {
     enabled: !!query.verify && !!query.signature && !!query.expires,
     queryFn: verifyAccount,
   });
-
-  console.log(data);
 
   return { data, dispatch };
 };
