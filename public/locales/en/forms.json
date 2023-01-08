@@ -50,5 +50,13 @@
   "unique": {
     "email": "The email has already been taken.",
     "name": "The username has already been taken."
-  }
+  },
+  "exists": {
+    "email": "The selected email couldn't be found.",
+    "name": "The selected username couldn't be found."
+  },
+  "verify": {
+    "email": "Your email is not verified."
+  },
+  "password": "Invalid password."
 }

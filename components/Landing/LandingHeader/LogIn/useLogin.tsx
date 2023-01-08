@@ -34,16 +34,16 @@ const useLogin = () => {
         const response = await loginUser(data);
       } catch (error: any) {
         if (error.response.data.message === 'Email not found!') {
-          setError('login', { message: 'Email not found.' });
+          setError('login', { message: t('exists.email')! });
         }
         if (error.response.data.message === 'Username not found!') {
-          setError('login', { message: 'Username not found.' });
+          setError('login', { message: t('exists.name')! });
         }
         if (error.response.data.message === 'Your email is not verified.') {
-          setError('login', { message: 'Your email is not verified.' });
+          setError('login', { message: t('verify.email')! });
         }
         if (error.response.data.message === 'Invalid Credentials') {
-          setError('password', { message: 'Invalid password.' });
+          setError('password', { message: t('password')! });
         }
         deleteCookie('XSRF-TOKEN');
       }
