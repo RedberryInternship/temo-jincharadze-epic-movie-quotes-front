@@ -1,4 +1,4 @@
-import { Verified } from 'components';
+import { Button, Verified } from 'components';
 import { useNotificationLang } from 'hooks';
 
 const EmailAlreadyVerified = () => {
@@ -12,13 +12,13 @@ const EmailAlreadyVerified = () => {
         </h2>
       </div>
       <div className='mt-8 text-center'>
-        <button
+        <Button
           className='bg-custom-red-600 hover:bg-custom-red-700 w-48
           md:w-full h-10 text-center rounded'
           onClick={showLoginHandler}
         >
           {t('email.alreadyVerified.btn')}
-        </button>
+        </Button>
       </div>
     </div>
   );
