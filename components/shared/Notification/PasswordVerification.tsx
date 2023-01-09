@@ -1,6 +1,5 @@
 import { Button, SentIcon } from 'components';
 import { useNotificationLang } from 'hooks';
-import Link from 'next/link';
 
 const PasswordVerification = () => {
   const { t, closeModal } = useNotificationLang();
