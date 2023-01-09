@@ -1,0 +1,62 @@
+{
+  "signUp": {
+    "about": "Create an account",
+    "description": "Start your journey!",
+    "username": "Name",
+    "usernamePlaceholder": "At least 3 & max.15 lower case characters",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "At least 8 & max.15 lower case characters",
+    "confirmPassword": "Confirm password",
+    "confirmPasswordPlaceholder": "Password",
+    "getStarted": "Get started",
+    "signUpWithGoogle": "Sign up with Google",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "logIn": "Log In"
+  },
+  "logIn": {
+    "about": "Log in to your account",
+    "description": "Welcome back! Please enter your details.",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "btn": "Sign in",
+    "googleBtn": "Sign in with Google",
+    "remember": "Remember me",
+    "forgotPassword": "Forgot password",
+    "dontHaveAnAccount": "Don't have an account?",
+    "signUp": "Sign up"
+  },
+  "forgotPassword": {
+    "about": "Forgot password?",
+    "description": "Enter the email and we’ll send an email with instructions to reset your password",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "btn": "Send instructions",
+    "backToLogin": "Back to log in"
+  },
+  "errors": {
+    "required": "The field is required",
+    "min": "At least 3 characters",
+    "max": "Maximum 15 symbols",
+    "usernamePattern": "Only lowercase Latin characters and numbers",
+    "emailPattern": "Must be a valid email address.",
+    "minPassword": "At least 8 characters",
+    "passwordPattern": "Only lowercase Latin characters and numbers",
+    "confirmPassword": "Password doesn't match."
+  },
+  "unique": {
+    "email": "The email has already been taken.",
+    "name": "The username has already been taken."
+  },
+  "exists": {
+    "email": "The selected email couldn't be found.",
+    "name": "The selected username couldn't be found."
+  },
+  "verify": {
+    "email": "Your email is not verified."
+  },
+  "password": "Invalid password."
+}

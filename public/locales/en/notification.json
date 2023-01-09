@@ -1,0 +1,41 @@
+{
+  "email": {
+    "alreadyVerified": {
+      "title": "Email is already verified!",
+      "btn": "Login"
+    },
+    "emailVerification": {
+      "title": "Thank you!",
+      "description": "Please check your email and follow the instructions to activate your account.",
+      "btn": "Go to my email"
+    },
+    "emailVerified": {
+      "title": "Thank you!",
+      "description": "Your account has been activated.",
+      "btn": "Login"
+    }
+  },
+  "password": {
+    "alreadyVerified": {
+      "title": "You already changed password!",
+      "btn": "Login"
+    },
+    "verification": {
+      "title": "Check your email",
+      "description": "We have sent a password recover instructions to your email.",
+      "btn": "Go to my email",
+      "skip": "Skip, I’ll confirm later"
+    },
+    "verified": {
+      "title": "Success!",
+      "description": "Your password changed successfully",
+      "btn": "Login"
+    }
+  },
+
+  "forbidden": {
+    "title": "You shall not pass!",
+    "description": "Sorry, but you don’t have permission to access this page",
+    "btn": "Return home"
+  }
+}
