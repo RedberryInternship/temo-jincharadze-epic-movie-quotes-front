@@ -1,4 +1,4 @@
-import { Verified } from 'components/icons';
+import { Verified } from 'components';
 import { useNotificationLang } from 'hooks';
 
 const EmailAlreadyVerified = () => {
