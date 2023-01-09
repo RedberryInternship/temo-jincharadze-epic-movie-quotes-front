@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import Forbidden from 'components/shared/Error/Forbidden';
+import { Forbidden } from 'components';
 
 const index = () => {
   return <Forbidden />;
