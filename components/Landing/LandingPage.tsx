@@ -6,7 +6,6 @@ import {
   Button,
   FormWrapper,
   Modal,
-  LogIn,
   ForgotPassword,
   SignUp,
   EmailVerification,
@@ -15,6 +14,7 @@ import {
   PasswordVerification,
   PasswordVerified,
   CreatePassword,
+  Login,
 } from 'components';
 
 const LandingPage = () => {
@@ -97,7 +97,7 @@ const LandingPage = () => {
               onClose={closeModalHandler}
               className='md:h-[40rem] md:w-[40rem]'
             >
-              <LogIn
+              <Login
                 onSignUpClick={onSignUpHandler}
                 onForgotPassword={onForgotPasswordHandler}
               />

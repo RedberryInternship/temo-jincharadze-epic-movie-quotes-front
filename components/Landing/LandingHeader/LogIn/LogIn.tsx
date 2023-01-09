@@ -4,7 +4,7 @@ import { FormProvider } from 'react-hook-form';
 import { LoginProps } from './types';
 import useLogin from './useLogin';
 
-const LogIn: React.FC<LoginProps> = (props) => {
+const Login: React.FC<LoginProps> = (props) => {
   const { t, form, register, handleLogin, errors } = useLogin();
   return (
     <div className='w-[22.5rem]'>
@@ -103,4 +103,4 @@ const LogIn: React.FC<LoginProps> = (props) => {
   );
 };
 
-export default LogIn;
+export default Login;
