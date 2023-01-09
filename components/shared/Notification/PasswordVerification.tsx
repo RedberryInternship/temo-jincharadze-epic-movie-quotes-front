@@ -1,4 +1,4 @@
-import { SentIcon } from 'components';
+import { Button, SentIcon } from 'components';
 import { useNotificationLang } from 'hooks';
 import Link from 'next/link';
 
@@ -17,12 +17,12 @@ const PasswordVerification = () => {
       </div>
       <div className='mt-10 text-center'>
         <a href='https://mail.google.com/' target='_blank'>
-          <button
+          <Button
             className='bg-custom-red-600 hover:bg-custom-red-700 w-48
               md:w-full h-10 text-center rounded'
           >
             {t('password.verification.btn')}
-          </button>
+          </Button>
         </a>
         <div className='text-center mt-8'>
           <div
