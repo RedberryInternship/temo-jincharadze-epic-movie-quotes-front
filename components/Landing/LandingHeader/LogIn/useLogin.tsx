@@ -15,7 +15,6 @@ const useLogin = () => {
     control,
     register,
     setError,
-    trigger,
     formState: { isValid, errors },
   } = form;
 
@@ -33,18 +32,18 @@ const useLogin = () => {
         await getCsrfToken();
         const response = await loginUser(data);
       } catch (error: any) {
-        if (error.response.data.message === 'Email not found!') {
+        error.response.data.message === 'Email not found!' &&
           setError('login', { message: t('exists.email')! });
-        }
-        if (error.response.data.message === 'Username not found!') {
+
+        error.response.data.message === 'Username not found!' &&
           setError('login', { message: t('exists.name')! });
-        }
-        if (error.response.data.message === 'Your email is not verified.') {
+
+        error.response.data.message === 'Your email is not verified.' &&
           setError('login', { message: t('verify.email')! });
-        }
-        if (error.response.data.message === 'Invalid Credentials') {
+
+        error.response.data.message === 'Invalid Credentials' &&
           setError('password', { message: t('password')! });
-        }
+
         deleteCookie('XSRF-TOKEN');
       }
     }
