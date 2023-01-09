@@ -1,4 +1,4 @@
-import { SentIcon } from 'components';
+import { Button, SentIcon } from 'components';
 import { useNotificationLang } from 'hooks';
 
 const EmailVerification = () => {
@@ -16,12 +16,12 @@ const EmailVerification = () => {
       </div>
       <div className='mt-6 text-center'>
         <a href='https://mail.google.com/' target='_blank'>
-          <button
+          <Button
             className='bg-custom-red-600 hover:bg-custom-red-700 w-48
             md:w-full h-10 text-center rounded'
           >
             {t('email.emailVerification.btn')}
-          </button>
+          </Button>
         </a>
       </div>
     </div>
