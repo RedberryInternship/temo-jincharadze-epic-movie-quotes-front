@@ -1,11 +1,5 @@
 import instance from '../axios';
-
-type registerUserForm = {
-  name: string;
-  password: string;
-  confirm_password: string;
-  email: string;
-};
+import { registerUserForm } from './types';
 
 const registerUser = (data: registerUserForm) => {
   return instance.post('/api/register', data);
