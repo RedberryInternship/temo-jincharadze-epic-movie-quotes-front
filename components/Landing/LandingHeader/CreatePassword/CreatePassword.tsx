@@ -27,9 +27,11 @@ const CreatePassword = () => {
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
-        <h2 className='text-white text-3.5 font-medium'>Create new password</h2>
+        <h2 className='text-white text-3.5 font-medium'>
+          {t('createPassword')}
+        </h2>
         <p className='text-custom-gray-500 text-base font-normal mt-3'>
-          Your new password must be different from previous used passwords
+          {t('resetPasswordAbout')}
         </p>
       </div>
       <div className='w-full'>
@@ -91,7 +93,7 @@ const CreatePassword = () => {
                   : 'bg-custom-red-600 hover:bg-custom-red-700'
               } w-full text-white text-center h-[2.4rem] mt-3 rounded`}
             >
-              Reset password
+              {t('resetPassword')}
             </Button>
           </form>
         </FormProvider>
@@ -101,7 +103,7 @@ const CreatePassword = () => {
         >
           <ArrowLeft />
           <p className='text-base font-normal text-custom-gray-500 ml-3'>
-            Back to log in
+            {t('backToLogin')}
           </p>
         </div>
       </div>

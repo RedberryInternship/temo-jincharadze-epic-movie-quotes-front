@@ -58,5 +58,9 @@
   "verify": {
     "email": "Your email is not verified."
   },
-  "password": "Invalid password."
+  "password": "Invalid password.",
+  "resetPassword": "Reset password",
+  "backToLogin": "Back to log in",
+  "createPassword": "Create new password",
+  "resetPasswordAbout": "Your new password must be different from previous used passwords"
 }
