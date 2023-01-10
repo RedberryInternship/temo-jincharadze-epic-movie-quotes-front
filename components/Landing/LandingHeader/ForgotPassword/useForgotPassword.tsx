@@ -23,7 +23,7 @@ const useForgotPassword = () => {
   } = form;
   const { t, i18n } = useTranslation('forms');
 
-  const email = useWatch({ control: control });
+  useWatch({ control: control });
 
   const checkEmailHandler = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const useForgotPassword = () => {
       };
       try {
         setIsLoading(true);
-        const response = await checkPasswordResetEmail(newFormData);
+        await checkPasswordResetEmail(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('password reset sent'));
       } catch (err: any) {
