@@ -23,7 +23,7 @@ const useCreatePassword = () => {
     },
   });
 
-  const { t, i18n } = useTranslation('forms');
+  const { t } = useTranslation('forms');
 
   const {
     formState: { errors, isValid },
@@ -34,7 +34,7 @@ const useCreatePassword = () => {
     getFieldState,
   } = form;
 
-  const [password, confirmPassword] = useWatch({
+  useWatch({
     control: control,
     name: ['password', 'confirm_password'],
   });
@@ -63,7 +63,7 @@ const useCreatePassword = () => {
 
       try {
         setIsLoading(true);
-        const sendData = await updatePassword(newFormData);
+        await updatePassword(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('password changed'));
       } catch (err: any) {
