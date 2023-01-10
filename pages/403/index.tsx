@@ -2,11 +2,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { Forbidden } from 'components';
 
-const index = () => {
+const Index = () => {
   return <Forbidden />;
 };
 
-export default index;
+export default Index;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

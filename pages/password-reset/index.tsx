@@ -2,11 +2,11 @@ import { usePasswordVerify } from 'hooks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 
-const index = () => {
+const Index = () => {
   usePasswordVerify();
 };
 
-export default index;
+export default Index;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
