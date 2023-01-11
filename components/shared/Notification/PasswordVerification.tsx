@@ -15,7 +15,7 @@ const PasswordVerification = () => {
         </p>
       </div>
       <div className='mt-10 text-center'>
-        <a href='https://mail.google.com/' target='_blank'>
+        <a href='https://mail.google.com/' target='_blank' rel='noreferrer'>
           <Button
             className='bg-custom-red-600 hover:bg-custom-red-700 w-48
               md:w-full h-10 text-center rounded'

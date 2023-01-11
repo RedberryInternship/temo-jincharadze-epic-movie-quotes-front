@@ -34,7 +34,7 @@ const useSignUp = () => {
     getFieldState,
   } = form;
 
-  const [username, email, password, confirmPassword] = useWatch({
+  useWatch({
     control: control,
     name: ['username', 'email', 'password', 'confirm_password'],
   });
@@ -62,7 +62,7 @@ const useSignUp = () => {
 
       try {
         setIsLoading(true);
-        const sendData = await registerUser(newFormData);
+        await registerUser(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('email sent'));
       } catch (err: any) {

@@ -2,11 +2,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { useVerify } from 'hooks';
 
-const index = () => {
+const Index = () => {
   useVerify();
 };
 
-export default index;
+export default Index;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

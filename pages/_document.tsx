@@ -1,4 +1,3 @@
-import { useTranslation } from 'next-i18next';
 import { Html, Head, NextScript, Main } from 'next/document';
 
 export default function Document() {
