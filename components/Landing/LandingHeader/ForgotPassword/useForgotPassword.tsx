@@ -41,18 +41,15 @@ const useForgotPassword = () => {
         dispatch(showModalActions.setModalValue('password reset sent'));
       } catch (err: any) {
         setIsLoading(false);
-        if (err.response.data.errors.email) {
+        err.response.data.errors.email &&
           setError('email', {
             message: t('exists.email')!,
           });
-        }
-        if (
-          err.response.data.message === 'Your account email is not verified'
-        ) {
+
+        err.response.data.message === 'Your account email is not verified' &&
           setError('email', {
             message: t('verify.email')!,
           });
-        }
       }
     }
   };
