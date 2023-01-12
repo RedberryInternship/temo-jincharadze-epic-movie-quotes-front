@@ -1,4 +1,3 @@
-import { setCookie } from 'cookies-next';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
