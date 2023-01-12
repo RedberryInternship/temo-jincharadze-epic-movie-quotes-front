@@ -3,7 +3,7 @@ import Router from 'next/router';
 import React, { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { updatePassword } from 'services';
+import { getCsrfToken, updatePassword } from 'services';
 import { showModalActions } from 'store';
 
 const useCreatePassword = () => {
@@ -63,6 +63,7 @@ const useCreatePassword = () => {
 
       try {
         setIsLoading(true);
+        await getCsrfToken();
         await updatePassword(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('password changed'));
