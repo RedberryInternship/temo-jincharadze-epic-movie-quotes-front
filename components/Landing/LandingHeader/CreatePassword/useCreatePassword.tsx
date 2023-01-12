@@ -68,11 +68,10 @@ const useCreatePassword = () => {
         dispatch(showModalActions.setModalValue('password changed'));
       } catch (err: any) {
         setIsLoading(false);
-        if (err.response.data.errors.name) {
+        err.response.data.errors.name &&
           setError('password', {
             message: t('errors.confirmPassword')!,
           });
-        }
       }
     }
   };
