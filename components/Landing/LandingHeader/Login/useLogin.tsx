@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { useForm, useWatch } from 'react-hook-form';
 import { getCsrfToken, loginUser } from 'services';
-import { deleteCookie } from 'cookies-next';
+import { deleteCookie, setCookie } from 'cookies-next';
 import { LoginForm } from './types';
 
 const useLogin = () => {
@@ -30,7 +30,9 @@ const useLogin = () => {
     if (isValid) {
       try {
         await getCsrfToken();
-        await loginUser(data);
+        const response = await loginUser(data);
+        response.status === 200 && setCookie('user', response.data.user.id);
+        console.log(response);
       } catch (error: any) {
         error.response.data.message === 'Email not found!' &&
           setError('login', { message: t('exists.email')! });
