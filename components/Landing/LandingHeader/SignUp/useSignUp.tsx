@@ -1,8 +1,9 @@
+import { setCookie } from 'cookies-next';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { registerUser } from 'services';
+import { getCsrfToken, registerUser } from 'services';
 import { showModalActions } from 'store';
 import { SignUpForm } from './types';
 
@@ -62,6 +63,7 @@ const useSignUp = () => {
 
       try {
         setIsLoading(true);
+        await getCsrfToken();
         await registerUser(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('email sent'));
