@@ -32,7 +32,6 @@ const useLogin = () => {
         await getCsrfToken();
         const response = await loginUser(data);
         response.status === 200 && setCookie('user', response.data.user.id);
-        console.log(response);
       } catch (error: any) {
         error.response.data.message === 'Email not found!' &&
           setError('login', { message: t('exists.email')! });
