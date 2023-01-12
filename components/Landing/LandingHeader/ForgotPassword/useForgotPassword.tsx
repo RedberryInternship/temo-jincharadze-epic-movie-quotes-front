@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { checkPasswordResetEmail } from 'services';
+import { checkPasswordResetEmail, getCsrfToken } from 'services';
 import { showModalActions } from 'store';
 
 const useForgotPassword = () => {
@@ -36,6 +36,7 @@ const useForgotPassword = () => {
       };
       try {
         setIsLoading(true);
+        await getCsrfToken();
         await checkPasswordResetEmail(newFormData);
         setIsLoading(false);
         dispatch(showModalActions.setModalValue('password reset sent'));
