@@ -15,6 +15,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     showConfirmPasswordhandler,
     showConfirmPassword,
     handleRegister,
+    handleGoogleRegister,
     formState: { errors },
   } = useSignUp();
 
@@ -135,7 +136,10 @@ const SignUp: React.FC<SignUpProps> = (props) => {
           </form>
         </FormProvider>
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
-          <div className='flex items-center justify-center'>
+          <div
+            className='flex items-center justify-center'
+            onClick={handleGoogleRegister}
+          >
             <Google />
             <span className='ml-2'>{t('signUp.signUpWithGoogle')}</span>
           </div>

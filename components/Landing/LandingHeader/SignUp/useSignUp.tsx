@@ -1,8 +1,15 @@
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
+import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { getCsrfToken, registerUser } from 'services';
+import {
+  getCsrfToken,
+  getGoogleUrl,
+  googleCallBack,
+  registerUser,
+} from 'services';
 import { showModalActions } from 'store';
 import { SignUpForm } from './types';
 
@@ -13,6 +20,8 @@ const useSignUp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useDispatch();
+  const { push, locale, asPath, query } = useRouter();
+  const { from, prompt, code } = query;
 
   const form = useForm<SignUpForm>({
     mode: 'all',
@@ -65,6 +74,8 @@ const useSignUp = () => {
         await getCsrfToken();
         await registerUser(newFormData);
         setIsLoading(false);
+        push('/');
+        dispatch(showModalActions.setModalIsOpen(true));
         dispatch(showModalActions.setModalValue('email sent'));
       } catch (err: any) {
         setIsLoading(false);
@@ -81,6 +92,37 @@ const useSignUp = () => {
     }
   };
 
+  const handleGoogleRegister = async () => {
+    try {
+      const response = await getGoogleUrl(locale as string, 'register');
+      response.status === 200 && push(response.data.url);
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
+  const handleGoogleAuth = async () => {
+    try {
+      dispatch(showModalActions.setModalIsOpen(true));
+      await googleCallBack(asPath, locale as string, 'register');
+      dispatch(showModalActions.setModalIsOpen(false));
+      push('/');
+    } catch (error) {
+      dispatch(showModalActions.setModalValue('register'));
+      setError('email', { message: t('unique.email')! });
+      console.log(error);
+    }
+  };
+
+  useQuery({
+    queryKey: ['google callback', asPath],
+    queryFn: handleGoogleAuth,
+    enabled: !!from && !!code && !!prompt,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    retry: 0,
+  });
+
   return {
     t,
     form,
@@ -94,6 +136,7 @@ const useSignUp = () => {
     showConfirmPassword,
     isLoading,
     handleRegister,
+    handleGoogleRegister,
   };
 };
 
