@@ -3,7 +3,7 @@ import { PropsTypes } from './types';
 const LandingMovie: React.FC<PropsTypes> = (props) => {
   return (
     <div className={`h-screen relative ${props.wrapperClass}`}>
-      <div className='bg-movies-gradient w-full h-full absolute z-[2] -mt-1' />
+      <div className='bg-movies-gradient w-full h-full absolute z-[2]' />
       <div
         className={`absolute h-full w-screen z-[1] bg-no-repeat bg-cover bg-center ${props.image}`}
       />
