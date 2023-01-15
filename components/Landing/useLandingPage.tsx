@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { showModalActions } from 'store';
 import { useSelector } from 'react-redux';
 import { ModalForm } from 'types';
+import { useRouter } from 'next/router';
 
 const useLandingPage = () => {
   const modalForm = useSelector(
@@ -10,20 +11,27 @@ const useLandingPage = () => {
   );
 
   const dispatch = useDispatch();
+  const { query, replace, push } = useRouter();
+  const { type } = query;
+
   const { t } = useTranslation('common');
 
   const closeModalHandler = () => {
+    replace('/');
     dispatch(showModalActions.setModalIsOpen(false));
+    dispatch(showModalActions.setModalValue(''));
   };
 
   const onSignUpHandler = () => {
+    push('?type=register');
     dispatch(showModalActions.setModalIsOpen(true));
-    dispatch(showModalActions.setModalValue('signUp'));
+    dispatch(showModalActions.setModalValue(''));
   };
 
   const onLoginHandler = () => {
-    dispatch(showModalActions.setModalIsOpen(true));
-    dispatch(showModalActions.setModalValue('login'));
+    push('?type=login');
+    dispatch(showModalActions.setModalIsOpen(false));
+    dispatch(showModalActions.setModalValue(''));
   };
 
   const onForgotPasswordHandler = () => {
@@ -35,6 +43,7 @@ const useLandingPage = () => {
     t,
     closeModalHandler,
     modalForm,
+    type,
     onSignUpHandler,
     onLoginHandler,
     onForgotPasswordHandler,
