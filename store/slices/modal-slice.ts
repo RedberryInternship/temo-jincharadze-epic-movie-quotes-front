@@ -1,4 +1,4 @@
-import { createSlice, CreateSliceOptions } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { ModalForm } from 'types';
 
 const initialState: ModalForm = {
