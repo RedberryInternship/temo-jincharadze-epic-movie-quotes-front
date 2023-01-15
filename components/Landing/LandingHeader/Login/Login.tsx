@@ -1,11 +1,13 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { Button, Google, Input, Message } from 'components';
+import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
 import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const Login: React.FC<LoginProps> = (props) => {
-  const { t, form, register, handleLogin, errors } = useLogin();
+  const { t, form, register, handleLogin, errors, handleGoogleLogin } =
+    useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -65,12 +67,13 @@ const Login: React.FC<LoginProps> = (props) => {
                 containerClass='flex items-center h-4'
               />
 
-              <div
+              <Link
+                href='/'
                 className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
                 onClick={props.onForgotPassword}
               >
                 {t('logIn.forgotPassword')}
-              </div>
+              </Link>
             </div>
 
             <Button
@@ -81,7 +84,10 @@ const Login: React.FC<LoginProps> = (props) => {
             </Button>
           </form>
         </FormProvider>
-        <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
+        <Button
+          className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'
+          onClick={handleGoogleLogin}
+        >
           <div className='flex items-center justify-center'>
             <Google />
             <span className='ml-2'>{t('logIn.googleBtn')}</span>

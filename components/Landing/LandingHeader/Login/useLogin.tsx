@@ -1,8 +1,17 @@
 import { useTranslation } from 'next-i18next';
 import { useForm, useWatch } from 'react-hook-form';
-import { getCsrfToken, loginUser } from 'services';
+import {
+  getCsrfToken,
+  getGoogleUrl,
+  googleCallBack,
+  loginUser,
+} from 'services';
 import { deleteCookie, setCookie } from 'cookies-next';
 import { LoginForm } from './types';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { useQuery } from 'react-query';
+import { showModalActions } from 'store';
 
 const useLogin = () => {
   const form = useForm<LoginForm>({
@@ -10,6 +19,10 @@ const useLogin = () => {
     defaultValues: { login: '', password: '', remember: '' },
   });
   const { t } = useTranslation('forms');
+
+  const dispatch = useDispatch();
+  const { query, push, asPath, locale } = useRouter();
+  const { from, prompt, code } = query;
 
   const {
     control,
@@ -50,7 +63,35 @@ const useLogin = () => {
     }
   };
 
-  return { t, form, register, handleLogin, errors };
+  const handleGoogleLogin = async () => {
+    try {
+      const response = await getGoogleUrl(locale as string, 'login');
+      response.status === 200 && push(response.data.url);
+    } catch (err: any) {}
+  };
+
+  const handleGoogleAuth = async () => {
+    try {
+      dispatch(showModalActions.setModalIsOpen(true));
+      await googleCallBack(asPath, locale as string, 'login');
+      dispatch(showModalActions.setModalIsOpen(false));
+      push('/');
+    } catch (error) {
+      dispatch(showModalActions.setModalValue('login'));
+      setError('login', { message: t('unique.email')! });
+    }
+  };
+
+  useQuery({
+    queryKey: ['google callback', asPath],
+    queryFn: handleGoogleAuth,
+    enabled: !!from && !!code && !!prompt,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    retry: 0,
+  });
+
+  return { t, form, register, handleLogin, errors, handleGoogleLogin };
 };
 
 export default useLogin;
