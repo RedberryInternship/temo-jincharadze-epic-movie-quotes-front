@@ -42,7 +42,8 @@ const useForgotPassword = () => {
         dispatch(showModalActions.setModalValue('password reset sent'));
       } catch (err: any) {
         setIsLoading(false);
-        err.response.data.errors.email &&
+        console.log(err);
+        err.response.data.errors?.email &&
           setError('email', {
             message: t('exists.email')!,
           });
