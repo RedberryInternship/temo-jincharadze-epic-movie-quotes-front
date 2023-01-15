@@ -5,3 +5,5 @@ export { default as getCsrfToken } from './getCsrfToken';
 export { default as checkPasswordResetEmail } from './passwordReset';
 export { default as passwordVerify } from './passwordVerify';
 export { default as updatePassword } from './updatePassword';
+export { default as getGoogleUrl } from './getGoogleUrl';
+export { default as googleCallBack } from './googleCallBack';
