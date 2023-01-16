@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { showModalActions } from 'store';
-import { useSelector } from 'react-redux';
 import { ModalForm } from 'types';
 import { useRouter } from 'next/router';
 
