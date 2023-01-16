@@ -25,6 +25,14 @@ const useForgotPassword = () => {
 
   useWatch({ control: control, name: 'email' });
 
+  const emailOptions = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
+      message: t('errors.emailPattern'),
+    },
+  };
+
   const checkEmailHandler = async (data: { email: string }) => {
     const newFormData = {
       ...data,
@@ -58,6 +66,7 @@ const useForgotPassword = () => {
     checkEmailHandler,
     isLoading,
     handleSubmit,
+    emailOptions,
   };
 };
 

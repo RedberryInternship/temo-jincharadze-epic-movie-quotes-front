@@ -18,6 +18,7 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
     checkEmailHandler,
     isLoading,
     handleSubmit,
+    emailOptions,
   } = useForgotPassword();
 
   return (
@@ -34,13 +35,7 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(checkEmailHandler)}>
             <Input
-              register={register('email', {
-                required: { value: true, message: t('errors.required') },
-                pattern: {
-                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
-                  message: t('errors.emailPattern'),
-                },
-              })}
+              register={register('email', emailOptions)}
               containerClass='mt-8'
               label={t('forgotPassword.email')}
               type='email'

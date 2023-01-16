@@ -6,7 +6,6 @@ import { SignUpProps } from './types';
 const SignUp: React.FC<SignUpProps> = (props) => {
   const {
     t,
-    getValues,
     register,
     showPassword,
     showPasswordhandler,
@@ -17,6 +16,10 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     handleRegister,
     handleSubmit,
     handleGoogleRegister,
+    usernameOptions,
+    emailOptions,
+    passwordOptions,
+    confirmPasswordOptions,
     formState: { errors },
   } = useSignUp();
 
@@ -32,15 +35,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(handleRegister)}>
             <Input
-              register={register('username', {
-                required: { value: true, message: t('errors.required') },
-                minLength: { value: 3, message: t('errors.min') },
-                maxLength: { value: 15, message: t('errors.max') },
-                pattern: {
-                  value: /^[a-z0-9]*$/,
-                  message: t('errors.usernamePattern'),
-                },
-              })}
+              register={register('username', usernameOptions)}
               label={t('signUp.username')}
               type='text'
               name='username'
@@ -54,13 +49,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               />
             </div>
             <Input
-              register={register('email', {
-                required: { value: true, message: t('errors.required') },
-                pattern: {
-                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
-                  message: t('errors.emailPattern'),
-                },
-              })}
+              register={register('email', emailOptions)}
               label={t('signUp.email')}
               type='email'
               name='email'
@@ -78,15 +67,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showPassword}
               hasEye={true}
-              register={register('password', {
-                required: { value: true, message: t('errors.required') },
-                minLength: { value: 8, message: t('errors.minPassword') },
-                maxLength: { value: 15, message: t('errors.max') },
-                pattern: {
-                  value: /^[a-z0-9]*$/,
-                  message: t('errors.passwordPattern'),
-                },
-              })}
+              register={register('password', passwordOptions)}
               label={t('signUp.password')}
               type={showPassword ? 'text' : 'password'}
               name='password'
@@ -105,9 +86,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showConfirmPassword}
               hasEye={true}
-              register={register('confirm_password', {
-                validate: (value) => value === getValues('password'),
-              })}
+              register={register('confirm_password', confirmPasswordOptions)}
               label={t('signUp.confirmPassword')}
               type={showConfirmPassword ? 'text' : 'password'}
               onPasswordShow={showConfirmPasswordhandler}

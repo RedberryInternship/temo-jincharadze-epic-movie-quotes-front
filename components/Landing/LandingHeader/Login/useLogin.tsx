@@ -37,6 +37,14 @@ const useLogin = () => {
     name: ['login', 'password', 'remember'],
   });
 
+  const loginOptions = {
+    required: { value: true, message: t('errors.required') },
+  };
+
+  const passwordOptions = {
+    required: { value: true, message: t('errors.required') },
+  };
+
   const handleLogin = async (data: LoginForm) => {
     const newFormData = {
       ...data,
@@ -98,6 +106,8 @@ const useLogin = () => {
     errors,
     handleGoogleLogin,
     handleSubmit,
+    loginOptions,
+    passwordOptions,
   };
 };
 

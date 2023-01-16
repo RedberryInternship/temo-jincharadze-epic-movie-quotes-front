@@ -40,6 +40,20 @@ const useCreatePassword = () => {
     name: ['password', 'confirm_password'],
   });
 
+  const passwordOptions = {
+    required: { value: true, message: t('errors.required') },
+    minLength: { value: 8, message: t('errors.minPassword') },
+    maxLength: { value: 15, message: t('errors.max') },
+    pattern: {
+      value: /^[a-z0-9]*$/,
+      message: t('errors.passwordPattern'),
+    },
+  };
+
+  const confirmPasswordOptions = {
+    validate: (value: string) => value === getValues('password'),
+  };
+
   const showPasswordhandler = () => {
     setShowPassword((prev) => !prev);
   };
@@ -91,6 +105,8 @@ const useCreatePassword = () => {
     resetPasswordHandler,
     getFieldState,
     backToLogin,
+    passwordOptions,
+    confirmPasswordOptions,
   };
 };
 

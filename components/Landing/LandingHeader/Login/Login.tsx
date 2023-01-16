@@ -14,6 +14,8 @@ const Login: React.FC<LoginProps> = (props) => {
     errors,
     handleGoogleLogin,
     handleSubmit,
+    loginOptions,
+    passwordOptions,
   } = useLogin();
   return (
     <div className='w-[22.5rem]'>
@@ -29,9 +31,7 @@ const Login: React.FC<LoginProps> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(handleLogin)}>
             <Input
-              register={register('login', {
-                required: { value: true, message: t('errors.required') },
-              })}
+              register={register('login', loginOptions)}
               containerClass='mt-8'
               label={t('logIn.email')}
               type='text'
@@ -46,9 +46,7 @@ const Login: React.FC<LoginProps> = (props) => {
               />
             </div>
             <Input
-              register={register('password', {
-                required: { value: true, message: t('errors.required') },
-              })}
+              register={register('password', passwordOptions)}
               containerClass='mt-2'
               label={t('logIn.password')}
               type='password'

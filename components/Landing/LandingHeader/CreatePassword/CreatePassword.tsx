@@ -18,7 +18,8 @@ const CreatePassword = () => {
     showConfirmPassword,
     showPasswordhandler,
     showConfirmPasswordhandler,
-    getValues,
+    passwordOptions,
+    confirmPasswordOptions,
     isLoading,
     resetPasswordHandler,
     backToLogin,
@@ -41,15 +42,7 @@ const CreatePassword = () => {
             <Input
               showPassword={showPassword}
               hasEye={true}
-              register={register('password', {
-                required: { value: true, message: t('errors.required') },
-                minLength: { value: 8, message: t('errors.minPassword') },
-                maxLength: { value: 15, message: t('errors.max') },
-                pattern: {
-                  value: /^[a-z0-9]*$/,
-                  message: t('errors.passwordPattern'),
-                },
-              })}
+              register={register('password', passwordOptions)}
               label={t('signUp.password')}
               type={showPassword ? 'text' : 'password'}
               name='password'
@@ -68,9 +61,7 @@ const CreatePassword = () => {
             <Input
               showPassword={showConfirmPassword}
               hasEye={true}
-              register={register('confirm_password', {
-                validate: (value) => value === getValues('password'),
-              })}
+              register={register('confirm_password', confirmPasswordOptions)}
               label={t('signUp.confirmPassword')}
               type={showConfirmPassword ? 'text' : 'password'}
               onPasswordShow={showConfirmPasswordhandler}
