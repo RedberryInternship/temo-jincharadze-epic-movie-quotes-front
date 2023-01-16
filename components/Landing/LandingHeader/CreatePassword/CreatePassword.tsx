@@ -22,6 +22,7 @@ const CreatePassword = () => {
     isLoading,
     resetPasswordHandler,
     backToLogin,
+    handleSubmit,
   } = useCreatePassword();
 
   return (
@@ -36,7 +37,7 @@ const CreatePassword = () => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(resetPasswordHandler)}>
             <Input
               showPassword={showPassword}
               hasEye={true}
@@ -86,7 +87,7 @@ const CreatePassword = () => {
             </div>
             <Button
               disabled={isLoading}
-              onClick={resetPasswordHandler}
+              type='submit'
               className={`${
                 isLoading
                   ? 'bg-custom-rose-500'

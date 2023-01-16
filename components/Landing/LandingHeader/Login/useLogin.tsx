@@ -28,38 +28,37 @@ const useLogin = () => {
     control,
     register,
     setError,
-    formState: { isValid, errors },
+    handleSubmit,
+    formState: { errors },
   } = form;
 
-  const [login, password, remember] = useWatch({
+  useWatch({
     control: control,
     name: ['login', 'password', 'remember'],
   });
 
-  const data = { login, password, remember };
+  const handleLogin = async (data: LoginForm) => {
+    const newFormData = {
+      ...data,
+    };
+    try {
+      await getCsrfToken();
+      const response = await loginUser(newFormData);
+      response.status === 200 && setCookie('user', response.data.user.id);
+    } catch (error: any) {
+      error.response.data.message === 'Email not found!' &&
+        setError('login', { message: t('exists.email')! });
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isValid) {
-      try {
-        await getCsrfToken();
-        const response = await loginUser(data);
-        response.status === 200 && setCookie('user', response.data.user.id);
-      } catch (error: any) {
-        error.response.data.message === 'Email not found!' &&
-          setError('login', { message: t('exists.email')! });
+      error.response.data.message === 'Username not found!' &&
+        setError('login', { message: t('exists.name')! });
 
-        error.response.data.message === 'Username not found!' &&
-          setError('login', { message: t('exists.name')! });
+      error.response.data.message === 'Your email is not verified.' &&
+        setError('login', { message: t('verify.email')! });
 
-        error.response.data.message === 'Your email is not verified.' &&
-          setError('login', { message: t('verify.email')! });
+      error.response.data.message === 'Invalid Credentials' &&
+        setError('password', { message: t('password')! });
 
-        error.response.data.message === 'Invalid Credentials' &&
-          setError('password', { message: t('password')! });
-
-        deleteCookie('XSRF-TOKEN');
-      }
+      deleteCookie('XSRF-TOKEN');
     }
   };
 
@@ -91,7 +90,15 @@ const useLogin = () => {
     retry: 0,
   });
 
-  return { t, form, register, handleLogin, errors, handleGoogleLogin };
+  return {
+    t,
+    form,
+    register,
+    handleLogin,
+    errors,
+    handleGoogleLogin,
+    handleSubmit,
+  };
 };
 
 export default useLogin;

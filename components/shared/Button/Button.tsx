@@ -6,6 +6,7 @@ const Button: React.FC<ButtonProps> = (props) => {
       className={`font-normal text-base text-white ${props.className}`}
       onClick={props.onClick}
       disabled={props.disabled}
+      type={props.type}
     >
       {props.children}
     </button>

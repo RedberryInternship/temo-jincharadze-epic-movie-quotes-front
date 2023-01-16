@@ -6,8 +6,15 @@ import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const Login: React.FC<LoginProps> = (props) => {
-  const { t, form, register, handleLogin, errors, handleGoogleLogin } =
-    useLogin();
+  const {
+    t,
+    form,
+    register,
+    handleLogin,
+    errors,
+    handleGoogleLogin,
+    handleSubmit,
+  } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -20,7 +27,7 @@ const Login: React.FC<LoginProps> = (props) => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(handleLogin)}>
             <Input
               register={register('login', {
                 required: { value: true, message: t('errors.required') },
@@ -77,8 +84,8 @@ const Login: React.FC<LoginProps> = (props) => {
             </div>
 
             <Button
+              type='submit'
               className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'
-              onClick={handleLogin}
             >
               {t('logIn.btn')}
             </Button>

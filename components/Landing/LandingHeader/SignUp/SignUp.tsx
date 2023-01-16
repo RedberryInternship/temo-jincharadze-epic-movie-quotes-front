@@ -15,6 +15,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     showConfirmPasswordhandler,
     showConfirmPassword,
     handleRegister,
+    handleSubmit,
     handleGoogleRegister,
     formState: { errors },
   } = useSignUp();
@@ -29,7 +30,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(handleRegister)}>
             <Input
               register={register('username', {
                 required: { value: true, message: t('errors.required') },
@@ -128,7 +129,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
                   ? 'bg-custom-rose-500'
                   : 'bg-custom-red-600 hover:bg-custom-red-700'
               }  w-full text-white text-center h-[2.4rem] mt-1 rounded`}
-              onClick={handleRegister}
+              type='submit'
               disabled={isLoading}
             >
               {t('signUp.getStarted')}

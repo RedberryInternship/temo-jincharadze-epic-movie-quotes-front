@@ -17,45 +17,48 @@ const useForgotPassword = () => {
   const {
     control,
     register,
-    getValues,
     setError,
-    formState: { errors, isValid },
+    handleSubmit,
+    formState: { errors },
   } = form;
   const { t, i18n } = useTranslation('forms');
 
-  useWatch({ control: control });
+  useWatch({ control: control, name: 'email' });
 
-  const checkEmailHandler = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isValid) {
-      const values = getValues();
+  const checkEmailHandler = async (data: { email: string }) => {
+    const newFormData = {
+      ...data,
+      lang: i18n.language,
+    };
+    try {
+      setIsLoading(true);
+      await getCsrfToken();
+      await checkPasswordResetEmail(newFormData);
+      setIsLoading(false);
+      dispatch(showModalActions.setModalValue('password reset sent'));
+    } catch (err: any) {
+      setIsLoading(false);
+      err.response.data.errors?.email &&
+        setError('email', {
+          message: t('exists.email')!,
+        });
 
-      const newFormData = {
-        email: values.email,
-        lang: i18n.language,
-      };
-      try {
-        setIsLoading(true);
-        await getCsrfToken();
-        await checkPasswordResetEmail(newFormData);
-        setIsLoading(false);
-        dispatch(showModalActions.setModalValue('password reset sent'));
-      } catch (err: any) {
-        setIsLoading(false);
-        err.response.data.errors?.email &&
-          setError('email', {
-            message: t('exists.email')!,
-          });
-
-        err.response.data.message === 'Your account email is not verified' &&
-          setError('email', {
-            message: t('verify.email')!,
-          });
-      }
+      err.response.data.message === 'Your account email is not verified' &&
+        setError('email', {
+          message: t('verify.email')!,
+        });
     }
   };
 
-  return { t, register, errors, form, checkEmailHandler, isLoading };
+  return {
+    t,
+    register,
+    errors,
+    form,
+    checkEmailHandler,
+    isLoading,
+    handleSubmit,
+  };
 };
 
 export default useForgotPassword;

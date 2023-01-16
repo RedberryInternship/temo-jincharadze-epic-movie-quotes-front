@@ -40,6 +40,7 @@ const useSignUp = () => {
     register,
     getValues,
     setError,
+    handleSubmit,
     getFieldState,
   } = form;
 
@@ -56,39 +57,34 @@ const useSignUp = () => {
     setShowConfirmPassword((prev) => !prev);
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleRegister = async (data: SignUpForm) => {
+    const newFormData = {
+      name: data.username,
+      email: data.email,
+      password: data.password,
+      confirm_password: data.confirm_password,
+      lang: i18n.language,
+    };
 
-    if (isValid) {
-      const values = getValues();
-      const newFormData = {
-        name: values.username,
-        email: values.email,
-        password: values.password,
-        confirm_password: values.confirm_password,
-        lang: i18n.language,
-      };
+    try {
+      setIsLoading(true);
+      await getCsrfToken();
+      await registerUser(newFormData);
+      setIsLoading(false);
+      push('/');
+      dispatch(showModalActions.setModalIsOpen(true));
+      dispatch(showModalActions.setModalValue('email sent'));
+    } catch (err: any) {
+      setIsLoading(false);
+      err.response.data.errors.name &&
+        setError('username', {
+          message: t('unique.name')!,
+        });
 
-      try {
-        setIsLoading(true);
-        await getCsrfToken();
-        await registerUser(newFormData);
-        setIsLoading(false);
-        push('/');
-        dispatch(showModalActions.setModalIsOpen(true));
-        dispatch(showModalActions.setModalValue('email sent'));
-      } catch (err: any) {
-        setIsLoading(false);
-        err.response.data.errors.name &&
-          setError('username', {
-            message: t('unique.name')!,
-          });
-
-        err.response.data.errors.email &&
-          setError('email', {
-            message: t('unique.email')!,
-          });
-      }
+      err.response.data.errors.email &&
+        setError('email', {
+          message: t('unique.email')!,
+        });
     }
   };
 
@@ -135,6 +131,7 @@ const useSignUp = () => {
     showConfirmPasswordhandler,
     showConfirmPassword,
     isLoading,
+    handleSubmit,
     handleRegister,
     handleGoogleRegister,
   };
