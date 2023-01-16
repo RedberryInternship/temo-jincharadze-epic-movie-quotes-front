@@ -124,9 +124,7 @@ const useSignUp = () => {
     try {
       const response = await getGoogleUrl(locale as string, 'register');
       response.status === 200 && push(response.data.url);
-    } catch (err: any) {
-      console.log(err);
-    }
+    } catch (err: any) {}
   };
 
   const handleGoogleAuth = async () => {
@@ -138,7 +136,6 @@ const useSignUp = () => {
     } catch (error) {
       dispatch(showModalActions.setModalValue('register'));
       setError('email', { message: t('unique.email')! });
-      console.log(error);
     }
   };
 
