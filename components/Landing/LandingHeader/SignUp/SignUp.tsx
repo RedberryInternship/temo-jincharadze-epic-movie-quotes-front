@@ -6,7 +6,6 @@ import { SignUpProps } from './types';
 const SignUp: React.FC<SignUpProps> = (props) => {
   const {
     t,
-    getValues,
     register,
     showPassword,
     showPasswordhandler,
@@ -15,6 +14,12 @@ const SignUp: React.FC<SignUpProps> = (props) => {
     showConfirmPasswordhandler,
     showConfirmPassword,
     handleRegister,
+    handleSubmit,
+    handleGoogleRegister,
+    usernameOptions,
+    emailOptions,
+    passwordOptions,
+    confirmPasswordOptions,
     formState: { errors },
   } = useSignUp();
 
@@ -28,17 +33,9 @@ const SignUp: React.FC<SignUpProps> = (props) => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(handleRegister)}>
             <Input
-              register={register('username', {
-                required: { value: true, message: t('errors.required') },
-                minLength: { value: 3, message: t('errors.min') },
-                maxLength: { value: 15, message: t('errors.max') },
-                pattern: {
-                  value: /^[a-z0-9]*$/,
-                  message: t('errors.usernamePattern'),
-                },
-              })}
+              register={register('username', usernameOptions)}
               label={t('signUp.username')}
               type='text'
               name='username'
@@ -52,13 +49,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               />
             </div>
             <Input
-              register={register('email', {
-                required: { value: true, message: t('errors.required') },
-                pattern: {
-                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
-                  message: t('errors.emailPattern'),
-                },
-              })}
+              register={register('email', emailOptions)}
               label={t('signUp.email')}
               type='email'
               name='email'
@@ -76,15 +67,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showPassword}
               hasEye={true}
-              register={register('password', {
-                required: { value: true, message: t('errors.required') },
-                minLength: { value: 8, message: t('errors.minPassword') },
-                maxLength: { value: 15, message: t('errors.max') },
-                pattern: {
-                  value: /^[a-z0-9]*$/,
-                  message: t('errors.passwordPattern'),
-                },
-              })}
+              register={register('password', passwordOptions)}
               label={t('signUp.password')}
               type={showPassword ? 'text' : 'password'}
               name='password'
@@ -103,9 +86,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showConfirmPassword}
               hasEye={true}
-              register={register('confirm_password', {
-                validate: (value) => value === getValues('password'),
-              })}
+              register={register('confirm_password', confirmPasswordOptions)}
               label={t('signUp.confirmPassword')}
               type={showConfirmPassword ? 'text' : 'password'}
               onPasswordShow={showConfirmPasswordhandler}
@@ -127,7 +108,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
                   ? 'bg-custom-rose-500'
                   : 'bg-custom-red-600 hover:bg-custom-red-700'
               }  w-full text-white text-center h-[2.4rem] mt-1 rounded`}
-              onClick={handleRegister}
+              type='submit'
               disabled={isLoading}
             >
               {t('signUp.getStarted')}
@@ -135,7 +116,10 @@ const SignUp: React.FC<SignUpProps> = (props) => {
           </form>
         </FormProvider>
         <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
-          <div className='flex items-center justify-center'>
+          <div
+            className='flex items-center justify-center'
+            onClick={handleGoogleRegister}
+          >
             <Google />
             <span className='ml-2'>{t('signUp.signUpWithGoogle')}</span>
           </div>

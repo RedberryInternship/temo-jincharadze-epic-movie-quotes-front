@@ -10,8 +10,16 @@ import { FormProvider } from 'react-hook-form';
 import { ForgotPasswordTypes } from './types';
 
 const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
-  const { t, register, errors, form, checkEmailHandler, isLoading } =
-    useForgotPassword();
+  const {
+    t,
+    register,
+    errors,
+    form,
+    checkEmailHandler,
+    isLoading,
+    handleSubmit,
+    emailOptions,
+  } = useForgotPassword();
 
   return (
     <div className='w-[22.5rem]'>
@@ -25,15 +33,9 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(checkEmailHandler)}>
             <Input
-              register={register('email', {
-                required: { value: true, message: t('errors.required') },
-                pattern: {
-                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
-                  message: t('errors.emailPattern'),
-                },
-              })}
+              register={register('email', emailOptions)}
               containerClass='mt-8'
               label={t('forgotPassword.email')}
               type='email'
@@ -50,12 +52,12 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
             </div>
 
             <Button
+              type='submit'
               className={`${
                 isLoading
                   ? 'bg-custom-rose-500'
                   : 'bg-custom-red-600 hover:bg-custom-red-700'
               } w-full text-white text-center h-[2.4rem] mt-3 rounded`}
-              onClick={checkEmailHandler}
               disabled={isLoading}
             >
               {t('forgotPassword.btn')}

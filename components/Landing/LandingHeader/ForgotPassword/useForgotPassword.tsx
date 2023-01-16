@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { checkPasswordResetEmail } from 'services';
+import { checkPasswordResetEmail, getCsrfToken } from 'services';
 import { showModalActions } from 'store';
 
 const useForgotPassword = () => {
@@ -17,47 +17,57 @@ const useForgotPassword = () => {
   const {
     control,
     register,
-    getValues,
     setError,
-    formState: { errors, isValid },
+    handleSubmit,
+    formState: { errors },
   } = form;
   const { t, i18n } = useTranslation('forms');
 
-  useWatch({ control: control });
+  useWatch({ control: control, name: 'email' });
 
-  const checkEmailHandler = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isValid) {
-      const values = getValues();
+  const emailOptions = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/,
+      message: t('errors.emailPattern'),
+    },
+  };
 
-      const newFormData = {
-        email: values.email,
-        lang: i18n.language,
-      };
-      try {
-        setIsLoading(true);
-        await checkPasswordResetEmail(newFormData);
-        setIsLoading(false);
-        dispatch(showModalActions.setModalValue('password reset sent'));
-      } catch (err: any) {
-        setIsLoading(false);
-        if (err.response.data.errors.email) {
-          setError('email', {
-            message: t('exists.email')!,
-          });
-        }
-        if (
-          err.response.data.message === 'Your account email is not verified'
-        ) {
-          setError('email', {
-            message: t('verify.email')!,
-          });
-        }
-      }
+  const checkEmailHandler = async (data: { email: string }) => {
+    const newFormData = {
+      ...data,
+      lang: i18n.language,
+    };
+    try {
+      setIsLoading(true);
+      await getCsrfToken();
+      await checkPasswordResetEmail(newFormData);
+      setIsLoading(false);
+      dispatch(showModalActions.setModalValue('password reset sent'));
+    } catch (err: any) {
+      setIsLoading(false);
+      err.response.data.errors?.email &&
+        setError('email', {
+          message: t('exists.email')!,
+        });
+
+      err.response.data.message === 'Your account email is not verified' &&
+        setError('email', {
+          message: t('verify.email')!,
+        });
     }
   };
 
-  return { t, register, errors, form, checkEmailHandler, isLoading };
+  return {
+    t,
+    register,
+    errors,
+    form,
+    checkEmailHandler,
+    isLoading,
+    handleSubmit,
+    emailOptions,
+  };
 };
 
 export default useForgotPassword;

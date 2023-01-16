@@ -3,4 +3,5 @@ export type PropsTypes = {
   movie: string;
   image: string;
   width: string;
+  wrapperClass?: string;
 };

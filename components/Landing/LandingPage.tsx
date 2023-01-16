@@ -16,12 +16,14 @@ import {
   CreatePassword,
   Login,
 } from 'components';
+import Link from 'next/link';
 
 const LandingPage = () => {
   const {
     t,
     closeModalHandler,
     modalForm,
+    type,
     onSignUpHandler,
     onLoginHandler,
     onForgotPasswordHandler,
@@ -29,16 +31,42 @@ const LandingPage = () => {
 
   return (
     <>
+      {type === 'login' && (
+        <>
+          <Link
+            onClick={closeModalHandler}
+            href='/'
+            className='fixed top-0 left-0 w-full h-screen z-[5] bg-blur-bg backdrop-blur-sm'
+          />
+          <FormWrapper
+            onClose={closeModalHandler}
+            className='md:h-[40rem] md:w-[40rem]'
+          >
+            <Login
+              onSignUpClick={onSignUpHandler}
+              onForgotPassword={onForgotPasswordHandler}
+            />
+          </FormWrapper>
+        </>
+      )}
+      {type === 'register' && (
+        <>
+          <Link
+            onClick={closeModalHandler}
+            href='/'
+            className='fixed top-0 left-0 w-full h-screen z-[5] bg-blur-bg backdrop-blur-sm'
+          />
+          <FormWrapper
+            onClose={closeModalHandler}
+            className='md:h-[44rem] md:w-[37.5rem]'
+          >
+            <SignUp onLoginClick={onLoginHandler} />
+          </FormWrapper>
+        </>
+      )}
+
       {modalForm.isOpen && (
         <Modal onClose={closeModalHandler}>
-          {modalForm.value === 'signUp' && (
-            <FormWrapper
-              onClose={closeModalHandler}
-              className='md:h-[44rem] md:w-[37.5rem]'
-            >
-              <SignUp onLoginClick={onLoginHandler} />
-            </FormWrapper>
-          )}
           {modalForm.value === 'email sent' && (
             <FormWrapper
               onClose={closeModalHandler}
@@ -92,17 +120,6 @@ const LandingPage = () => {
             </FormWrapper>
           )}
 
-          {modalForm.value === 'login' && (
-            <FormWrapper
-              onClose={closeModalHandler}
-              className='md:h-[40rem] md:w-[40rem]'
-            >
-              <Login
-                onSignUpClick={onSignUpHandler}
-                onForgotPassword={onForgotPasswordHandler}
-              />
-            </FormWrapper>
-          )}
           {modalForm.value === 'forgotPassword' && (
             <FormWrapper
               onClose={closeModalHandler}
@@ -131,6 +148,7 @@ const LandingPage = () => {
         </Button>
       </div>
       <LandingMovie
+        wrapperClass='sticky top-0'
         width='max-w-[19rem] md:max-w-3xl'
         image='bg-interstellar'
         movie={t('landing.interstellarMovie.name')}
@@ -138,13 +156,13 @@ const LandingPage = () => {
       />
       <LandingMovie
         width='max-w-[17rem] md:max-w-[62rem]'
-        image='bg-royal'
+        image='bg-royal bg-fixed'
         movie={t('landing.theRoyalTenenbaums.name')}
         quote={t('landing.theRoyalTenenbaums.quote')}
       />
       <LandingMovie
         width='max-w-[18rem] md:max-w-[62rem]'
-        image='bg-lord'
+        image='bg-lord bg-fixed'
         movie={t('landing.theLordOfTheRings.name')}
         quote={t('landing.theLordOfTheRings.quote')}
       />

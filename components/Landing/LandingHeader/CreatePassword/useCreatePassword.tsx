@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import Router from 'next/router';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { updatePassword } from 'services';
+import { getCsrfToken, updatePassword } from 'services';
 import { showModalActions } from 'store';
 
 const useCreatePassword = () => {
@@ -26,11 +26,12 @@ const useCreatePassword = () => {
   const { t } = useTranslation('forms');
 
   const {
-    formState: { errors, isValid },
+    formState: { errors },
     control,
     register,
     getValues,
     setError,
+    handleSubmit,
     getFieldState,
   } = form;
 
@@ -38,6 +39,20 @@ const useCreatePassword = () => {
     control: control,
     name: ['password', 'confirm_password'],
   });
+
+  const passwordOptions = {
+    required: { value: true, message: t('errors.required') },
+    minLength: { value: 8, message: t('errors.minPassword') },
+    maxLength: { value: 15, message: t('errors.max') },
+    pattern: {
+      value: /^[a-z0-9]*$/,
+      message: t('errors.passwordPattern'),
+    },
+  };
+
+  const confirmPasswordOptions = {
+    validate: (value: string) => value === getValues('password'),
+  };
 
   const showPasswordhandler = () => {
     setShowPassword((prev) => !prev);
@@ -51,29 +66,27 @@ const useCreatePassword = () => {
     dispatch(showModalActions.setModalValue('login'));
   };
 
-  const resetPasswordHandler = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isValid) {
-      const values = getValues();
-      const newFormData = {
-        password: values.password,
-        confirm_password: values.confirm_password,
-        email: query.email,
-      };
+  const resetPasswordHandler = async (data: {
+    password: string;
+    confirm_password: string;
+  }) => {
+    const newFormData = {
+      ...data,
+      email: query.email,
+    };
 
-      try {
-        setIsLoading(true);
-        await updatePassword(newFormData);
-        setIsLoading(false);
-        dispatch(showModalActions.setModalValue('password changed'));
-      } catch (err: any) {
-        setIsLoading(false);
-        if (err.response.data.errors.name) {
-          setError('password', {
-            message: t('errors.confirmPassword')!,
-          });
-        }
-      }
+    try {
+      setIsLoading(true);
+      await getCsrfToken();
+      await updatePassword(newFormData);
+      setIsLoading(false);
+      dispatch(showModalActions.setModalValue('password changed'));
+    } catch (err: any) {
+      setIsLoading(false);
+      err.response.data.errors.name &&
+        setError('password', {
+          message: t('errors.confirmPassword')!,
+        });
     }
   };
 
@@ -88,9 +101,12 @@ const useCreatePassword = () => {
     showConfirmPasswordhandler,
     getValues,
     isLoading,
+    handleSubmit,
     resetPasswordHandler,
     getFieldState,
     backToLogin,
+    passwordOptions,
+    confirmPasswordOptions,
   };
 };
 

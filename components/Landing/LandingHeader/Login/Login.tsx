@@ -1,11 +1,22 @@
 import { ErrorMessage } from '@hookform/error-message';
 import { Button, Google, Input, Message } from 'components';
+import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
 import { LoginProps } from './types';
 import useLogin from './useLogin';
 
 const Login: React.FC<LoginProps> = (props) => {
-  const { t, form, register, handleLogin, errors } = useLogin();
+  const {
+    t,
+    form,
+    register,
+    handleLogin,
+    errors,
+    handleGoogleLogin,
+    handleSubmit,
+    loginOptions,
+    passwordOptions,
+  } = useLogin();
   return (
     <div className='w-[22.5rem]'>
       <div className='mb-8 text-center'>
@@ -18,11 +29,9 @@ const Login: React.FC<LoginProps> = (props) => {
       </div>
       <div className='w-full'>
         <FormProvider {...form}>
-          <form>
+          <form onSubmit={handleSubmit(handleLogin)}>
             <Input
-              register={register('login', {
-                required: { value: true, message: t('errors.required') },
-              })}
+              register={register('login', loginOptions)}
               containerClass='mt-8'
               label={t('logIn.email')}
               type='text'
@@ -37,9 +46,7 @@ const Login: React.FC<LoginProps> = (props) => {
               />
             </div>
             <Input
-              register={register('password', {
-                required: { value: true, message: t('errors.required') },
-              })}
+              register={register('password', passwordOptions)}
               containerClass='mt-2'
               label={t('logIn.password')}
               type='password'
@@ -65,23 +72,27 @@ const Login: React.FC<LoginProps> = (props) => {
                 containerClass='flex items-center h-4'
               />
 
-              <div
+              <Link
+                href='/'
                 className='text-custom-blue-600 cursor-pointer  underline text-base font-normal'
                 onClick={props.onForgotPassword}
               >
                 {t('logIn.forgotPassword')}
-              </div>
+              </Link>
             </div>
 
             <Button
+              type='submit'
               className='bg-custom-red-600 hover:bg-custom-red-700 w-full text-white text-center h-[2.4rem] mt-10 rounded'
-              onClick={handleLogin}
             >
               {t('logIn.btn')}
             </Button>
           </form>
         </FormProvider>
-        <Button className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
+        <Button
+          className='w-full mt-4 border h-[2.4rem] rounded hover:bg-white hover:text-black'
+          onClick={handleGoogleLogin}
+        >
           <div className='flex items-center justify-center'>
             <Google />
             <span className='ml-2'>{t('logIn.googleBtn')}</span>

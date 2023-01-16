@@ -3,4 +3,5 @@ export type ButtonProps = {
   onClick?: MouseEvent<HTMLButtonElement>;
   children: React.ReactNode;
   disabled?: boolean;
+  type?: 'submit' | 'button';
 };
