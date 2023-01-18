@@ -6,7 +6,10 @@ module.exports = {
   theme: {
     screens: {
       md: '850px',
+      mg: '950px',
+      ml: '1100px',
       lg: '1250px',
+      xl: '1700px',
     },
     extend: {
       fontFamily: {
@@ -37,6 +40,10 @@ module.exports = {
         'custom-green-700': '#198754',
         'custom-red-700': '#CC0E10',
         'custom-rose-500': '#EC4C57',
+        'header-rgba': 'rgba(34, 32, 48)',
+        'dashboard-color': '#181623',
+        'panel-color': 'rgba(17, 16, 26, 1)',
+        'search-border': 'rgba(239, 239, 239, 0.3)',
       },
       backgroundImage: {
         'starting-gradient':
