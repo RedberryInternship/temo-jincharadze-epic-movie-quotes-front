@@ -5,7 +5,7 @@ const initialState: ModalForm = {
   modal: { isOpen: false, value: '' },
 };
 
-const showModalSlice = createSlice({
+export const showModalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
@@ -19,5 +19,3 @@ const showModalSlice = createSlice({
 });
 
 export const showModalActions = showModalSlice.actions;
-
-export default showModalSlice;
