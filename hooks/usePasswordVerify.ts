@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { passwordVerify, verifyEmail } from 'services';
+import { passwordVerify } from 'services';
 import Router from 'next/router';
 import { showModalActions } from 'store';
-import { useTranslation } from 'next-i18next';
 
 const useVerify = () => {
   const dispatch = useDispatch();
