@@ -8,12 +8,12 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === GUEST_ROUTES && isAuth) {
-    response = NextResponse.rewrite(new URL('/movie-list', request.url));
+    response = NextResponse.redirect(new URL('/movie-list', request.url));
   }
 
   for (const auth of AUTH_ROUTES) {
     if (pathname.includes(auth) && !isAuth) {
-      response = NextResponse.rewrite(new URL('/', request.url));
+      response = NextResponse.redirect(new URL('/', request.url));
     }
   }
 
