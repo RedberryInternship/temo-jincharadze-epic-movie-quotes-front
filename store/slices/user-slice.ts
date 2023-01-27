@@ -6,15 +6,8 @@ const initialState: User = {
     id: '',
     name: '',
     image: '',
+    emails: [],
   },
-  emails: [
-    {
-      email: '',
-      primary: '',
-      id: '',
-      user_id: '',
-    },
-  ],
 };
 
 export const userSlice = createSlice({
@@ -23,7 +16,6 @@ export const userSlice = createSlice({
   reducers: {
     setUser(state, action) {
       state.user = action.payload.user;
-      state.emails = action.payload.emails;
     },
   },
 });
