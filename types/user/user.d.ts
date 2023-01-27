@@ -3,13 +3,6 @@ export type User = {
     id: string;
     name: string;
     image: string;
+    emails: [];
   };
-  emails: [
-    {
-      email: string;
-      primary: string;
-      id: string;
-      user_id: string;
-    }
-  ];
 };

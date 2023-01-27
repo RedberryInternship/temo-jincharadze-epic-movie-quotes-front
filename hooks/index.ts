@@ -2,3 +2,8 @@ export { default as useVerify } from './useVerify';
 export { default as useNotificationLang } from './useNotificationLang';
 export { default as usePasswordVerify } from './usePasswordVerify';
 export { default as useGetUserData } from './useGetUserData';
+export { default as useProfile } from './useProfile';
+export { default as useGetAllTags } from './useGetAllTags';
+export { default as useMovie } from './useMovie';
+export { default as useLike } from './useLike';
+export { default as useQuoteDelete } from './useQuoteDelete';
