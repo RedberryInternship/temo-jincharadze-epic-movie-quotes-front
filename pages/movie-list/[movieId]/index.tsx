@@ -1,14 +1,14 @@
-import { AllMovies } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
+import { UserMovie } from 'components';
 
 const Index = () => {
-  return <AllMovies />;
+  return <UserMovie />;
 };
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, [
