@@ -7,7 +7,7 @@ import { deleteCookie, hasCookie } from 'cookies-next';
 
 const useGetUserData = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const { pathname, replace } = useRouter();
+  const { pathname, replace, query } = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,12 +18,10 @@ const useGetUserData = () => {
           dispatch(
             userActions.setUser({
               user: response.data.user,
-              emails: response.data.emails,
             })
           );
       } catch (err) {
         if (pathname !== '/') {
-          deleteCookie('XSRF-TOKEN');
           replace('/');
         }
       }
@@ -33,12 +31,11 @@ const useGetUserData = () => {
       getUserData();
     } else {
       deleteCookie('isAuth');
-      deleteCookie('XSRF-TOKEN');
       replace('/');
     }
   }, [dispatch, pathname, replace]);
 
-  return { isFocused, setIsFocused };
+  return { isFocused, setIsFocused, query };
 };
 
 export default useGetUserData;
