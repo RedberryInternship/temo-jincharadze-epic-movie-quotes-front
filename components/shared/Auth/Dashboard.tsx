@@ -1,7 +1,7 @@
 import { useDashboard, Navigation, Panel } from 'components';
 
 const Dashboard = (props: { children: React.ReactNode }) => {
-  const { showPanel } = useDashboard();
+  const { showPanel, closeModals } = useDashboard();
   return (
     <div>
       <Navigation />
@@ -12,8 +12,11 @@ const Dashboard = (props: { children: React.ReactNode }) => {
           </div>
         )}
       </div>
-      <div className='flex px-10 bg-dashboard-color mt-[5.4rem]'>
-        <div className='w-96 h-screen hidden md:flex'>
+      <div className='flex bg-dashboard-color mt-[5.4rem]'>
+        <div
+          className='w-96 h-screen hidden md:flex pl-10'
+          onClick={closeModals}
+        >
           <div className='hidden md:flex fixed'>
             <Panel />
           </div>
