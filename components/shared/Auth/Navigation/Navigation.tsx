@@ -1,13 +1,13 @@
-import { LanguageSelector, Menu, Ring, Button } from 'components';
-import { useDispatch } from 'react-redux';
-import { showPanelActions } from 'store';
+import {
+  LanguageSelector,
+  Menu,
+  Ring,
+  Button,
+  useNavigation,
+} from 'components';
 
 const Navigation = () => {
-  const dispatch = useDispatch();
-
-  const panelToggleHandler = () => {
-    dispatch(showPanelActions.setPanel(true));
-  };
+  const { panelToggleHandler, logoutHandler, t } = useNavigation();
 
   return (
     <div className='fixed z-[5] top-0'>
@@ -31,8 +31,13 @@ const Navigation = () => {
               <LanguageSelector wrapper='pr-0' dropdown='right-5' />
             </div>
             <div className='text-center ml-10 hidden md:flex'>
-              <Button className='w-24 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
-                <div className='flex items-center justify-center'>Log out</div>
+              <Button
+                className='w-24 border h-[2.4rem] rounded hover:bg-white hover:text-black'
+                onClick={logoutHandler}
+              >
+                <div className='flex items-center justify-center'>
+                  {t('logout')}
+                </div>
               </Button>
             </div>
           </div>
