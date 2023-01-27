@@ -3,7 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Panel = () => {
-  const { name, image, asPath, avatarLoader, panelCloseHandler } = usePanel();
+  const {
+    name,
+    image,
+    avatarLoader,
+    panelCloseHandler,
+    pathname,
+    t,
+    logoutHandler,
+  } = usePanel();
   return (
     <>
       <div
@@ -37,7 +45,7 @@ const Panel = () => {
                 <div className='ml-5'>
                   <h2 className='text-xl font-normal text-white'>{name}</h2>
                   <p className='text-custom-gray-300 text-sm'>
-                    Edit your profile
+                    {t('movies.editProfile')}
                   </p>
                 </div>
               </div>
@@ -46,20 +54,33 @@ const Panel = () => {
               href=''
               className='text-xl font-normal text-white mt-10 flex items-center'
             >
-              <Home fill={asPath === '/news-feed' ? '#E31221' : '#fff'} />
-              <p className='ml-8 hover:text-custom-red-700'>News feed</p>
+              <Home
+                fill={pathname.startsWith('/news-feed') ? '#E31221' : '#fff'}
+              />
+              <p className='ml-8 hover:text-custom-red-700'>
+                {t('movies.newsFeed')}
+              </p>
             </Link>
             <Link
               href='/movie-list'
               className='text-xl font-normal text-white flex mt-10 items-center'
             >
-              <Movie fill={asPath === '/movie-list' ? '#E31221' : '#fff'} />
-              <p className='ml-8 hover:text-custom-red-700'>List of movies</p>
+              <Movie
+                fill={pathname.startsWith('/movie-list') ? '#E31221' : '#fff'}
+              />
+              <p className='ml-8 hover:text-custom-red-700'>
+                {t('movies.listOfMovies')}
+              </p>
             </Link>
           </div>
           <div className='text-center mt-10 md:hidden'>
-            <Button className='w-24 border h-[2.4rem] rounded hover:bg-white hover:text-black'>
-              <div className='flex items-center justify-center'>Log out</div>
+            <Button
+              className='w-24 border h-[2.4rem] rounded hover:bg-white hover:text-black'
+              onClick={logoutHandler}
+            >
+              <div className='flex items-center justify-center'>
+                {t('logout')}
+              </div>
             </Button>
           </div>
         </div>
