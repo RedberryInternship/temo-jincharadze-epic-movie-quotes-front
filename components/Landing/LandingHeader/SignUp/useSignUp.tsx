@@ -1,3 +1,4 @@
+import { setCookie } from 'cookies-next';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -20,7 +21,7 @@ const useSignUp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch = useDispatch();
-  const { push, locale, asPath, query } = useRouter();
+  const { push, locale, asPath, query, replace } = useRouter();
   const { from, prompt, code } = query;
 
   const form = useForm<SignUpForm>({
@@ -131,8 +132,9 @@ const useSignUp = () => {
     try {
       dispatch(showModalActions.setModalIsOpen(true));
       await googleCallBack(asPath, locale as string, 'register');
+      setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
-      push('/');
+      replace('/movie-list');
     } catch (error) {
       dispatch(showModalActions.setModalValue('register'));
       setError('email', { message: t('unique.email')! });
