@@ -1,6 +1,6 @@
 import instance from 'services/axios';
 
-const storeQuote = (data: any) => {
+const storeQuote = (data: FormData) => {
   return instance.post('/api/auth/quote-upload', data, {
     headers: {
       'Content-Type': 'multipart/form-data',
