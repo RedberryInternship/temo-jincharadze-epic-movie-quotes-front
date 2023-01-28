@@ -8,7 +8,7 @@ import { storeQuote } from 'services';
 import { showModalActions } from 'store';
 import { AddQuoteTypes } from './types';
 
-const useAddNewQuote = (quoteInfo: any) => {
+const useAddNewQuote = (quoteInfo: { data: { id: string } }) => {
   const dispatch = useDispatch();
 
   const { name, image, avatarLoader } = useProfile();
