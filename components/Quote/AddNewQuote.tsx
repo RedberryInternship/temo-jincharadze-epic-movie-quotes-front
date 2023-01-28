@@ -29,8 +29,6 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
     t,
   } = useAddNewQuote(props.quoteInfo);
 
-  console.log(typeof props.quoteInfo.data.image);
-
   return (
     <div className='flex justify-center'>
       <div className='text-white fixed top-0 z-[6] bg-custom-neutral-900 w-full  md:max-w-[60rem] md:mt-[7rem] overflow-y-auto md:h-[calc(100vh_-_217px)] h-screen rounded-xl'>

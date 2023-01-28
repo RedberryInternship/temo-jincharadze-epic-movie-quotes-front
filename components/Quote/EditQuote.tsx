@@ -10,8 +10,9 @@ import {
 } from 'components';
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
+import { AddNewQuoteTypes } from './types';
 
-const EditQuote = (props: { singleQuote: any }) => {
+const EditQuote = (props: { singleQuote: AddNewQuoteTypes }) => {
   const {
     register,
     handleSubmit,
