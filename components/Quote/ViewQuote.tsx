@@ -10,9 +10,10 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
+import { AddNewQuoteTypes } from './types';
 import useViewQuote from './useViewQuote';
 
-const ViewQuote = (props: { quoteInfo: any }) => {
+const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
   const {
     name,
     image,
