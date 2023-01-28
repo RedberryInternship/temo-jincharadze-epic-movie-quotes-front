@@ -50,7 +50,7 @@ const useSelectedMovie = () => {
 
   const id = query.movieId;
 
-  const { data } = useQuery<any>({
+  const { data } = useQuery<object>({
     queryKey: ['selected movie'],
     queryFn: () => getSelectedMovie(id!.toString()),
     retry: 0,
