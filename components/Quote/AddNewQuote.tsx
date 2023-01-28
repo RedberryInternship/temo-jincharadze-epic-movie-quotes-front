@@ -10,8 +10,9 @@ import {
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
 import { Tags } from 'types';
+import { AddNewQuoteTypes } from './types';
 
-const AddNewQuote = (props: { quoteInfo: any }) => {
+const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
   const {
     name,
     image,
@@ -27,6 +28,8 @@ const AddNewQuote = (props: { quoteInfo: any }) => {
     i18n,
     t,
   } = useAddNewQuote(props.quoteInfo);
+
+  console.log(typeof props.quoteInfo.data.image);
 
   return (
     <div className='flex justify-center'>
@@ -67,7 +70,7 @@ const AddNewQuote = (props: { quoteInfo: any }) => {
               width={358}
               height={302}
               src={props.quoteInfo.data.image}
-              loader={() => props.quoteInfo.data}
+              loader={() => props.quoteInfo.data.image}
               alt='image'
               className='rounded-xl object-cover col-span-1 h-full'
               unoptimized={true}
