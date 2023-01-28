@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateMovie } from 'services';
 import { showModalActions } from 'store';
 import { User } from 'types';
-import { AddMovieTypes } from './types';
+import { AddMovieTypes, UpdateMovieTypes } from './types';
 
-const useUpdateMovie = (movieInfo: any) => {
+const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
   const user = useSelector((state: { user: User }) => state.user);
 
   const dispatch = useDispatch();

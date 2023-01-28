@@ -11,9 +11,9 @@ import {
 } from 'components';
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
-import { AddMovieTypes } from './types';
+import { UpdateMovieTypes } from './types';
 
-const UpdateMovie = (props: { movieInfo: AddMovieTypes }) => {
+const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
   const {
     name,
     image,
