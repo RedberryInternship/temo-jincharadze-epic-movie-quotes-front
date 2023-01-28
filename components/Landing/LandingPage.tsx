@@ -29,8 +29,6 @@ const LandingPage = () => {
     onForgotPasswordHandler,
   } = useLandingPage();
 
-  console.log(modalForm.value);
-
   return (
     <>
       {type === 'login' && (
