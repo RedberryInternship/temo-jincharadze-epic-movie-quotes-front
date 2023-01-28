@@ -6,8 +6,9 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { commentUpload } from 'services';
 import { showModalActions } from 'store';
+import { AddNewQuoteTypes } from './types';
 
-const useViewQuote = (quoteInfo: any) => {
+const useViewQuote = (quoteInfo: AddNewQuoteTypes) => {
   const { mutate: likeInstance } = useLike();
   const { mutate: quoteDelete } = useQuoteDelete();
   const form = useForm<{ comment: string }>({

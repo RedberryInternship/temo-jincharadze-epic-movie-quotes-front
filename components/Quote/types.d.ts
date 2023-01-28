@@ -12,5 +12,6 @@ export type AddNewQuoteTypes = {
     year: number;
     director: { ka: string; en: string };
     tag: [];
+    quotes: { filter: Function };
   };
 };
