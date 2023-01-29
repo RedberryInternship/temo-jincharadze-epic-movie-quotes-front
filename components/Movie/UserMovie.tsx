@@ -41,7 +41,7 @@ const UserMovie = () => {
 
   return (
     <>
-      {modalForm.isOpen && modalForm.value === 'update movie' && (
+      {modalForm.isOpen && modalForm.value === 'update movie' && data?.data && (
         <>
           <Link
             onClick={closeModal}
@@ -52,7 +52,7 @@ const UserMovie = () => {
         </>
       )}
 
-      {modalForm.isOpen && modalForm.value === 'add quote' && (
+      {modalForm.isOpen && modalForm.value === 'add quote' && data?.data && (
         <>
           <Link
             onClick={closeModal}
@@ -63,7 +63,7 @@ const UserMovie = () => {
         </>
       )}
 
-      {query.show === 'view-quote' && (
+      {query.show === 'view-quote' && data?.data && (
         <>
           <Link
             onClick={closeModal}
