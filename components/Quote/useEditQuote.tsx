@@ -28,7 +28,6 @@ const useEditQuote = (singleQuote: any) => {
   });
 
   const {
-    register,
     handleSubmit,
     setError,
     getValues,
@@ -88,7 +87,6 @@ const useEditQuote = (singleQuote: any) => {
   };
 
   return {
-    register,
     handleSubmit,
     quoteKaOptions,
     quoteEnOptions,

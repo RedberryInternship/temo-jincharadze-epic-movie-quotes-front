@@ -6,7 +6,6 @@ import {
   Message,
   MovieInput,
   MovieSelect,
-  MovieTextArea,
   useAddMovies,
 } from 'components';
 import Image from 'next/image';
@@ -130,7 +129,8 @@ const AddMovies = () => {
                     render={({ message }) => <Message message={message} />}
                   />
                 </div>
-                <MovieTextArea
+                <MovieInput
+                  mode='textarea'
                   options={requiredOptions}
                   containerClass='mt-1'
                   name='descriptionEn'
@@ -144,7 +144,8 @@ const AddMovies = () => {
                     render={({ message }) => <Message message={message} />}
                   />
                 </div>
-                <MovieTextArea
+                <MovieInput
+                  mode='textarea'
                   options={requiredOptions}
                   containerClass='mt-1'
                   name='descriptionKa'

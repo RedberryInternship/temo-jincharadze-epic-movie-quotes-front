@@ -135,8 +135,9 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                     render={({ message }) => <Message message={message} />}
                   />
                 </div>
-                <MovieTextArea
-                  register={register('descriptionEn', requiredOptions)}
+                <MovieInput
+                  mode='textarea'
+                  options={requiredOptions}
                   containerClass='mt-1'
                   name='descriptionEn'
                   placeholder='Movie description'
@@ -149,8 +150,9 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                     render={({ message }) => <Message message={message} />}
                   />
                 </div>
-                <MovieTextArea
-                  register={register('descriptionKa', requiredOptions)}
+                <MovieInput
+                  mode='textarea'
+                  options={requiredOptions}
                   containerClass='mt-1'
                   name='descriptionKa'
                   placeholder='ფილმის აღწერა'

@@ -1,11 +1,11 @@
 import {
   Close,
   Comment,
-  MovieTextArea,
   Heart,
   CommentInput,
   Pen,
   Trash,
+  MovieInput,
 } from 'components';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -87,14 +87,16 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                 return (
                   <div key={quote.id}>
                     <div className='mt-11'>
-                      <MovieTextArea
+                      <MovieInput
+                        mode='textarea'
                         textAreaClass='placeholder-custom-gray-300 italic md:text-2xl'
                         type='text'
                         language='Eng'
                         disabled={true}
                         placeholder={`"${quote.text.en}"`}
                       />
-                      <MovieTextArea
+                      <MovieInput
+                        mode='textarea'
                         textAreaClass='placeholder-custom-gray-300 italic md:text-2xl'
                         disabled={true}
                         containerClass='mt-4'

@@ -4,7 +4,7 @@ import {
   Close,
   DragDropFile,
   Message,
-  MovieTextArea,
+  MovieInput,
   Trash,
   useEditQuote,
 } from 'components';
@@ -14,7 +14,6 @@ import { AddNewQuoteTypes } from './types';
 
 const EditQuote = (props: { singleQuote: AddNewQuoteTypes }) => {
   const {
-    register,
     handleSubmit,
     handleQuoteUpadate,
     quoteKaOptions,
@@ -77,9 +76,10 @@ const EditQuote = (props: { singleQuote: AddNewQuoteTypes }) => {
               <FormProvider {...form}>
                 <form onSubmit={handleSubmit(handleQuoteUpadate)}>
                   <div className='mt-11'>
-                    <MovieTextArea
+                    <MovieInput
+                      mode='textarea'
                       name='quoteEn'
-                      register={register('quoteEn', quoteEnOptions)}
+                      options={quoteEnOptions}
                       textAreaClass='placeholder-custom-gray-300 italic md:text-2xl'
                       type='text'
                       language='Eng'
@@ -91,9 +91,10 @@ const EditQuote = (props: { singleQuote: AddNewQuoteTypes }) => {
                         render={({ message }) => <Message message={message} />}
                       />
                     </div>
-                    <MovieTextArea
+                    <MovieInput
+                      mode='textarea'
                       name='quoteKa'
-                      register={register('quoteKa', quoteKaOptions)}
+                      options={quoteKaOptions}
                       textAreaClass='placeholder-custom-gray-300 italic md:text-2xl'
                       containerClass='mt-4'
                       type='text'

@@ -4,7 +4,7 @@ import {
   Close,
   DragDropFile,
   Message,
-  MovieTextArea,
+  MovieInput,
   useAddNewQuote,
 } from 'components';
 import Image from 'next/image';
@@ -20,7 +20,6 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
     quoteEnOptions,
     quoteKaOptions,
     errors,
-    register,
     form,
     handleQuoteSubmit,
     handleSubmit,
@@ -125,8 +124,9 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                   </div>
                 </div>
 
-                <MovieTextArea
-                  register={register('quoteEn', quoteEnOptions)}
+                <MovieInput
+                  mode='textarea'
+                  options={quoteEnOptions}
                   name='quoteEn'
                   type='text'
                   placeholder='Start create new quote'
@@ -139,8 +139,9 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                     render={({ message }) => <Message message={message} />}
                   />
                 </div>
-                <MovieTextArea
-                  register={register('quoteKa', quoteKaOptions)}
+                <MovieInput
+                  mode='textarea'
+                  options={quoteKaOptions}
                   name='quoteKa'
                   type='text'
                   placeholder='ახალი ციტატა'

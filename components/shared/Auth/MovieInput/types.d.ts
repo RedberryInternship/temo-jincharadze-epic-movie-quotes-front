@@ -8,7 +8,8 @@ export type MovieInputProps = {
   disabled?: boolean;
   textAreaClass?: string;
   value?: string;
-  options: object;
+  options?: object;
+  mode?: string;
 };
 
 export type MovieTags = {

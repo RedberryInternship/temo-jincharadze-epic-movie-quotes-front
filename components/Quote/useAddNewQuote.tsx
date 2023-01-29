@@ -28,7 +28,6 @@ const useAddNewQuote = (quoteInfo: { data: { id: string } }) => {
 
   const {
     formState: { errors },
-    register,
     handleSubmit,
     getValues,
     setError,
@@ -91,7 +90,6 @@ const useAddNewQuote = (quoteInfo: { data: { id: string } }) => {
     quoteEnOptions,
     quoteKaOptions,
     errors,
-    register,
     form,
     name,
     image,
