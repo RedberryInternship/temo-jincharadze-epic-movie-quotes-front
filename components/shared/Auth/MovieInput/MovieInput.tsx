@@ -1,6 +1,9 @@
 import { MovieInputProps } from './types';
+import { useMovieInput } from 'components';
 
 const MovieInput: React.FC<MovieInputProps> = (props) => {
+  const { register } = useMovieInput();
+
   return (
     <>
       <div className={props.containerClass}>
@@ -13,7 +16,7 @@ const MovieInput: React.FC<MovieInputProps> = (props) => {
         )}
         <div className='relative'>
           <input
-            {...props.register}
+            {...register(props.name!, props.options)}
             type={props.type}
             name={props.name}
             placeholder={props.placeholder}

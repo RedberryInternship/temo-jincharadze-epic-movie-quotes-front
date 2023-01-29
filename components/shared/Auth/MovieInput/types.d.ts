@@ -1,9 +1,6 @@
-import { UseFormRegisterReturn } from 'react-hook-form';
-
 export type MovieInputProps = {
   containerClass?: string;
   label?: string;
-  register?: UseFormRegisterReturn<string>;
   type?: string;
   name?: string;
   placeholder?: string;
@@ -11,6 +8,7 @@ export type MovieInputProps = {
   disabled?: boolean;
   textAreaClass?: string;
   value?: string;
+  options: object;
 };
 
 export type MovieTags = {

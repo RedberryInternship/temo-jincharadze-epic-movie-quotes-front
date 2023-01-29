@@ -32,7 +32,6 @@ const useAddMovies = () => {
   const {
     formState: { errors },
     control,
-    register,
     handleSubmit,
     getValues,
     setError,
@@ -91,7 +90,6 @@ const useAddMovies = () => {
   return {
     requiredOptions,
     errors,
-    register,
     form,
     name,
     image,

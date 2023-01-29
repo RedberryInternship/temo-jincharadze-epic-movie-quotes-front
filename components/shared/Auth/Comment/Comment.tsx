@@ -1,5 +1,5 @@
 import { CommentTypes } from './types';
-import useComment from './useComment';
+import { useComment } from 'components';
 
 const Comment: React.FC<CommentTypes> = (props) => {
   const { register } = useComment();
