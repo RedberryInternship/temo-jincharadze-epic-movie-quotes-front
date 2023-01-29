@@ -2,12 +2,12 @@ import { Eye, InputError, ShowEye, useInput, Valid } from 'components';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = (props) => {
-  const { invalid, isDirty } = useInput(props.name);
+  const { invalid, isDirty, register } = useInput(props.name);
 
   return props.type === 'checkbox' ? (
     <div className={props.containerClass}>
       <input
-        {...props.register}
+        {...register(props.name!)}
         type='checkbox'
         name={props.name}
         className='rounded-[0.25rem] mr-2'
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = (props) => {
       </div>
       <div className='relative'>
         <input
-          {...props.register}
+          {...register(props.name!, props.options)}
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}

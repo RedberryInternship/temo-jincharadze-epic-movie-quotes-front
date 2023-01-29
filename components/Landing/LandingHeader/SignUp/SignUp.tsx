@@ -6,7 +6,6 @@ import { SignUpProps } from './types';
 const SignUp: React.FC<SignUpProps> = (props) => {
   const {
     t,
-    register,
     showPassword,
     showPasswordhandler,
     form,
@@ -35,7 +34,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(handleRegister)}>
             <Input
-              register={register('username', usernameOptions)}
+              options={usernameOptions}
               label={t('signUp.username')}
               type='text'
               name='username'
@@ -49,7 +48,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
               />
             </div>
             <Input
-              register={register('email', emailOptions)}
+              options={emailOptions}
               label={t('signUp.email')}
               type='email'
               name='email'
@@ -67,7 +66,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showPassword}
               hasEye={true}
-              register={register('password', passwordOptions)}
+              options={passwordOptions}
               label={t('signUp.password')}
               type={showPassword ? 'text' : 'password'}
               name='password'
@@ -86,7 +85,7 @@ const SignUp: React.FC<SignUpProps> = (props) => {
             <Input
               showPassword={showConfirmPassword}
               hasEye={true}
-              register={register('confirm_password', confirmPasswordOptions)}
+              options={confirmPasswordOptions}
               label={t('signUp.confirmPassword')}
               type={showConfirmPassword ? 'text' : 'password'}
               onPasswordShow={showConfirmPasswordhandler}

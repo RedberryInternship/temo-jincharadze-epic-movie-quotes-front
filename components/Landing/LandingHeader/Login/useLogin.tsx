@@ -26,7 +26,6 @@ const useLogin = () => {
 
   const {
     control,
-    register,
     setError,
     handleSubmit,
     formState: { errors },
@@ -103,7 +102,6 @@ const useLogin = () => {
   return {
     t,
     form,
-    register,
     handleLogin,
     errors,
     handleGoogleLogin,

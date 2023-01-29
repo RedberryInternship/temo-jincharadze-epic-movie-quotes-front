@@ -11,4 +11,5 @@ export type InputProps = {
   placeholder?: string;
   onPasswordShow?: MouseEvent<HTMLDivElement>;
   register?: UseFormRegisterReturn<string>;
+  options?: object;
 };

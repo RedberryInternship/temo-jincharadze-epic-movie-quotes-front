@@ -16,7 +16,6 @@ const useForgotPassword = () => {
 
   const {
     control,
-    register,
     setError,
     handleSubmit,
     formState: { errors },
@@ -60,7 +59,6 @@ const useForgotPassword = () => {
 
   return {
     t,
-    register,
     errors,
     form,
     checkEmailHandler,

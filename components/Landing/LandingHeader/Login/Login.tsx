@@ -9,7 +9,6 @@ const Login: React.FC<LoginProps> = (props) => {
   const {
     t,
     form,
-    register,
     handleLogin,
     errors,
     handleGoogleLogin,
@@ -31,7 +30,7 @@ const Login: React.FC<LoginProps> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(handleLogin)}>
             <Input
-              register={register('login', loginOptions)}
+              options={loginOptions}
               containerClass='mt-8'
               label={t('logIn.email')}
               type='text'
@@ -46,7 +45,7 @@ const Login: React.FC<LoginProps> = (props) => {
               />
             </div>
             <Input
-              register={register('password', passwordOptions)}
+              options={passwordOptions}
               containerClass='mt-2'
               label={t('logIn.password')}
               type='password'
@@ -64,7 +63,6 @@ const Login: React.FC<LoginProps> = (props) => {
 
             <div className='flex items-center justify-between mt-2'>
               <Input
-                register={register('remember')}
                 type='checkbox'
                 name='remember'
                 value='1'

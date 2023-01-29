@@ -28,7 +28,6 @@ const useCreatePassword = () => {
   const {
     formState: { errors },
     control,
-    register,
     getValues,
     setError,
     handleSubmit,
@@ -94,7 +93,6 @@ const useCreatePassword = () => {
     t,
     form,
     errors,
-    register,
     showPassword,
     showConfirmPassword,
     showPasswordhandler,

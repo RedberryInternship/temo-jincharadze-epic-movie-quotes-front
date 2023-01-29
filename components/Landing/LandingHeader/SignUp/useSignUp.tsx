@@ -38,7 +38,6 @@ const useSignUp = () => {
   const {
     formState: { errors, isValid },
     control,
-    register,
     getValues,
     setError,
     handleSubmit,
@@ -153,7 +152,6 @@ const useSignUp = () => {
   return {
     t,
     form,
-    register,
     getFieldState,
     formState: { errors, isValid },
     showPasswordhandler,

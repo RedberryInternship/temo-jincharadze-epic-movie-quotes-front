@@ -13,6 +13,7 @@ export type AddNewQuoteTypes = {
     director: { ka: string; en: string };
     tag: [];
     quotes: { filter: Function };
+    text: { en: string; ka: string };
   };
 };
 

@@ -12,7 +12,6 @@ import { ForgotPasswordTypes } from './types';
 const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
   const {
     t,
-    register,
     errors,
     form,
     checkEmailHandler,
@@ -35,7 +34,7 @@ const ForgotPassword: React.FC<ForgotPasswordTypes> = (props) => {
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(checkEmailHandler)}>
             <Input
-              register={register('email', emailOptions)}
+              options={emailOptions}
               containerClass='mt-8'
               label={t('forgotPassword.email')}
               type='email'
