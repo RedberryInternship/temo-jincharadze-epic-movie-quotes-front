@@ -21,7 +21,6 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
     query,
     filteredQuote,
     form,
-    register,
     handleSubmit,
     commentHandler,
     likeToggleHandler,
@@ -192,7 +191,6 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                           <CommentInput
                             name='comment'
                             type='text'
-                            register={register('comment')}
                             containerClass='ml-3'
                             placeholder={t('quotes.writeComment')}
                           />

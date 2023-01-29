@@ -1,5 +1,4 @@
 export type CommentTypes = {
-  register?: UseFormRegisterReturn<string>;
   containerClass?: string;
   type: string;
   name?: string;

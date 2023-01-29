@@ -1,10 +1,13 @@
 import { CommentTypes } from './types';
+import useComment from './useComment';
 
 const Comment: React.FC<CommentTypes> = (props) => {
+  const { register } = useComment();
+
   return (
     <div className={props.containerClass}>
       <input
-        {...props.register}
+        {...register('comment')}
         type={props.type}
         name={props.name}
         placeholder={props.placeholder}

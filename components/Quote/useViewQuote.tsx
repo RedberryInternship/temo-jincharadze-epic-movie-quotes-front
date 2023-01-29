@@ -16,7 +16,7 @@ const useViewQuote = (quoteInfo: AddNewQuoteTypes) => {
     defaultValues: { comment: '' },
   });
 
-  const { register, getValues, handleSubmit, setValue } = form;
+  const { getValues, handleSubmit, setValue } = form;
 
   const dispatch = useDispatch();
 
@@ -71,7 +71,6 @@ const useViewQuote = (quoteInfo: AddNewQuoteTypes) => {
     closeModal,
     i18n,
     query,
-    register,
     filteredQuote,
     form,
     handleSubmit,
