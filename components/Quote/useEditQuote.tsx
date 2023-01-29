@@ -6,9 +6,9 @@ import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch } from 'react-redux';
 import updateQuote from 'services/Quote/updateQuote';
 import { showModalActions } from 'store';
-import { AddQuoteTypes } from './types';
+import { AddQuoteTypes, EditQuoteTypes } from './types';
 
-const useEditQuote = (singleQuote: any) => {
+const useEditQuote = (singleQuote: EditQuoteTypes) => {
   const { query, push } = useRouter();
 
   const { name, image, avatarLoader } = useProfile();

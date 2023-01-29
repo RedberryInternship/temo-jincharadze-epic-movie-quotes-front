@@ -15,3 +15,10 @@ export type AddNewQuoteTypes = {
     quotes: { filter: Function };
   };
 };
+
+export type EditQuoteTypes = {
+  data: {
+    text: { en: string; ka: string };
+    image: string;
+  };
+};
