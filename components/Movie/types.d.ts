@@ -31,3 +31,11 @@ export type AllMoveTypes = {
   year: number;
   quotes_count: number;
 };
+
+export type UserMovieTypes = {
+  id: number | string;
+  image: string;
+  text: { ka: string; en: string };
+  comments: [];
+  likes: [] | (string & { map: Function });
+};
