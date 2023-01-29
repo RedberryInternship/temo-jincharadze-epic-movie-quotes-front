@@ -10,7 +10,7 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
-import { AddNewQuoteTypes } from './types';
+import { AddNewQuoteTypes, QuoteCommentType, ViewQuote } from './types';
 import useViewQuote from './useViewQuote';
 
 const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
@@ -83,7 +83,7 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
 
           <>
             {filteredQuote &&
-              filteredQuote.map((quote: any) => {
+              filteredQuote.map((quote: ViewQuote) => {
                 return (
                   <div key={quote.id}>
                     <div className='mt-11'>
@@ -137,8 +137,9 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                               color={
                                 !quote.likes.length
                                   ? '#fff'
-                                  : quote.likes.map((like: any) =>
-                                      like.user_id === id ? '#F3426C' : '#fff'
+                                  : quote.likes.map(
+                                      (like: { user_id: string }) =>
+                                        like.user_id === id ? '#F3426C' : '#fff'
                                     )
                               }
                             />
@@ -148,7 +149,7 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                     </div>
 
                     {quote.comments &&
-                      quote.comments.map((comment: any) => {
+                      quote.comments.map((comment: QuoteCommentType) => {
                         return (
                           <div key={comment.id} className='w-full mt-4'>
                             <div className='border-b border-solid border-movie-border mb-4' />

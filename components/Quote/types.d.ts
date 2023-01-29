@@ -22,3 +22,20 @@ export type EditQuoteTypes = {
     image: string;
   };
 };
+
+export type ViewQuote = {
+  id: number;
+  text: { en: string; ka: string };
+  image: string;
+  comments: [];
+  likes: [] | (string & { map: Function });
+};
+
+export type QuoteCommentType = {
+  id: number;
+  user: {
+    image: string;
+    name: string;
+  };
+  comment: string;
+};
