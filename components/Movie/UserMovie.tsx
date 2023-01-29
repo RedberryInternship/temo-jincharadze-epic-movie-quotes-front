@@ -219,122 +219,135 @@ const UserMovie = () => {
             )}
           </div>
         </div>
-        {data?.data.quotes.map((quote: any) => {
-          return (
-            <div key={quote.id} className='md:px-10 w-full'>
-              {modalForm.isOpen && (
-                <Link href={`/movie-list/${query.movieId}`}>
-                  <div className='absolute w-calc[(100%_-_80px)] z-[3] h-screen bg-dashboard-color opacity-60' />
-                </Link>
-              )}
-              <div className='mt-9 bg-custom-neutral-900 py-5 px-9 lg:px-8 mb-9 w-full xm:max-w-[50.5rem] lg:relative md:rounded-xl'>
-                <div
-                  className='lg:absolute right-9 top-8 hidden lg:block'
-                  onClick={() => selectedQuoteHandler(quote.id.toString())}
-                >
-                  <div className='cursor-pointer'>
-                    <Dots />
-                  </div>
-                </div>
-                <div className='lg:flex lg:items-center'>
-                  <div className=''>
-                    <Image
-                      width={358}
-                      height={302}
-                      src={quote.image}
-                      loader={() => quote.image}
-                      alt='image'
-                      className='rounded-xl object-cover w-full lg:w-[14.1rem] h-[8.7rem]'
-                      unoptimized={true}
-                    />
-                  </div>
-                  <h1 className='italic font-normal text-2xl text-custom-gray-300 mt-6 break-all lg:ml-9 lg:mt-0'>
-                    {`"${
-                      i18n.language === 'ka' ? quote.text.ka : quote.text.en
-                    }"`}
-                  </h1>
-                </div>
-                <div className='border-b border-solid border-movie-border mt-6' />
-                <div className='flex mt-4 items-center justify-between w-full relative'>
-                  <div>
-                    <div className='flex flex-wrap'>
-                      <div className='flex items-center mr-6 cursor-pointer'>
-                        <span className='text-white text-xl font-normal mr-3 break-all'>
-                          {quote.comments.length}
-                        </span>
-                        <Comment />
-                      </div>
-                      <div className='flex items-center'>
-                        <span className='text-white text-xl font-normal mr-3 break-all'>
-                          {quote.likes ? quote.likes.length : 0}
-                        </span>
-                        <div
-                          onClick={() => likeToggleHandler(quote.id)}
-                          className='cursor-pointer'
-                        >
-                          <Heart
-                            color={
-                              !quote.likes.length
-                                ? '#fff'
-                                : quote.likes.map((like: any) =>
-                                    like.user_id === userId ? '#F3426C' : '#fff'
-                                  )
-                            }
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+        {data?.data.quotes.map(
+          (quote: {
+            id: number | string;
+            image: string;
+            text: { ka: string; en: string };
+            comments: [];
+            likes: [] | (string & { map: Function });
+          }) => {
+            return (
+              <div key={quote.id} className='md:px-10 w-full'>
+                {modalForm.isOpen && (
+                  <Link href={`/movie-list/${query.movieId}`}>
+                    <div className='absolute w-calc[(100%_-_80px)] z-[3] h-screen bg-dashboard-color opacity-60' />
+                  </Link>
+                )}
+                <div className='mt-9 bg-custom-neutral-900 py-5 px-9 lg:px-8 mb-9 w-full xm:max-w-[50.5rem] lg:relative md:rounded-xl'>
                   <div
-                    className='lg:hidden'
+                    className='lg:absolute right-9 top-8 hidden lg:block'
                     onClick={() => selectedQuoteHandler(quote.id.toString())}
                   >
                     <div className='cursor-pointer'>
                       <Dots />
                     </div>
                   </div>
-                  {quoteMenu && selectedQuote == quote.id && (
-                    <div
-                      ref={refEl}
-                      className='bg-zinc-800 py-8 pl-10 absolute bottom-0 pr-[6.5rem] rounded-xl right-0 xm:-right-56 xm:-bottom-5'
-                    >
-                      <Link
-                        href={`/movie-list/${query.movieId}?show=view-quote&id=${selectedQuote}`}
-                      >
-                        <div className='flex items-center cursor-pointer hover:opacity-70'>
-                          <Eye color='#FFFFFF' width='20' height='13.75' />
-                          <span className='text-white text-base font-normal ml-4'>
-                            {t('quotes.viewQuote')}
+                  <div className='lg:flex lg:items-center'>
+                    <div className=''>
+                      <Image
+                        width={358}
+                        height={302}
+                        src={quote.image}
+                        loader={() => quote.image}
+                        alt='image'
+                        className='rounded-xl object-cover w-full lg:w-[14.1rem] h-[8.7rem]'
+                        unoptimized={true}
+                      />
+                    </div>
+                    <h1 className='italic font-normal text-2xl text-custom-gray-300 mt-6 break-all lg:ml-9 lg:mt-0'>
+                      {`"${
+                        i18n.language === 'ka' ? quote.text.ka : quote.text.en
+                      }"`}
+                    </h1>
+                  </div>
+                  <div className='border-b border-solid border-movie-border mt-6' />
+                  <div className='flex mt-4 items-center justify-between w-full relative'>
+                    <div>
+                      <div className='flex flex-wrap'>
+                        <div className='flex items-center mr-6 cursor-pointer'>
+                          <span className='text-white text-xl font-normal mr-3 break-all'>
+                            {quote.comments.length}
                           </span>
+                          <Comment />
                         </div>
-                      </Link>
-                      <Link
-                        href={`/movie-list/${query.movieId}?show=edit-quote&id=${selectedQuote}`}
-                      >
-                        <div className='flex items-center mt-8 cursor-pointer hover:opacity-70'>
-                          <Pen />
-                          <span className='text-white text-base font-normal ml-4'>
-                            {t('quotes.editPost')}
+                        <div className='flex items-center'>
+                          <span className='text-white text-xl font-normal mr-3 break-all'>
+                            {quote.likes ? quote.likes.length : 0}
                           </span>
+                          <div
+                            onClick={() =>
+                              likeToggleHandler(quote.id.toString()!)
+                            }
+                            className='cursor-pointer'
+                          >
+                            <Heart
+                              color={
+                                !quote.likes.length
+                                  ? '#fff'
+                                  : quote.likes.map(
+                                      (like: { user_id: string }) =>
+                                        like.user_id === userId
+                                          ? '#F3426C'
+                                          : '#fff'
+                                    )
+                              }
+                            />
+                          </div>
                         </div>
-                      </Link>
-                      <div
-                        className='flex items-center mt-8 cursor-pointer hover:opacity-70'
-                        onClick={handleQuoteDelete}
-                      >
-                        <Trash />
-                        <span className='text-white text-base font-normal ml-4'>
-                          {t('quotes.delete')}
-                        </span>
                       </div>
                     </div>
-                  )}
+
+                    <div
+                      className='lg:hidden'
+                      onClick={() => selectedQuoteHandler(quote.id.toString())}
+                    >
+                      <div className='cursor-pointer'>
+                        <Dots />
+                      </div>
+                    </div>
+                    {quoteMenu && selectedQuote == quote.id && (
+                      <div
+                        ref={refEl}
+                        className='bg-zinc-800 py-8 pl-10 absolute bottom-0 pr-[6.5rem] rounded-xl right-0 xm:-right-56 xm:-bottom-5'
+                      >
+                        <Link
+                          href={`/movie-list/${query.movieId}?show=view-quote&id=${selectedQuote}`}
+                        >
+                          <div className='flex items-center cursor-pointer hover:opacity-70'>
+                            <Eye color='#FFFFFF' width='20' height='13.75' />
+                            <span className='text-white text-base font-normal ml-4'>
+                              {t('quotes.viewQuote')}
+                            </span>
+                          </div>
+                        </Link>
+                        <Link
+                          href={`/movie-list/${query.movieId}?show=edit-quote&id=${selectedQuote}`}
+                        >
+                          <div className='flex items-center mt-8 cursor-pointer hover:opacity-70'>
+                            <Pen />
+                            <span className='text-white text-base font-normal ml-4'>
+                              {t('quotes.editPost')}
+                            </span>
+                          </div>
+                        </Link>
+                        <div
+                          className='flex items-center mt-8 cursor-pointer hover:opacity-70'
+                          onClick={handleQuoteDelete}
+                        >
+                          <Trash />
+                          <span className='text-white text-base font-normal ml-4'>
+                            {t('quotes.delete')}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          }
+        )}
         <div className='pb-10' />
       </Dashboard>
     </>
