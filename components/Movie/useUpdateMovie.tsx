@@ -43,7 +43,6 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
   const {
     formState: { errors },
     control,
-    register,
     handleSubmit,
     getValues,
     setError,
@@ -103,7 +102,6 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
   return {
     requiredOptions,
     errors,
-    register,
     form,
     name,
     image,

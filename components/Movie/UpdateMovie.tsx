@@ -6,7 +6,6 @@ import {
   Message,
   MovieInput,
   MovieSelect,
-  MovieTextArea,
   useUpdateMovie,
 } from 'components';
 import Image from 'next/image';
@@ -20,7 +19,6 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
     avatarLoader,
     requiredOptions,
     errors,
-    register,
     form,
     budgetOption,
     yearOption,
@@ -68,7 +66,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
             <FormProvider {...form}>
               <form onSubmit={handleSubmit(handleSubmitData)}>
                 <MovieInput
-                  register={register('nameEn', requiredOptions)}
+                  options={requiredOptions}
                   name='nameEn'
                   type='text'
                   placeholder='Movie name'
@@ -82,7 +80,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  register={register('nameKa', requiredOptions)}
+                  options={requiredOptions}
                   containerClass='mt-1'
                   name='nameKa'
                   type='text'
@@ -106,7 +104,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  register={register('directorEn', requiredOptions)}
+                  options={requiredOptions}
                   containerClass='mt-1'
                   name='directorEn'
                   type='text'
@@ -121,7 +119,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  register={register('directorKa', requiredOptions)}
+                  options={requiredOptions}
                   containerClass='mt-1'
                   name='directorKa'
                   type='text'
@@ -166,7 +164,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  register={register('budget', budgetOption)}
+                  options={budgetOption}
                   containerClass='mt-1'
                   name='budget'
                   type='text'
@@ -180,7 +178,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  register={register('year', yearOption)}
+                  options={yearOption}
                   containerClass='mt-1'
                   name='year'
                   type='text'
