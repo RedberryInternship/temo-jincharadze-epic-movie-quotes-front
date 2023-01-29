@@ -23,3 +23,11 @@ export type UpdateMovieTypes = {
     tag: { map: Function };
   };
 };
+
+export type AllMoveTypes = {
+  id: number;
+  image: string;
+  name: { en: string; ka: string };
+  year: number;
+  quotes_count: number;
+};

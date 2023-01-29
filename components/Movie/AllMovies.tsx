@@ -10,6 +10,7 @@ import { useMovie } from 'hooks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
+import { AllMoveTypes } from './types';
 
 const AllMovies = () => {
   const {
@@ -91,7 +92,7 @@ const AllMovies = () => {
             ({t('movies.total')} {data?.data.length})
           </div>
           <div className='mt-9 pb-9 grid lg:grid-cols-3 md:grid-cols-2 gap-x-12'>
-            {data?.data.map((movie: any) => {
+            {data?.data.map((movie: AllMoveTypes) => {
               return (
                 <div key={movie.id} className='mb-16 col-span-3 md:col-span-1'>
                   <Image
