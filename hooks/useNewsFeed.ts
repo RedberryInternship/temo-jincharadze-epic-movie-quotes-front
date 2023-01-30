@@ -1,7 +1,8 @@
 import { useGetUserData, useLike, useProfile } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useInfiniteQuery, useMutation, useQueryClient } from 'react-query';
 import { allQuotes, commentUpload } from 'services';
 
 const useNewsFeed = () => {
@@ -17,16 +18,25 @@ const useNewsFeed = () => {
     defaultValues: { comment: '' },
   });
 
-  const { data: quotesData } = useQuery({
-    queryKey: ['all quotes'],
-    queryFn: allQuotes,
-    retry: 0,
-    refetchOnWindowFocus: false,
-  });
+  const queryClient = useQueryClient();
+
+  const {
+    fetchNextPage,
+    hasNextPage,
+    data: quotesData,
+    isSuccess,
+  } = useInfiniteQuery(
+    ['all quotes'],
+    (pageParam) => allQuotes(pageParam as { pageParam: number }),
+    {
+      getNextPageParam: (page) =>
+        page.data.last_page === page.data.current_page
+          ? undefined
+          : page.data.current_page + 1,
+    }
+  );
 
   const { getValues, handleSubmit, setValue } = form;
-
-  const queryClient = useQueryClient();
 
   const { mutate: commentInstance } = useMutation(commentUpload, {
     onSuccess: () => {
@@ -63,6 +73,9 @@ const useNewsFeed = () => {
     form,
     commentHandler,
     likeToggleHandler,
+    fetchNextPage,
+    hasNextPage,
+    isSuccess,
   };
 };
 
