@@ -51,7 +51,7 @@ const Panel = () => {
               </div>
             </Link>
             <Link
-              href=''
+              href='/news-feed'
               className='text-xl font-normal text-white mt-10 flex items-center'
             >
               <Home
