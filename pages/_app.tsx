@@ -7,7 +7,9 @@ import { Provider } from 'react-redux';
 import { store } from 'store';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient();
+  const [queryClient] = React.useState(function () {
+    return new QueryClient();
+  });
 
   return (
     <QueryClientProvider client={queryClient}>

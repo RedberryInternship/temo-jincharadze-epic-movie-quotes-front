@@ -13,7 +13,6 @@ const CreatePassword = () => {
     t,
     form,
     errors,
-    register,
     showPassword,
     showConfirmPassword,
     showPasswordhandler,
@@ -42,7 +41,7 @@ const CreatePassword = () => {
             <Input
               showPassword={showPassword}
               hasEye={true}
-              register={register('password', passwordOptions)}
+              options={passwordOptions}
               label={t('signUp.password')}
               type={showPassword ? 'text' : 'password'}
               name='password'
@@ -61,7 +60,7 @@ const CreatePassword = () => {
             <Input
               showPassword={showConfirmPassword}
               hasEye={true}
-              register={register('confirm_password', confirmPasswordOptions)}
+              options={confirmPasswordOptions}
               label={t('signUp.confirmPassword')}
               type={showConfirmPassword ? 'text' : 'password'}
               onPasswordShow={showConfirmPasswordhandler}

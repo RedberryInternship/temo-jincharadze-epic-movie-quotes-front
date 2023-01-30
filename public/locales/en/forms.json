@@ -45,7 +45,10 @@
     "emailPattern": "Must be a valid email address.",
     "minPassword": "At least 8 characters",
     "passwordPattern": "Only lowercase Latin characters and numbers",
-    "confirmPassword": "Password doesn't match."
+    "confirmPassword": "Password doesn't match.",
+    "number": "Please enter a valid year",
+    "year": "Please enter a valid year",
+    "file": "File should be image"
   },
   "unique": {
     "email": "The email has already been taken.",
@@ -62,5 +65,40 @@
   "resetPassword": "Reset password",
   "backToLogin": "Back to log in",
   "createPassword": "Create new password",
-  "resetPasswordAbout": "Your new password must be different from previous used passwords"
+  "resetPasswordAbout": "Your new password must be different from previous used passwords",
+  "selectGenre": "Select genre",
+  "quotesEn": "Please fill in English",
+  "quotesKa": "Please fill in Georgian",
+  "logout": "Log out",
+  "movies": {
+    "editProfile": "Edit your profile",
+    "newsFeed": "News feed",
+    "listOfMovies": "List of movies",
+    "myListOfMovies": "My list of movies",
+    "search": "Search",
+    "addMovie": "Add movie",
+    "selectGenre": "Select genre",
+    "budget": "Budget",
+    "year": "Year",
+    "uploadImage": "Upload image",
+    "dragDrop": "Drag & drop your image here or",
+    "chooseFile": "Choose file",
+    "movieDescription": "Movie description",
+    "director": "Director",
+    "total": "Total",
+    "updateMovie": "Update Movie"
+  },
+  "quotes": {
+    "addQuote": "Add quote",
+    "total": "Total",
+    "allQuotes": "All Quotes",
+    "quotes": "Quotes",
+    "viewPost": "View Post",
+    "editPost": "Edit Post",
+    "delete": "Delete",
+    "viewQuote": "View quote",
+    "editQuote": "Edit quote",
+    "changePhoto": "Change Photo",
+    "writeComment": "Write a comment"
+  }
 }

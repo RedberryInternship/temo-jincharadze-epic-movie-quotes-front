@@ -1,4 +1,3 @@
-import React from 'react';
 import { LandingPage } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';

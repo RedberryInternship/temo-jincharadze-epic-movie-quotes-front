@@ -21,12 +21,11 @@ const useLogin = () => {
   const { t } = useTranslation('forms');
 
   const dispatch = useDispatch();
-  const { query, push, asPath, locale } = useRouter();
+  const { query, push, asPath, locale, replace } = useRouter();
   const { from, prompt, code } = query;
 
   const {
     control,
-    register,
     setError,
     handleSubmit,
     formState: { errors },
@@ -52,7 +51,8 @@ const useLogin = () => {
     try {
       await getCsrfToken();
       const response = await loginUser(newFormData);
-      response.status === 200 && setCookie('user', response.data.user.id);
+      response.status === 200 && setCookie('isAuth', true);
+      replace('/movie-list');
     } catch (error: any) {
       error.response.data.message === 'Email not found!' &&
         setError('login', { message: t('exists.email')! });
@@ -81,8 +81,9 @@ const useLogin = () => {
     try {
       dispatch(showModalActions.setModalIsOpen(true));
       await googleCallBack(asPath, locale as string, 'login');
+      setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
-      push('/');
+      replace('/movie-list');
     } catch (error) {
       dispatch(showModalActions.setModalValue('login'));
       setError('login', { message: t('unique.email')! });
@@ -101,7 +102,6 @@ const useLogin = () => {
   return {
     t,
     form,
-    register,
     handleLogin,
     errors,
     handleGoogleLogin,

@@ -7,7 +7,7 @@ const useLanguageSelector = () => {
   const { i18n } = useTranslation();
   const { language } = i18n;
   const router = useRouter();
-  const { pathname } = router;
+  const { asPath, replace } = router;
 
   const refEl = useRef<HTMLDivElement>(null);
 
@@ -16,8 +16,7 @@ const useLanguageSelector = () => {
   };
 
   const localeHandler = (newLocale: string) => {
-    const currentUrl = pathname;
-    router.replace(currentUrl, currentUrl, { locale: newLocale });
+    replace(asPath, asPath, { locale: newLocale });
     setToggle(false);
   };
 
