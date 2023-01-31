@@ -19,7 +19,7 @@ const useMobileSearch = () => {
 
   const handleSearch = (data: { search: string }) => {
     replace({ query: data });
-    queryClient.invalidateQueries({ queryKey: 'all quotes' });
+    queryClient.invalidateQueries('all quotes');
     setValue('search', '');
   };
 

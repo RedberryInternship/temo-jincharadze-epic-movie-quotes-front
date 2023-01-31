@@ -1,4 +1,5 @@
 import { ArrowLeft, useMobileSearch } from 'components';
+import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
 
 const MobileSearch = () => {
@@ -7,7 +8,9 @@ const MobileSearch = () => {
   return (
     <div className='bg-neutral-900 w-full h-screen fixed top-0 left-0 z-[20]'>
       <div className='flex items-center py-5 pl-8 pr-5'>
-        <ArrowLeft />
+        <Link href='/news-feed'>
+          <ArrowLeft />
+        </Link>
         <FormProvider {...form}>
           <form onSubmit={handleSubmit(handleSearch)} className='w-full'>
             <div className='flex items-center'>
