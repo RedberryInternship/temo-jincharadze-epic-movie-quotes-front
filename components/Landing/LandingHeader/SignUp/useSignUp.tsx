@@ -133,7 +133,7 @@ const useSignUp = () => {
       await googleCallBack(asPath, locale as string, 'register');
       setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
-      replace('/movie-list');
+      replace('/news-feed');
     } catch (error) {
       dispatch(showModalActions.setModalValue('register'));
       setError('email', { message: t('unique.email')! });

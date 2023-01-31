@@ -52,7 +52,7 @@ const useLogin = () => {
       await getCsrfToken();
       const response = await loginUser(newFormData);
       response.status === 200 && setCookie('isAuth', true);
-      replace('/movie-list');
+      replace('/news-feed');
     } catch (error: any) {
       error.response.data.message === 'Email not found!' &&
         setError('login', { message: t('exists.email')! });
@@ -83,7 +83,7 @@ const useLogin = () => {
       await googleCallBack(asPath, locale as string, 'login');
       setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
-      replace('/movie-list');
+      replace('/news-feed');
     } catch (error) {
       dispatch(showModalActions.setModalValue('login'));
       setError('login', { message: t('unique.email')! });
