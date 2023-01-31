@@ -45,7 +45,7 @@ const AllQuotes = () => {
               >
                 {query.show === 'search' && <MobileSearch />}
 
-                <div className='hidden md:block mb-6 w-full mt-8'>
+                <div className='hidden md:block mb-6 w-full mt-8 md:max-w-[58.6rem]'>
                   <DesktopSearch />
                 </div>
 
@@ -69,7 +69,7 @@ const AllQuotes = () => {
                     return (
                       <div
                         key={quote.id}
-                        className='bg-black mb-8 md:mb-10 px-9 py-7  md:rounded-xl md:max-w-[938px]'
+                        className='bg-black mb-8 md:mb-10 px-9 py-7  md:rounded-xl md:max-w-[58.6rem]'
                       >
                         <div className='flex items-center'>
                           <Image
