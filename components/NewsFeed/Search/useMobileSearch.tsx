@@ -1,9 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQueryClient } from 'react-query';
 
 const useMobileSearch = () => {
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const { replace, query } = useRouter();
 
   const { t } = useTranslation('forms');
@@ -23,7 +25,16 @@ const useMobileSearch = () => {
     setValue('search', '');
   };
 
-  return { t, register, handleSearch, handleSubmit, query, form };
+  return {
+    t,
+    register,
+    handleSearch,
+    handleSubmit,
+    query,
+    form,
+    isFocused,
+    setIsFocused,
+  };
 };
 
 export default useMobileSearch;

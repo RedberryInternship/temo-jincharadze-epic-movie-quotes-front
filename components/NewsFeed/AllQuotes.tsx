@@ -4,6 +4,7 @@ import {
   Comment,
   CommentInput,
   MobileSearch,
+  DesktopSearch,
 } from 'components';
 import { QuoteCommentType } from 'components/Quote/types';
 import { useNewsFeed } from 'hooks';
@@ -38,6 +39,10 @@ const AllQuotes = () => {
               dataLength={quotesData.pages.length * 3}
             >
               {query.show === 'search' && <MobileSearch />}
+
+              <div className='hidden md:flex mb-6'>
+                <DesktopSearch />
+              </div>
 
               {quotesData?.pages.map((page) =>
                 page.data.data.map((quote: NewsFeedQuoteTypes) => {
