@@ -44,6 +44,7 @@ module.exports = {
         'custom-green-700': '#198754',
         'custom-red-700': '#CC0E10',
         'custom-neutral-900': '#11101A',
+        'neutral-900': '#12101A',
         'custom-rose-500': '#EC4C57',
         'file-color': 'rgba(151, 71, 255, 0.4)',
         'header-rgba': 'rgba(34, 32, 48)',
@@ -51,6 +52,7 @@ module.exports = {
         'panel-color': 'rgba(17, 16, 26, 1)',
         'search-border': 'rgba(239, 239, 239, 0.3)',
         'movie-border': 'rgba(239, 239, 239, 0.2)',
+        'mobile-search': 'rgba(239, 239, 239, 0.6)        ',
       },
       backgroundImage: {
         'starting-gradient':

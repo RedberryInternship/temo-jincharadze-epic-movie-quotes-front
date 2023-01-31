@@ -1,5 +1,6 @@
 import { useGetUserData, useLike, useProfile } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { useInfiniteQuery } from 'react-query';
 import { allQuotes } from 'services';
 
@@ -9,6 +10,8 @@ const useNewsFeed = () => {
 
   const { mutate: likeInstance } = useLike();
 
+  const { query } = useRouter();
+
   const { i18n, t } = useTranslation('forms');
 
   const {
@@ -17,8 +20,8 @@ const useNewsFeed = () => {
     data: quotesData,
     isSuccess,
   } = useInfiniteQuery(
-    ['all quotes'],
-    (pageParam) => allQuotes(pageParam as { pageParam: number }),
+    ['all quotes', query],
+    (pageParam) => allQuotes(pageParam as { pageParam: number }, query),
     {
       getNextPageParam: (page) =>
         page.data.last_page === page.data.current_page
@@ -45,6 +48,7 @@ const useNewsFeed = () => {
     fetchNextPage,
     hasNextPage,
     isSuccess,
+    query,
   };
 };
 
