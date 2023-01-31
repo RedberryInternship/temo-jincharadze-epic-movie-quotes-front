@@ -2,7 +2,6 @@ import { Dashboard, Heart, Comment, CommentInput } from 'components';
 import { QuoteCommentType } from 'components/Quote/types';
 import { useNewsFeed } from 'hooks';
 import Image from 'next/image';
-import { FormProvider } from 'react-hook-form';
 import { NewsFeedQuoteTypes } from './types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -10,14 +9,10 @@ const AllQuotes = () => {
   const {
     quotesData,
     i18n,
-    name,
     image,
     avatarLoader,
     id,
     t,
-    handleSubmit,
-    form,
-    commentHandler,
     likeToggleHandler,
     fetchNextPage,
     hasNextPage,
@@ -27,17 +22,20 @@ const AllQuotes = () => {
   return (
     <Dashboard>
       {quotesData && isSuccess && (
-        <div className='mt-7'>
+        <div className='mt-7 md:px-10 md:flex items-center w-full flex-col'>
           <InfiniteScroll
             hasMore={hasNextPage!}
             next={fetchNextPage}
             loader
-            dataLength={quotesData.pages.length * 2}
+            dataLength={quotesData.pages.length * 3}
           >
             {quotesData?.pages.map((page) =>
               page.data.data.map((quote: NewsFeedQuoteTypes) => {
                 return (
-                  <div key={quote.id} className='bg-black mb-8 px-10 py-7'>
+                  <div
+                    key={quote.id}
+                    className='bg-black mb-8 md:mb-10 px-9 py-7  md:rounded-xl md:max-w-[938px]'
+                  >
                     <div className='flex items-center'>
                       <Image
                         src={quote.movie.user.image}
@@ -48,26 +46,26 @@ const AllQuotes = () => {
                         className='rounded-full'
                         unoptimized={true}
                       />
-                      <h2 className='text-white ml-4 font-normal text-base'>
+                      <h2 className='text-white ml-4 font-normal text-base md:text-xl'>
                         {quote.movie.user.name}
                       </h2>
                     </div>
-                    <div className='my-4 flex break-all'>
-                      <p className='text-white font-normal text-base'>
+                    <div className='my-4 flex break-all flex-wrap'>
+                      <p className='text-white font-normal text-base md:text-xl'>
                         {`"${
                           i18n.language === 'ka' ? quote.text.ka : quote.text.en
                         }"`}
                       </p>
                       <span className='text-white px-1'>-</span>
                       <p>
-                        <span className='text-custom-orange-200 font-medium text-base'>
+                        <span className='text-custom-orange-200 font-medium text-base md:text-xl'>
                           {`${
                             i18n.language === 'ka'
                               ? quote.movie.name.ka
                               : quote.movie.name.en
                           }.`}
                         </span>
-                        <span className='text-white font-normal text-base ml-1'>{`(${quote.movie.year})`}</span>
+                        <span className='text-white font-normal text-base md:text-xl ml-1'>{`(${quote.movie.year})`}</span>
                       </p>
                     </div>
 
@@ -157,21 +155,14 @@ const AllQuotes = () => {
                             unoptimized={true}
                           />
                         )}
-                        <FormProvider {...form}>
-                          <form
-                            className='w-full'
-                            onSubmit={handleSubmit(() =>
-                              commentHandler(quote.id.toString()!)
-                            )}
-                          >
-                            <CommentInput
-                              name='comment'
-                              type='text'
-                              containerClass='ml-3'
-                              placeholder={t('quotes.writeComment')}
-                            />
-                          </form>
-                        </FormProvider>
+                        <CommentInput
+                          name='comment'
+                          quoteId={quote.id.toString()!}
+                          type='text'
+                          containerClass='ml-3 w-full'
+                          placeholder={t('quotes.writeComment')}
+                        />
+                        =
                       </div>
                     </div>
                   </div>

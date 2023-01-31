@@ -1,9 +1,7 @@
 import { useGetUserData, useLike, useProfile } from 'hooks';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useInfiniteQuery, useMutation, useQueryClient } from 'react-query';
-import { allQuotes, commentUpload } from 'services';
+import { useInfiniteQuery } from 'react-query';
+import { allQuotes } from 'services';
 
 const useNewsFeed = () => {
   useGetUserData();
@@ -12,13 +10,6 @@ const useNewsFeed = () => {
   const { mutate: likeInstance } = useLike();
 
   const { i18n, t } = useTranslation('forms');
-
-  const form = useForm<{ comment: string }>({
-    mode: 'all',
-    defaultValues: { comment: '' },
-  });
-
-  const queryClient = useQueryClient();
 
   const {
     fetchNextPage,
@@ -33,29 +24,10 @@ const useNewsFeed = () => {
         page.data.last_page === page.data.current_page
           ? undefined
           : page.data.current_page + 1,
+
+      refetchOnWindowFocus: false,
     }
   );
-
-  const { getValues, handleSubmit, setValue } = form;
-
-  const { mutate: commentInstance } = useMutation(commentUpload, {
-    onSuccess: () => {
-      queryClient.invalidateQueries('all quotes');
-    },
-  });
-
-  const commentHandler = (quoteId: string) => {
-    const newData = {
-      user_id: id.toString()!,
-      quote_id: quoteId,
-      comment: getValues('comment'),
-    };
-
-    if (getValues('comment')) {
-      commentInstance(newData);
-      setValue('comment', '');
-    }
-  };
 
   const likeToggleHandler = (quoteId: string) => {
     likeInstance({ user_id: id.toString()!, quote_id: quoteId });
@@ -69,9 +41,6 @@ const useNewsFeed = () => {
     avatarLoader,
     id,
     t,
-    handleSubmit,
-    form,
-    commentHandler,
     likeToggleHandler,
     fetchNextPage,
     hasNextPage,

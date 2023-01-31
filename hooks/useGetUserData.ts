@@ -22,6 +22,8 @@ const useGetUserData = () => {
           );
       } catch (err) {
         if (pathname !== '/') {
+          deleteCookie('XSRF-TOKEN');
+          deleteCookie('isAuth');
           replace('/');
         }
       }
@@ -30,6 +32,7 @@ const useGetUserData = () => {
     if (hasCookie('isAuth') && hasCookie('XSRF-TOKEN')) {
       getUserData();
     } else {
+      deleteCookie('XSRF-TOKEN');
       deleteCookie('isAuth');
       replace('/');
     }

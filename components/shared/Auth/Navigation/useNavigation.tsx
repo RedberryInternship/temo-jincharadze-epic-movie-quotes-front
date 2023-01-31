@@ -7,7 +7,7 @@ import { showPanelActions } from 'store';
 
 const useNavigation = () => {
   const dispatch = useDispatch();
-  const router = useRouter();
+  const { replace, pathname } = useRouter();
 
   const { t } = useTranslation('forms');
 
@@ -20,11 +20,11 @@ const useNavigation = () => {
       await logout();
       deleteCookie('isAuth');
       deleteCookie('XSRF-TOKEN');
-      router.replace('/');
+      replace('/');
     } catch (error: any) {}
   };
 
-  return { panelToggleHandler, logoutHandler, t };
+  return { panelToggleHandler, logoutHandler, t, pathname };
 };
 
 export default useNavigation;
