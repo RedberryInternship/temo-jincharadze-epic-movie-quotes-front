@@ -21,7 +21,7 @@ const MovieDropDown = () => {
   return (
     <div className='relative' onBlur={handleClose}>
       <div
-        className='flex bg-transparent pl-6 pr-9 mb-8 border-none bg-black w-full border items-center  justify-between flex-wrap py-8  relative rounded min-h-[5.4rem]'
+        className='flex bg-transparent pl-6 pr-9 mb-1 border-none bg-black w-full border items-center  justify-between flex-wrap py-8  relative rounded min-h-[5.4rem]'
         onClick={handleOpen}
       >
         {getValues('movie') ? (

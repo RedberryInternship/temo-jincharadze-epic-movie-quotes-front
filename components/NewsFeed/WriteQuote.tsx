@@ -107,6 +107,13 @@ const WriteQuote = () => {
 
                 <div>
                   <MovieDropDown />
+                  <div className='h-7 mt-1'>
+                    <ErrorMessage
+                      name='movie'
+                      errors={errors}
+                      render={({ message }) => <Message message={message} />}
+                    />
+                  </div>
                 </div>
 
                 <Button
