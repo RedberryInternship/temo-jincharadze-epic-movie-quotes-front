@@ -15,3 +15,8 @@ export type NewsFeedQuoteTypes = {
   };
   text: { en: string; ka: string };
 };
+
+export type MovieDropDownTypes = {
+  id: number;
+  name: { ka: string; en: string };
+};

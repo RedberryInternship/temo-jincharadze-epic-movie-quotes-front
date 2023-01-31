@@ -5,12 +5,15 @@ import {
   CommentInput,
   MobileSearch,
   DesktopSearch,
+  PensilSquare,
+  WriteQuote,
 } from 'components';
 import { QuoteCommentType } from 'components/Quote/types';
 import { useNewsFeed } from 'hooks';
 import Image from 'next/image';
 import { NewsFeedQuoteTypes } from './types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Link from 'next/link';
 
 const AllQuotes = () => {
   const {
@@ -29,9 +32,10 @@ const AllQuotes = () => {
 
   return (
     <>
+      {query.show === 'write-quote' && <WriteQuote />}
       <Dashboard>
         {quotesData && isSuccess && (
-          <div className='mt-7 md:px-10 md:flex items-center w-full flex-col'>
+          <div className='md:px-10 md:flex items-center w-full flex-col'>
             <div className='w-full'>
               <InfiniteScroll
                 hasMore={hasNextPage!}
@@ -41,8 +45,23 @@ const AllQuotes = () => {
               >
                 {query.show === 'search' && <MobileSearch />}
 
-                <div className='hidden md:block mb-6 w-full'>
+                <div className='hidden md:block mb-6 w-full mt-8'>
                   <DesktopSearch />
+                </div>
+
+                <div className='md:hidden px-10 mt-8 mb-10'>
+                  <div
+                    className={`bg-transparent opacity-60 rounded-xl h-full w-full 
+                      }`}
+                  />
+                  <Link href='/news-feed?show=write-quote'>
+                    <div className='flex items-center relative min-w-max'>
+                      <PensilSquare />
+                      <p className='text-xl font-normal text-white ml-4'>
+                        {t('quotes.writeNewQuote')}
+                      </p>
+                    </div>
+                  </Link>
                 </div>
 
                 {quotesData?.pages.map((page) =>

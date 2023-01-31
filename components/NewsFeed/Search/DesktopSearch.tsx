@@ -1,4 +1,5 @@
 import { Button, useMobileSearch, Search, PensilSquare } from 'components';
+import Link from 'next/link';
 import React from 'react';
 import { FormProvider } from 'react-hook-form';
 
@@ -26,12 +27,14 @@ const DesktopSearch = () => {
                 !isFocused && 'w-full'
               }`}
             />
-            <div className='flex py-3 px-4 items-center relative min-w-max'>
-              <PensilSquare />
-              <p className='text-xl font-normal text-white ml-4'>
-                {t('quotes.writeNewQuote')}
-              </p>
-            </div>
+            <Link href='/news-feed?show=write-quote'>
+              <div className='flex py-3 px-4 items-center relative min-w-max'>
+                <PensilSquare />
+                <p className='text-xl font-normal text-white ml-4'>
+                  {t('quotes.writeNewQuote')}
+                </p>
+              </div>
+            </Link>
           </div>
           <div className={`flex ${isFocused && 'w-full'} ml-8`}>
             <Button type='submit'>

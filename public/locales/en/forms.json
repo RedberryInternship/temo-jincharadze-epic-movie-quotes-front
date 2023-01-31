@@ -104,6 +104,8 @@
     "enterQuote": "Enter # to search quotes",
     "desktopSearch": "Enter @ to search movies, Enter # to search quotes",
     "searchBy": "Search by",
-    "writeNewQuote": "Write new quote"
+    "writeNewQuote": "Write new quote",
+    "chooseMovie": "Choose movie",
+    "post": "Post"
   }
 }
