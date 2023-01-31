@@ -1,4 +1,4 @@
-import { Button, useMobileSearch, Search, Pen, PensilSquare } from 'components';
+import { Button, useMobileSearch, Search, PensilSquare } from 'components';
 import React from 'react';
 import { FormProvider } from 'react-hook-form';
 
