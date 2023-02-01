@@ -1,5 +1,3 @@
-import React from 'react';
-
 const useDesktopSearch = () => {
   return <div>useDesktopSearch</div>;
 };

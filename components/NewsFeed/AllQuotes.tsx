@@ -8,10 +8,9 @@ import {
   PensilSquare,
   WriteQuote,
 } from 'components';
-import { QuoteCommentType } from 'components/Quote/types';
+import { QuoteCommentType, NewsFeedQuoteTypes } from 'components';
 import { useNewsFeed } from 'hooks';
 import Image from 'next/image';
-import { NewsFeedQuoteTypes } from './types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Link from 'next/link';
 

@@ -1,5 +1,10 @@
-import { ArrowDown, Close, Movie, useMovieDropDown } from 'components';
-import { MovieDropDownTypes } from './types';
+import {
+  ArrowDown,
+  Close,
+  Movie,
+  useMovieDropDown,
+  MovieDropDownTypes,
+} from 'components';
 
 const MovieDropDown = () => {
   const {

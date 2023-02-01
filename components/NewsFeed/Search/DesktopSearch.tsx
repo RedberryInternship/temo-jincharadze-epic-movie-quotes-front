@@ -1,6 +1,5 @@
 import { Button, useMobileSearch, Search, PensilSquare } from 'components';
 import Link from 'next/link';
-import React from 'react';
 import { FormProvider } from 'react-hook-form';
 
 const DesktopSearch = () => {
