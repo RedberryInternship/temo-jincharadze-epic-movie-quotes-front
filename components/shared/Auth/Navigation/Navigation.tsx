@@ -36,8 +36,11 @@ const Navigation = () => {
                 <Search />
               </Link>
             )}
-            <div className='cursor-pointer '>
+            <div className='cursor-pointer relative'>
               <Ring />
+              <div className='bg-custom-red-600 rounded-full w-6 flex justify-center text-white text-base font-medium absolute -top-1 left-4'>
+                3
+              </div>
             </div>
             <div className='ml-8'>
               <LanguageSelector wrapper='pr-0' dropdown='right-5' />
