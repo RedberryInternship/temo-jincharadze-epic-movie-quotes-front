@@ -82,10 +82,11 @@ const useSelectedMovie = () => {
 
   const refEl = useRef<HTMLDivElement>(null);
 
-  const likeToggleHandler = (quoteId: string) => {
+  const likeToggleHandler = (quoteId: string, movieId: string) => {
     likeInstance({
       user_id: userId.toString()!,
       quote_id: quoteId,
+      movie_id: movieId.toString()!,
     });
   };
 

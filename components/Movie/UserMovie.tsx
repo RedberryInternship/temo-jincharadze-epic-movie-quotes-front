@@ -271,7 +271,10 @@ const UserMovie = () => {
                         </span>
                         <div
                           onClick={() =>
-                            likeToggleHandler(quote.id.toString()!)
+                            likeToggleHandler(
+                              quote.id.toString()!,
+                              quote.movie_id!
+                            )
                           }
                           className='cursor-pointer'
                         >
@@ -279,9 +282,12 @@ const UserMovie = () => {
                             color={
                               !quote.likes.length
                                 ? '#fff'
-                                : quote.likes.map((like: { user_id: string }) =>
-                                    like.user_id === userId ? '#F3426C' : '#fff'
+                                : quote.likes.find(
+                                    (like: { user_id: string }) =>
+                                      like.user_id === userId
                                   )
+                                ? '#F3426C'
+                                : '#fff'
                             }
                           />
                         </div>

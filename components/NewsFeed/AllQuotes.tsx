@@ -134,19 +134,22 @@ const AllQuotes = () => {
                                   <div
                                     className='cursor-pointer'
                                     onClick={() =>
-                                      likeToggleHandler(quote.id.toString()!)
+                                      likeToggleHandler(
+                                        quote.id.toString()!,
+                                        quote.movie_id?.toString()!
+                                      )
                                     }
                                   >
                                     <Heart
                                       color={
                                         !quote.likes.length
                                           ? '#fff'
-                                          : quote.likes.map(
+                                          : quote.likes.find(
                                               (like: { user_id: string }) =>
                                                 like.user_id === id
-                                                  ? '#F3426C'
-                                                  : '#fff'
                                             )
+                                          ? '#F3426C'
+                                          : '#fff'
                                       }
                                     />
                                   </div>
