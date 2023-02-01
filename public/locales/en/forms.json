@@ -99,6 +99,13 @@
     "viewQuote": "View quote",
     "editQuote": "Edit quote",
     "changePhoto": "Change Photo",
-    "writeComment": "Write a comment"
+    "writeComment": "Write a comment",
+    "enterMovie": "Enter @ to search movies",
+    "enterQuote": "Enter # to search quotes",
+    "desktopSearch": "Enter @ to search movies, Enter # to search quotes",
+    "searchBy": "Search by",
+    "writeNewQuote": "Write new quote",
+    "chooseMovie": "Choose movie",
+    "post": "Post"
   }
 }

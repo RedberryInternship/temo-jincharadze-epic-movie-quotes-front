@@ -4,10 +4,12 @@ import {
   Ring,
   Button,
   useNavigation,
+  Search,
 } from 'components';
+import Link from 'next/link';
 
 const Navigation = () => {
-  const { panelToggleHandler, logoutHandler, t } = useNavigation();
+  const { panelToggleHandler, logoutHandler, t, pathname } = useNavigation();
 
   return (
     <div className='fixed z-[5] top-0'>
@@ -25,8 +27,18 @@ const Navigation = () => {
           >
             <Menu />
           </div>
-          <div className='cursor-pointer flex items-center'>
-            <Ring />
+          <div className='flex items-center'>
+            {pathname === '/news-feed' && (
+              <Link
+                href='/news-feed?show=search'
+                className='mr-5 cursor-pointer md:hidden'
+              >
+                <Search />
+              </Link>
+            )}
+            <div className='cursor-pointer '>
+              <Ring />
+            </div>
             <div className='ml-8'>
               <LanguageSelector wrapper='pr-0' dropdown='right-5' />
             </div>

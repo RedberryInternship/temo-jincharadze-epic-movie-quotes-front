@@ -9,7 +9,6 @@ import {
 } from 'components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FormProvider } from 'react-hook-form';
 import { AddNewQuoteTypes, QuoteCommentType, ViewQuote } from './types';
 import useViewQuote from './useViewQuote';
 
@@ -20,9 +19,6 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
     avatarLoader,
     query,
     filteredQuote,
-    form,
-    handleSubmit,
-    commentHandler,
     likeToggleHandler,
     handleQuoteDelete,
     id,
@@ -184,19 +180,14 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                           unoptimized={true}
                         />
                       )}
-                      <FormProvider {...form}>
-                        <form
-                          className='w-full'
-                          onSubmit={handleSubmit(commentHandler)}
-                        >
-                          <CommentInput
-                            name='comment'
-                            type='text'
-                            containerClass='ml-3'
-                            placeholder={t('quotes.writeComment')}
-                          />
-                        </form>
-                      </FormProvider>
+
+                      <CommentInput
+                        quoteId={query.id?.toString()!}
+                        name='comment'
+                        type='text'
+                        containerClass='ml-3 w-full'
+                        placeholder={t('quotes.writeComment')}
+                      />
                     </div>
                   </div>
                 );

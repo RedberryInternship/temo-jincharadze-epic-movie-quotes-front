@@ -7,3 +7,4 @@ export { default as useGetAllTags } from './useGetAllTags';
 export { default as useMovie } from './useMovie';
 export { default as useLike } from './useLike';
 export { default as useQuoteDelete } from './useQuoteDelete';
+export { default as useNewsFeed } from './useNewsFeed';

@@ -8,6 +8,7 @@ const useLike = () => {
     onSuccess: () => {
       queryClient.invalidateQueries('selected movie');
       queryClient.invalidateQueries('user movies');
+      queryClient.invalidateQueries('all quotes');
     },
   });
 

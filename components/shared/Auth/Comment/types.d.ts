@@ -4,4 +4,5 @@ export type CommentTypes = {
   name?: string;
   placeholder: string;
   inputClass?: string;
+  quoteId?: string;
 };
