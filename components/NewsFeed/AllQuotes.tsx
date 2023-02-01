@@ -7,8 +7,9 @@ import {
   DesktopSearch,
   PensilSquare,
   WriteQuote,
+  QuoteCommentType,
+  NewsFeedQuoteTypes,
 } from 'components';
-import { QuoteCommentType, NewsFeedQuoteTypes } from 'components';
 import { useNewsFeed } from 'hooks';
 import Image from 'next/image';
 import InfiniteScroll from 'react-infinite-scroll-component';
