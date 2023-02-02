@@ -55,14 +55,17 @@ const AllQuotes = () => {
                       className={`bg-transparent opacity-60 rounded-xl h-full w-full 
                       }`}
                     />
-                    <Link href='/news-feed?show=write-quote'>
-                      <div className='flex items-center relative min-w-max'>
+                    <div className='flex items-center relative min-w-max'>
+                      <Link
+                        href='/news-feed?show=write-quote'
+                        className='flex items-center'
+                      >
                         <PensilSquare />
                         <p className='text-xl font-normal text-white ml-4'>
                           {t('quotes.writeNewQuote')}
                         </p>
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   </div>
 
                   {quotesData?.pages.map((page) =>
