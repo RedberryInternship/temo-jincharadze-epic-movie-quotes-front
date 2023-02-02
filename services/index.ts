@@ -4,3 +4,4 @@ export * from './Movie';
 export * from './Quote';
 export * from './Comment';
 export * from './Like';
+export * from './Notification';
