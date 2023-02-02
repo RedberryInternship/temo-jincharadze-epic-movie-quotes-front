@@ -53,7 +53,8 @@ module.exports = {
         'panel-color': 'rgba(17, 16, 26, 1)',
         'search-border': 'rgba(239, 239, 239, 0.3)',
         'movie-border': 'rgba(239, 239, 239, 0.2)',
-        'mobile-search': 'rgba(239, 239, 239, 0.6)        ',
+        'mobile-search': 'rgba(239, 239, 239, 0.6)',
+        'notification-border': 'rgba(108, 117, 125, 0.5)',
       },
       backgroundImage: {
         'starting-gradient':
