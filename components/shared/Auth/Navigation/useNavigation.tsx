@@ -10,7 +10,6 @@ import { showPanelActions } from 'store';
 
 const useNavigation = () => {
   const { data: userNotification } = useNotification();
-
   const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
 
   const refEl = useRef<HTMLDivElement>(null);

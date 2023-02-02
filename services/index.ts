@@ -5,3 +5,4 @@ export * from './Quote';
 export * from './Comment';
 export * from './Like';
 export * from './Notification';
+export { default as axios } from './axios';

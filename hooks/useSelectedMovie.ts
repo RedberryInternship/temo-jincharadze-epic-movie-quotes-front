@@ -59,6 +59,7 @@ const useSelectedMovie = () => {
   });
 
   const queryClient = useQueryClient();
+  queryClient.invalidateQueries('user notifications');
 
   const { mutate: movieDelete } = useMutation(deleteMovie, {
     onSuccess: () => {
