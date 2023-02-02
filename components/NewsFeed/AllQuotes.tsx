@@ -36,7 +36,7 @@ const AllQuotes = () => {
       <Dashboard>
         {quotesData && isSuccess && (
           <div className='md:px-10'>
-            <div className='md:flex items-center max-w-[58.6rem] w-full flex-col'>
+            <div className='md:flex items-center max-w-[58.6rem] w-full flex-col mx-auto'>
               <div className='w-full'>
                 <InfiniteScroll
                   hasMore={hasNextPage!}
