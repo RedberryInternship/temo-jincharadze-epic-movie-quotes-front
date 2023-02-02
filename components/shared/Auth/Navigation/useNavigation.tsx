@@ -2,7 +2,7 @@ import { deleteCookie } from 'cookies-next';
 import { useNotification } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { logout, readNotification } from 'services';
@@ -12,6 +12,20 @@ const useNavigation = () => {
   const { data: userNotification } = useNotification();
 
   const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
+
+  const refEl = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const toggleBlurHandler = (event: MouseEvent) => {
+      if (refEl.current && !refEl.current.contains(event.target as Node)) {
+        setIsNotificationOpen(false);
+      }
+    };
+
+    document.addEventListener('click', toggleBlurHandler, true);
+    return () => document.removeEventListener('click', toggleBlurHandler, true);
+  }, []);
+
   const dispatch = useDispatch();
   const { replace, pathname, push } = useRouter();
 
@@ -62,6 +76,7 @@ const useNavigation = () => {
     userNotification,
     readHandler,
     filterHasNew,
+    refEl,
     markAllReadHandler,
   };
 };

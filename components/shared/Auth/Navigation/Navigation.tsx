@@ -24,6 +24,7 @@ const Navigation = () => {
     userNotification,
     readHandler,
     filterHasNew,
+    refEl,
     markAllReadHandler,
   } = useNavigation();
 
@@ -80,7 +81,10 @@ const Navigation = () => {
             </div>
 
             {isNotificationOpen && (
-              <div className='bg-black px-9 py-6 rounded-xl backdrop-blur-xl w-full h-screen fixed top-[86px] pb-32 left-0 text-white after:content-[" "]  after:absolute after:right-[2.1rem] after:-top-5 after:border-t-0 after:border-r-[1.3rem] after:border-r-transparent after:border-l-[1.3rem] after:border-l-transparent after:border-b-[1.6rem] after:border-black'>
+              <div
+                ref={refEl}
+                className='bg-black px-9 py-6 rounded-xl backdrop-blur-xl w-full h-screen fixed top-[86px] pb-32 left-0 text-white after:content-[" "]  after:absolute after:right-[2.1rem] after:-top-5 after:border-t-0 after:border-r-[1.3rem] after:border-r-transparent after:border-l-[1.3rem] after:border-l-transparent after:border-b-[1.6rem] after:border-black'
+              >
                 <div className='overflow-auto h-full'>
                   <div className='flex justify-between items-center mb-6'>
                     <div className='text-white text-xl font-medium'>
