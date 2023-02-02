@@ -21,9 +21,7 @@ const Dashboard = (props: { children: React.ReactNode }) => {
             <Panel />
           </div>
         </div>
-        <div className='w-full h-screen flex justify-center'>
-          {props.children}
-        </div>
+        <div className='w-full h-screen'>{props.children}</div>
       </div>
     </div>
   );
