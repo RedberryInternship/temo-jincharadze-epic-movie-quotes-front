@@ -78,81 +78,83 @@ const Navigation = () => {
             </div>
 
             {isNotificationOpen && (
-              <div
-                ref={refEl}
-                className='bg-black px-9  pt-6 pb-24 lg:pb-14 rounded-xl backdrop-blur-xl max-w-[60rem] w-full h-screen md:max-h-[50rem] fixed top-[86px] right-0 text-white after:content-[" "] after:absolute after:right-[2.1rem] md:after:right-[10.6rem] after:-top-5 after:border-t-0 after:border-r-[1.3rem] after:border-r-transparent after:border-l-[1.3rem] after:border-l-transparent after:border-b-[1.6rem] after:border-black'
-              >
-                <div className='overflow-auto h-full'>
-                  <div className='flex justify-between items-center mb-6'>
-                    <div className='text-white text-xl font-medium'>
-                      {t('notifications')}
+              <div>
+                <div
+                  ref={refEl}
+                  className='bg-black px-9 pt-6 pb-24 lg:pb-14 rounded-xl backdrop-blur-xl md:max-w-[50rem] lg:max-w-[60rem] w-full h-screen md:max-h-[50rem] fixed top-[86px] right-0 md:mx-10 text-white after:content-[" "] after:absolute after:right-[2.1rem] md:after:right-[8.1rem] after:-top-5 after:border-t-0 after:border-r-[1.3rem] after:border-r-transparent after:border-l-[1.3rem] after:border-l-transparent after:border-b-[1.6rem] after:border-black'
+                >
+                  <div className='overflow-auto h-full'>
+                    <div className='flex justify-between items-center mb-6'>
+                      <div className='text-white text-xl font-medium'>
+                        {t('notifications')}
+                      </div>
+                      <div
+                        className='underline text-white text-sm font-normal cursor-pointer'
+                        onClick={markAllReadHandler}
+                      >
+                        {t('markAllAsRead')}
+                      </div>
                     </div>
-                    <div
-                      className='underline text-white text-sm font-normal cursor-pointer'
-                      onClick={markAllReadHandler}
-                    >
-                      {t('markAllAsRead')}
-                    </div>
-                  </div>
 
-                  {userNotification?.data.length &&
-                    userNotification?.data.map(
-                      (notification: NotificationTypes) => {
-                        return (
-                          <div
-                            key={notification.id}
-                            className='border-notification-border border rounded border-solid flex p-4 w-full h-max hover:opacity-90 cursor-pointer mb-2'
-                            onClick={() =>
-                              readHandler(
-                                notification.quote_id,
-                                notification.quote.movie_id
-                              )
-                            }
-                          >
-                            <div>
-                              <Image
-                                width={60}
-                                height={60}
-                                alt='image'
-                                src={notification.sender.image}
-                                className={`rounded-full h-[60px] w-[60px] ${
-                                  notification.has_new &&
-                                  ' border-custom-green-700 border-[2px]'
-                                }`}
-                                loader={() => notification.sender.image}
-                                unoptimized={true}
-                              />
-                              {notification.has_new === 1 && (
-                                <div className='text-base font-normal text-custom-green-700 text-center'>
-                                  {t('new')}
-                                </div>
-                              )}
-                            </div>
-                            <div className='ml-3'>
-                              <h2 className='text-xl font-normal text-white'>
-                                {notification.sender.name}
-                              </h2>
-                              <div className='flex mt-1'>
-                                {notification.has_comment ? (
-                                  <Quote />
-                                ) : (
-                                  <QuoteHeart />
+                    {userNotification?.data.length &&
+                      userNotification?.data.map(
+                        (notification: NotificationTypes) => {
+                          return (
+                            <div
+                              key={notification.id}
+                              className='border-notification-border border rounded border-solid flex p-4 w-full h-max hover:opacity-90 cursor-pointer mb-2'
+                              onClick={() =>
+                                readHandler(
+                                  notification.quote_id,
+                                  notification.quote.movie_id
+                                )
+                              }
+                            >
+                              <div>
+                                <Image
+                                  width={60}
+                                  height={60}
+                                  alt='image'
+                                  src={notification.sender.image}
+                                  className={`rounded-full h-[60px] w-[60px] ${
+                                    notification.has_new &&
+                                    ' border-custom-green-700 border-[2px]'
+                                  }`}
+                                  loader={() => notification.sender.image}
+                                  unoptimized={true}
+                                />
+                                {notification.has_new === 1 && (
+                                  <div className='text-base font-normal text-custom-green-700 text-center'>
+                                    {t('new')}
+                                  </div>
                                 )}
-
-                                <p className='font-base font-normal text-custom-gray-300 ml-3'>
-                                  {notification.has_comment
-                                    ? t('commented')
-                                    : t('liked')}
-                                </p>
                               </div>
-                              <div className='text-base font-normal text-custom-zinc-300 mt-1'>
-                                {formatDate(notification.created_at, t)}
+                              <div className='ml-3'>
+                                <h2 className='text-xl font-normal text-white'>
+                                  {notification.sender.name}
+                                </h2>
+                                <div className='flex mt-1'>
+                                  {notification.has_comment ? (
+                                    <Quote />
+                                  ) : (
+                                    <QuoteHeart />
+                                  )}
+
+                                  <p className='font-base font-normal text-custom-gray-300 ml-3'>
+                                    {notification.has_comment
+                                      ? t('commented')
+                                      : t('liked')}
+                                  </p>
+                                </div>
+                                <div className='text-base font-normal text-custom-zinc-300 mt-1'>
+                                  {formatDate(notification.created_at, t)}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      }
-                    )}
+                          );
+                        }
+                      )}
+                  </div>
                 </div>
               </div>
             )}
