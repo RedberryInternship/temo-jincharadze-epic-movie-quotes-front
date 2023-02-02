@@ -19,12 +19,12 @@ const Navigation = () => {
     logoutHandler,
     t,
     pathname,
-    notificationToggleHandler,
     isNotificationOpen,
     userNotification,
     readHandler,
     filterHasNew,
     refEl,
+    refRing,
     markAllReadHandler,
   } = useNavigation();
 
@@ -57,10 +57,7 @@ const Navigation = () => {
                 <Search />
               </Link>
             )}
-            <div
-              className='cursor-pointer relative'
-              onClick={notificationToggleHandler}
-            >
+            <div className='cursor-pointer relative' ref={refRing}>
               <Ring />
               {filterHasNew?.length ? (
                 <div className='bg-custom-red-600 rounded-full w-6 flex justify-center text-white text-base font-medium absolute -top-1 left-4'>

@@ -22,11 +22,12 @@ const useComment = () => {
     },
   });
 
-  const commentHandler = (quoteId: string) => {
+  const commentHandler = (quoteId: string, movieId: string) => {
     const newData = {
       user_id: id.toString()!,
       quote_id: quoteId,
       comment: getValues('comment'),
+      movie_id: movieId,
     };
 
     if (getValues('comment')) {

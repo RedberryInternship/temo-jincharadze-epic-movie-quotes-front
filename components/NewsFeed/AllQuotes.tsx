@@ -204,6 +204,7 @@ const AllQuotes = () => {
                               <CommentInput
                                 name='comment'
                                 quoteId={quote.id.toString()!}
+                                movieId={quote.movie_id?.toString()!}
                                 type='text'
                                 containerClass='ml-3 w-full'
                                 placeholder={t('quotes.writeComment')}

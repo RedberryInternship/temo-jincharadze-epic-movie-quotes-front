@@ -14,14 +14,22 @@ const useNavigation = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
 
   const refEl = useRef<HTMLDivElement>(null);
+  const refRing = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const toggleBlurHandler = (event: MouseEvent) => {
-      if (refEl.current && !refEl.current.contains(event.target as Node)) {
+      if (
+        refEl.current &&
+        !refRing.current?.contains(event.target as Node) &&
+        !refEl.current.contains(event.target as Node)
+      ) {
         setIsNotificationOpen(false);
       }
-    };
 
+      if (refRing.current && refRing.current?.contains(event.target as Node)) {
+        setIsNotificationOpen((prev) => !prev);
+      }
+    };
     document.addEventListener('click', toggleBlurHandler, true);
     return () => document.removeEventListener('click', toggleBlurHandler, true);
   }, []);
@@ -33,10 +41,6 @@ const useNavigation = () => {
 
   const panelToggleHandler = () => {
     dispatch(showPanelActions.setPanel(true));
-  };
-
-  const notificationToggleHandler = () => {
-    setIsNotificationOpen((prev) => !prev);
   };
 
   const filterHasNew = userNotification?.data.filter(
@@ -59,6 +63,7 @@ const useNavigation = () => {
   const readHandler = (quoteId: number, movieId: number) => {
     mutate({ quote_id: quoteId });
     push(`/movie-list/${movieId}?show=view-quote&id=${quoteId}`);
+    queryClient.removeQueries('selected movie');
   };
 
   const markAllReadHandler = () => {
@@ -71,13 +76,13 @@ const useNavigation = () => {
     logoutHandler,
     t,
     pathname,
-    notificationToggleHandler,
     isNotificationOpen,
     userNotification,
     readHandler,
     filterHasNew,
     refEl,
     markAllReadHandler,
+    refRing,
   };
 };
 
