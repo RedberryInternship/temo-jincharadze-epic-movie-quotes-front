@@ -2,7 +2,7 @@ export type NewsFeedQuoteTypes = {
   comments: [];
   id: number;
   image: string;
-  likes: [] | (string & { map: Function });
+  likes: [] | (string & { find: Function });
   movie: {
     budget: number;
     description: { en: string; ka: string };
@@ -14,6 +14,7 @@ export type NewsFeedQuoteTypes = {
     year: number;
   };
   text: { en: string; ka: string };
+  movie_id?: string;
 };
 
 export type MovieDropDownTypes = {

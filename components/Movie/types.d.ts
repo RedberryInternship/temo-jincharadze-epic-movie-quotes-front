@@ -37,5 +37,6 @@ export type UserMovieTypes = {
   image: string;
   text: { ka: string; en: string };
   comments: [];
-  likes: [] | (string & { map: Function });
+  likes: [] | (string & { find: Function });
+  movie_id?: string;
 };

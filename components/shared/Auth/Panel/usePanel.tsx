@@ -17,6 +17,7 @@ const usePanel = () => {
       router.replace('/');
     } catch (error: any) {}
   };
+
   return {
     name,
     image,

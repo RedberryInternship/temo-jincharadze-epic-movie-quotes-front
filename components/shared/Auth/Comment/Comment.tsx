@@ -10,7 +10,9 @@ const Comment: React.FC<CommentTypes> = (props) => {
       <FormProvider {...form}>
         <form
           className='w-full'
-          onSubmit={handleSubmit(() => commentHandler(props.quoteId!))}
+          onSubmit={handleSubmit(() =>
+            commentHandler(props.quoteId!, props.movieId!)
+          )}
         >
           <input
             {...register('comment')}

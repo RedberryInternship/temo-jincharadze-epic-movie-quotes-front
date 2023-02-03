@@ -31,7 +31,11 @@ const useViewQuote = (quoteInfo: AddNewQuoteTypes) => {
   };
 
   const likeToggleHandler = () => {
-    likeInstance({ user_id: id.toString()!, quote_id: query.id?.toString()! });
+    likeInstance({
+      user_id: id.toString()!,
+      quote_id: query.id?.toString()!,
+      movie_id: query.movieId?.toString()!,
+    });
   };
 
   return {

@@ -52,6 +52,7 @@ const Panel = () => {
             </Link>
             <Link
               href='/news-feed'
+              onClick={panelCloseHandler}
               className='text-xl font-normal text-white mt-10 flex items-center'
             >
               <Home
@@ -63,6 +64,7 @@ const Panel = () => {
             </Link>
             <Link
               href='/movie-list'
+              onClick={panelCloseHandler}
               className='text-xl font-normal text-white flex mt-10 items-center'
             >
               <Movie

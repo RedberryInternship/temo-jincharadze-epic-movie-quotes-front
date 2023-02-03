@@ -29,7 +29,7 @@ export type ViewQuote = {
   text: { en: string; ka: string };
   image: string;
   comments: [];
-  likes: [] | (string & { map: Function });
+  likes: [] | (string & { find: Function });
 };
 
 export type QuoteCommentType = {

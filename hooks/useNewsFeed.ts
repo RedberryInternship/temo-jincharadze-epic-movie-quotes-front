@@ -32,8 +32,12 @@ const useNewsFeed = () => {
     }
   );
 
-  const likeToggleHandler = (quoteId: string) => {
-    likeInstance({ user_id: id.toString()!, quote_id: quoteId });
+  const likeToggleHandler = (quoteId: string, movieId: string) => {
+    likeInstance({
+      user_id: id.toString()!,
+      quote_id: quoteId,
+      movie_id: movieId,
+    });
   };
 
   return {

@@ -107,5 +107,13 @@
     "writeNewQuote": "Write new quote",
     "chooseMovie": "Choose movie",
     "post": "Post"
-  }
+  },
+  "min": "mins ago",
+  "hour": "hours ago",
+  "day": "days ago",
+  "new": "New",
+  "liked": "Reacted to your quote",
+  "commented": "Commented to your quote",
+  "notifications": "Notifications",
+  "markAllAsRead": "Mark all as read"
 }

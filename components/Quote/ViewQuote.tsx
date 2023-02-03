@@ -131,10 +131,12 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                               color={
                                 !quote.likes.length
                                   ? '#fff'
-                                  : quote.likes.map(
+                                  : quote.likes.find(
                                       (like: { user_id: string }) =>
-                                        like.user_id === id ? '#F3426C' : '#fff'
+                                        like.user_id === id
                                     )
+                                  ? '#F3426C'
+                                  : '#fff'
                               }
                             />
                           </div>

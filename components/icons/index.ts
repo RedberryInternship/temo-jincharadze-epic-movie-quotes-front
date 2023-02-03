@@ -24,3 +24,4 @@ export { default as Heart } from './Heart';
 export { default as Comment } from './Comment';
 export { default as Dots } from './Dots';
 export { default as PensilSquare } from './PensilSquare';
+export { default as QuoteHeart } from './QuoteHeart';

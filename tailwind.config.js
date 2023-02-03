@@ -42,6 +42,7 @@ module.exports = {
         'custom-gray-500': '#6C757D',
         'custom-blue-600': '#0D6EFD',
         'custom-green-700': '#198754',
+        'custom-red-600': '#E33812',
         'custom-red-700': '#CC0E10',
         'custom-neutral-900': '#11101A',
         'neutral-900': '#12101A',
@@ -52,7 +53,8 @@ module.exports = {
         'panel-color': 'rgba(17, 16, 26, 1)',
         'search-border': 'rgba(239, 239, 239, 0.3)',
         'movie-border': 'rgba(239, 239, 239, 0.2)',
-        'mobile-search': 'rgba(239, 239, 239, 0.6)        ',
+        'mobile-search': 'rgba(239, 239, 239, 0.6)',
+        'notification-border': 'rgba(108, 117, 125, 0.5)',
       },
       backgroundImage: {
         'starting-gradient':
