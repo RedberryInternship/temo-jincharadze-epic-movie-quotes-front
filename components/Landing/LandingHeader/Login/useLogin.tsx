@@ -85,6 +85,7 @@ const useLogin = () => {
       dispatch(showModalActions.setModalIsOpen(false));
       replace('/news-feed');
     } catch (error) {
+      console.log(error);
       dispatch(showModalActions.setModalValue('login'));
       setError('login', { message: t('unique.email')! });
     }

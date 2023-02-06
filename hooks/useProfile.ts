@@ -10,7 +10,7 @@ const useProfile = () => {
 
   const { t } = useTranslation('forms');
 
-  const { name, image, id } = userInfo.user;
+  const { name, image, id, emails } = userInfo.user;
   const { pathname } = useRouter();
 
   const avatarLoader = () => {
@@ -21,7 +21,16 @@ const useProfile = () => {
     dispatch(showPanelActions.setPanel(false));
   };
 
-  return { name, image, avatarLoader, panelCloseHandler, pathname, id, t };
+  return {
+    name,
+    image,
+    avatarLoader,
+    panelCloseHandler,
+    pathname,
+    id,
+    t,
+    emails,
+  };
 };
 
 export default useProfile;
