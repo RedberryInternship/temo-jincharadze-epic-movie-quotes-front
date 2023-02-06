@@ -140,6 +140,7 @@ const useGoogleProfile = () => {
     disabledInput,
     setDisabledInput,
     disabledHandler,
+    t,
   };
 };
 

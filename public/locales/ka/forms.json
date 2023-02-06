@@ -115,5 +115,19 @@
   "liked": "მოიწონა თქვენი ციტატა",
   "commented": "დააკომენტარა თქვენს ციტატაზე",
   "notifications": "შეტყობინებები",
-  "markAllAsRead": "წაიკითხე ყველა"
+  "markAllAsRead": "წაიკითხე ყველა",
+  "profile": {
+    "confirm": "დასტური",
+    "changesUpdatedSuccessfully": "ცვლილებები წარმატებით განახლდა",
+    "myProfile": "ჩემი პროფილი",
+    "uploadNewPhoto": "ატვირთე სურათი",
+    "username": "მომხმარებელი",
+    "edit": "შეცვლა",
+    "email": "ელ-ფოსტა",
+    "cancel": "გაუქმება",
+    "saveChanges": "შენახვა",
+    "enterNewUsername": "ახალი მომხმარებელი",
+    "add": "დამატება",
+    "areYouSure": "დარწმუნებული ხარ ?"
+  }
 }
