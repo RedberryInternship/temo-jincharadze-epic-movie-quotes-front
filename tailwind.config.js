@@ -55,6 +55,11 @@ module.exports = {
         'movie-border': 'rgba(239, 239, 239, 0.2)',
         'mobile-search': 'rgba(239, 239, 239, 0.6)',
         'notification-border': 'rgba(108, 117, 125, 0.5)',
+        'border-b': 'rgba(206, 212, 218, 0.5)',
+        'custom-green-900': '#0F5132',
+        'success-bg': '#D1E7DD',
+        'custom-slate-300': '#BADBCC',
+        'custom-neutral-800': '#212529',
       },
       backgroundImage: {
         'starting-gradient':
@@ -65,6 +70,8 @@ module.exports = {
           'linear-gradient(187.16deg, #181623 0.07%, #191725 51.65%, #0D0B14 98.75%)',
         'footer-gradient':
           'linear-gradient(#181623 0,07%, #191725 50.66%, #0D0B14 96.88%)',
+        'prompt-bg':
+          'linear-gradient(112.94deg, rgba(239, 239, 239, 0.3) -1.81%, rgba(239, 239, 239, 0.00514528) 102.5%, rgba(1, 1, 1, 0.00260417) 102.51%, rgba(239, 239, 239, 0.05) 102.52%)',
         interstellar: "url('/assets/images/interstellar.png')",
         lord: "url('/assets/images/lord.png')",
         royal: "url('/assets/images/royal.png')",

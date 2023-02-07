@@ -115,5 +115,19 @@
   "liked": "Reacted to your quote",
   "commented": "Commented to your quote",
   "notifications": "Notifications",
-  "markAllAsRead": "Mark all as read"
+  "markAllAsRead": "Mark all as read",
+  "profile": {
+    "confirm": "Confirm",
+    "changesUpdatedSuccessfully": "Changes updated succsessfully",
+    "myProfile": "My profile",
+    "uploadNewPhoto": "Upload new photo",
+    "username": "Username",
+    "edit": "Edit",
+    "email": "Email",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "enterNewUsername": "Enter new username",
+    "add": "Add",
+    "areYouSure": "Are you sure to make changes ?"
+  }
 }

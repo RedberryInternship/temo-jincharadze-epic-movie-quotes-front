@@ -27,13 +27,13 @@ const Panel = () => {
             >
               <Close />
             </div>
-            <Link href=''>
+            <Link href='/profile' onClick={panelCloseHandler}>
               <div className='flex items-center hover:opacity-80'>
                 <div>
                   {image && (
                     <Image
                       src={image}
-                      className='rounded-full'
+                      className='rounded-full h-10'
                       alt='user image'
                       width={40}
                       height={40}
