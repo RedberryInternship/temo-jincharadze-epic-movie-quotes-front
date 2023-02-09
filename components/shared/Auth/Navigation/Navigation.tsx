@@ -96,7 +96,7 @@ const Navigation = () => {
                       </div>
                     </div>
 
-                    {userNotification?.data.length &&
+                    {userNotification?.data.length > 0 &&
                       userNotification?.data.map(
                         (notification: NotificationTypes) => {
                           return (
