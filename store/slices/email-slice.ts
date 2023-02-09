@@ -10,7 +10,7 @@ const initialState: {
   modal: {
     showAddEmailSuccess: false,
     primaryChanged: false,
-    isEmailVerified: true,
+    isEmailVerified: false,
   },
 };
 

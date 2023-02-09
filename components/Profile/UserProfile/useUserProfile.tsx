@@ -32,7 +32,7 @@ const useUserProfile = () => {
     push('/profile?mode=add-email');
   };
 
-  const { t } = useTranslation('forms');
+  const { t, i18n } = useTranslation('forms');
 
   const form = useForm<{ email: string }>({
     mode: 'all',
@@ -101,7 +101,7 @@ const useUserProfile = () => {
   };
 
   const addEmailHandler = () => {
-    addEmailInstance({ email: getValues('email') });
+    addEmailInstance({ email: getValues('email'), locale: i18n.language });
     push('/profile?mode=show-email');
     dispatch(showEmailActions.setShowAddEmailSuccess(true));
   };
