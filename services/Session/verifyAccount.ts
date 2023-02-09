@@ -1,7 +1,7 @@
 import instance from '../axios';
 
-const verifyEmail = (url: string) => {
+const verifySecondaryEmail = (url: string) => {
   return instance.get(url);
 };
 
-export default verifyEmail;
+export default verifySecondaryEmail;
