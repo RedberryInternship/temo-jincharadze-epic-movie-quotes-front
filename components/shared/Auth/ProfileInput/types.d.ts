@@ -8,4 +8,7 @@ export type ProfileInputProps = {
   inputClass?: string;
   disabled?: boolean;
   value?: string;
+  hasEye?: boolean;
+  onPasswordShow?: React.MouseEventHandler;
+  showPassword?: boolean;
 };
