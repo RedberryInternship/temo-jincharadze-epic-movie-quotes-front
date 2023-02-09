@@ -1,9 +1,11 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { GoogleProfile } from 'components';
+import { GoogleProfile, UserProfile } from 'components';
+import { useProfile } from 'hooks';
 
 const Index = () => {
-  return <GoogleProfile />;
+  const { google_id } = useProfile();
+  return google_id ? <GoogleProfile /> : <UserProfile />;
 };
 
 export default Index;
