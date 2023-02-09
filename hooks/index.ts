@@ -9,3 +9,4 @@ export { default as useLike } from './useLike';
 export { default as useQuoteDelete } from './useQuoteDelete';
 export { default as useNewsFeed } from './useNewsFeed';
 export { default as useNotification } from './useNotification';
+export { default as useVerifySecondaryEmail } from './useVerifySecondaryEmail';
