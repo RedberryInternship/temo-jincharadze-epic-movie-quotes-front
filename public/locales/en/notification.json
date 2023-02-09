@@ -37,5 +37,10 @@
     "title": "You shall not pass!",
     "description": "Sorry, but you don’t have permission to access this page",
     "btn": "Return home"
+  },
+  "notFound": {
+    "title": "Whoops!",
+    "description": "We can't see the page you are looking for",
+    "btn": "Return home"
   }
 }
