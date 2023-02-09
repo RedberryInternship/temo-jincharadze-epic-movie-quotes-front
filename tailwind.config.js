@@ -29,6 +29,7 @@ module.exports = {
         47: '47px',
       },
       colors: {
+        'custom-amber-500': '#EC9524',
         'custom-white': '#FFFFFF',
         'custom-orange-200': '#DDCCAA',
         'custom-red-600': '#E31221',
@@ -43,6 +44,7 @@ module.exports = {
         'custom-blue-600': '#0D6EFD',
         'custom-green-700': '#198754',
         'custom-red-600': '#E33812',
+        'custom-neutral-400': '#9C9A9A',
         'custom-red-700': '#CC0E10',
         'custom-neutral-900': '#11101A',
         'neutral-900': '#12101A',
@@ -60,6 +62,8 @@ module.exports = {
         'success-bg': '#D1E7DD',
         'custom-slate-300': '#BADBCC',
         'custom-neutral-800': '#212529',
+        'primary-email-bg': 'rgba(25, 135, 84, 0.2)',
+        'not-verified-bg': 'rgba(236, 149, 36, 0.2)',
       },
       backgroundImage: {
         'starting-gradient':
