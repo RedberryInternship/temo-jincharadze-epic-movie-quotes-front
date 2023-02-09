@@ -27,3 +27,7 @@ export { default as PensilSquare } from './PensilSquare';
 export { default as QuoteHeart } from './QuoteHeart';
 export { default as Success } from './Success';
 export { default as CloseSuccess } from './CloseSuccess';
+export { default as ArrowRight } from './ArrowRight';
+export { default as AddEmail } from './AddEmail';
+export { default as NotVerified } from './NotVerified';
+export { default as Ghost } from './Ghost';
