@@ -14,7 +14,10 @@ import {
 import Link from 'next/link';
 import { FormProvider } from 'react-hook-form';
 
-const GoogleProfile = (props: { mode?: string; children: React.ReactNode }) => {
+const GoogleProfile = (props: {
+  mode?: string;
+  children?: React.ReactNode;
+}) => {
   const {
     name,
     emails,
