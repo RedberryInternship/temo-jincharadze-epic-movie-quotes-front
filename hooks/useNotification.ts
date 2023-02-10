@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { pusher } from 'config';
-import Echo from 'laravel-echo';
+import { usePusher } from 'config';
 import { useQuery, useQueryClient } from 'react-query';
 import { userNotifications } from 'services';
 import useProfile from './useProfile';
 
 const useNotification = () => {
+  const { echo } = usePusher();
   const { id } = useProfile();
 
   const queryClient = useQueryClient();
@@ -18,13 +18,14 @@ const useNotification = () => {
   });
 
   useEffect(() => {
-    pusher();
-    if (id) {
-      window.Echo.private(`epic-quotes.${id}`).listen('.notifications', () => {
+    if (echo && id) {
+      echo.private(`epic-quotes.${id}`).listen('.notifications', () => {
         queryClient.invalidateQueries('user notifications');
       });
     }
-  }, [id]);
+
+    return () => echo?.leave(`epic-quotes.${id}`);
+  }, [id, echo]);
 
   return { data };
 };
