@@ -63,6 +63,7 @@ const useNavigation = () => {
     mutate({ quote_id: quoteId });
     push(`/movie-list/${movieId}?show=view-quote&id=${quoteId}`);
     queryClient.removeQueries('selected movie');
+    setIsNotificationOpen(false);
   };
 
   const markAllReadHandler = () => {

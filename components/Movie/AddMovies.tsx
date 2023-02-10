@@ -46,7 +46,7 @@ const AddMovies = () => {
               {image && (
                 <Image
                   src={image}
-                  className='rounded-full'
+                  className='rounded-full md:w-14 md:h-14 w-10 h-10'
                   alt='user image'
                   width={40}
                   height={40}

@@ -38,7 +38,9 @@ const MovieSelect = () => {
             </div>
           ))
         ) : (
-          <span className='text-base md:text-xl'>{t('selectGenre')}</span>
+          <span className='text-base opacity-60 md:text-xl'>
+            {t('selectGenre')}
+          </span>
         )}
       </div>
       {isOpen && (
