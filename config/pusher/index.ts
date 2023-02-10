@@ -1,1 +1,1 @@
-export { default as pusher } from './pusher';
+export { default as usePusher } from './pusher';

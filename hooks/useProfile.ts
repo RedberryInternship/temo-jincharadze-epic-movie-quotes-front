@@ -10,7 +10,7 @@ const useProfile = () => {
 
   const { t } = useTranslation('forms');
 
-  const { name, image, id, emails } = userInfo.user;
+  const { name, image, id, emails, google_id } = userInfo.user;
   const { pathname } = useRouter();
 
   const avatarLoader = () => {
@@ -30,6 +30,7 @@ const useProfile = () => {
     id,
     t,
     emails,
+    google_id,
   };
 };
 

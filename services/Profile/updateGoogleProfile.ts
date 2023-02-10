@@ -4,6 +4,7 @@ const updateGoogleProfile = (data: {
   username: string;
   userId: number;
   image?: string | File;
+  password?: string;
 }) => {
   return instance.post(`/api/auth/update-profile/?_method=put`, data, {
     headers: {

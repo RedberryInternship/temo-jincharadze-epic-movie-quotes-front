@@ -128,6 +128,25 @@
     "saveChanges": "Save Changes",
     "enterNewUsername": "Enter new username",
     "add": "Add",
-    "areYouSure": "Are you sure to make changes ?"
+    "areYouSure": "Are you sure to make changes ?",
+    "password": "Password",
+    "confirmPassword": "Confirm new password",
+    "shouldContain": "Passwords should contain:",
+    "orMoreCharacters": "or more characters",
+    "lowercaseCharacter": "lowercase character",
+    "newPassword": "New password",
+    "newEmailAdded": "New email Added succsessfully",
+    "verify": "Please check email to verify new address",
+    "primary": "Primary email changed succsessfully",
+    "primaryEmail": "Primary email",
+    "notVerified": "Not verified",
+    "remove": "Remove",
+    "addNewEmail": "Add new email",
+    "makeThisPrimary": "Make this primary",
+    "usernameChanged": "Username changed succsessfully",
+    "passwordChanged": "New password updated succsessfully",
+    "primaryEm": "Primary email",
+    "newEmail": "New Email",
+    "emailVerified": "Email successfully verified!"
   }
 }

@@ -4,8 +4,10 @@ import { User } from 'types';
 const initialState: User = {
   user: {
     id: '',
+    google_id: '',
     name: '',
     image: '',
+    email_verified_at: '',
     emails: [],
   },
 };

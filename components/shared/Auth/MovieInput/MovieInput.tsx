@@ -15,7 +15,7 @@ const MovieInput: React.FC<MovieInputProps> = (props) => {
               {...register(props.name!, props.options)}
               name={props.name}
               placeholder={props.placeholder}
-              className={`text-white bg-transparent pl-4 pr-12 py-3 md:text-xl h-[5.4rem] placeholder-white border-custom-gray-500 rounded w-full border focus:ring-0  text-base focus:outline-none focus:border-custom-gray-500  border-solid  outline-none font-normal ${props.textAreaClass}`}
+              className={`text-white bg-transparent pl-4 pr-12 py-3 md:text-xl h-[5.4rem] placeholder-white placeholder-opacity-60  border-custom-gray-500 rounded w-full border focus:ring-0  text-base focus:outline-none focus:border-custom-gray-500  border-solid  outline-none font-normal ${props.textAreaClass}`}
             />
             <p className='absolute top-2.5 right-4 text-base md:text-xl font-normal text-custom-gray-500'>
               {props.language}
@@ -38,7 +38,7 @@ const MovieInput: React.FC<MovieInputProps> = (props) => {
                 type={props.type}
                 name={props.name}
                 placeholder={props.placeholder}
-                className={`text-white bg-transparent pl-4 pr-11 py-3 h-12 placeholder-white border-custom-gray-500 rounded w-full border focus:ring-0  text-base md:text-xl focus:outline-none focus:border-custom-gray-500  border-solid  outline-none font-normal`}
+                className={`text-white bg-transparent pl-4 pr-11 py-3 h-12 placeholder-white placeholder-opacity-60 border-custom-gray-500 rounded w-full border focus:ring-0  text-base md:text-xl focus:outline-none focus:border-custom-gray-500  border-solid  outline-none font-normal`}
               />
               <p className='absolute top-2.5 right-4 text-base md:text-xl font-normal text-custom-gray-500'>
                 {props.language}

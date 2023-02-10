@@ -8,3 +8,4 @@ export { default as updatePassword } from './updatePassword';
 export { default as getGoogleUrl } from './getGoogleUrl';
 export { default as googleCallBack } from './googleCallBack';
 export { default as logout } from './logout';
+export { default as verifySecondaryEmail } from './verifyEmail';

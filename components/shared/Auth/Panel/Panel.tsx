@@ -33,7 +33,10 @@ const Panel = () => {
                   {image && (
                     <Image
                       src={image}
-                      className='rounded-full h-10'
+                      className={`rounded-full h-10 lg:h-[3.75rem] lg:w-[3.75rem] object-cover ${
+                        pathname === '/profile' &&
+                        'border border-custom-red-600'
+                      }`}
                       alt='user image'
                       width={40}
                       height={40}
@@ -43,8 +46,10 @@ const Panel = () => {
                   )}
                 </div>
                 <div className='ml-5'>
-                  <h2 className='text-xl font-normal text-white'>{name}</h2>
-                  <p className='text-custom-gray-300 text-sm'>
+                  <h2 className='text-xl lg:text-2xl font-normal text-white'>
+                    {name}
+                  </h2>
+                  <p className='text-custom-gray-300 text-sm lg:text-base'>
                     {t('movies.editProfile')}
                   </p>
                 </div>
@@ -53,24 +58,28 @@ const Panel = () => {
             <Link
               href='/news-feed'
               onClick={panelCloseHandler}
-              className='text-xl font-normal text-white mt-10 flex items-center'
+              className='text-xl lg:text-2xl font-normal text-white mt-10 flex items-center'
             >
-              <Home
-                fill={pathname.startsWith('/news-feed') ? '#E31221' : '#fff'}
-              />
-              <p className='ml-8 hover:text-custom-red-700'>
+              <div className='lg:ml-3'>
+                <Home
+                  fill={pathname.startsWith('/news-feed') ? '#E31221' : '#fff'}
+                />
+              </div>
+              <p className='ml-8 lg:ml-11 hover:text-custom-red-700'>
                 {t('movies.newsFeed')}
               </p>
             </Link>
             <Link
               href='/movie-list'
               onClick={panelCloseHandler}
-              className='text-xl font-normal text-white flex mt-10 items-center'
+              className='text-xl lg:text-2xl font-normal text-white flex mt-10 items-center'
             >
-              <Movie
-                fill={pathname.startsWith('/movie-list') ? '#E31221' : '#fff'}
-              />
-              <p className='ml-8 hover:text-custom-red-700'>
+              <div className='lg:ml-3'>
+                <Movie
+                  fill={pathname.startsWith('/movie-list') ? '#E31221' : '#fff'}
+                />
+              </div>
+              <p className='ml-8 lg:ml-11 hover:text-custom-red-700'>
                 {t('movies.listOfMovies')}
               </p>
             </Link>
