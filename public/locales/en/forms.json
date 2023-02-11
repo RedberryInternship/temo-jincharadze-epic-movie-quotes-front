@@ -48,6 +48,7 @@
     "confirmPassword": "Password doesn't match.",
     "number": "Please enter a valid year",
     "year": "Please enter a valid year",
+    "budget": "Should be numbers",
     "file": "File should be image"
   },
   "unique": {
