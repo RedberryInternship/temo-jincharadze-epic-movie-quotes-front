@@ -48,7 +48,7 @@ const useAddMovies = () => {
 
   const budgetOption = {
     required: { value: true, message: t('errors.required') },
-    pattern: { value: /^[0-9]*$/, message: t('errors.number') },
+    pattern: { value: /^[0-9 ]*$/, message: t('errors.budget') },
   };
 
   const yearOption = {
@@ -78,7 +78,7 @@ const useAddMovies = () => {
     newData.append('directorKa', data.directorKa);
     newData.append('descriptionEn', data.descriptionEn);
     newData.append('descriptionKa', data.descriptionKa);
-    newData.append('budget', data.budget);
+    newData.append('budget', data.budget.trim());
     newData.append('year', data.year);
     newData.append('image', getValues('image'));
     newData.append('tags', JSON.stringify(data.tags));
