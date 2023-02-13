@@ -68,8 +68,8 @@ const GoogleProfile = (props: {
     <Dashboard>
       <div className='relative'>
         <div className='py-6 pl-10 w-max lg:hidden'>
-          <div className='md:hidden'>
-            <Link href='/news-feed'>
+          <div className='lg:hidden'>
+            <Link href='/profile'>
               <ArrowLeft />
             </Link>
           </div>
