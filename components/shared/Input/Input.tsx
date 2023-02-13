@@ -30,7 +30,7 @@ const Input: React.FC<InputProps> = (props) => {
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}
-          className={`text-custom-gray-500 bg-custom-gray-300 ${
+          className={`placeholder-color-custom-gray-500 text-black bg-custom-gray-300 ${
             props.hasEye ? 'pr-12' : 'pr-8'
           } rounded h-[2.4rem] ${
             props.type === 'password' ? 'pr-12' : 'pr-8'
