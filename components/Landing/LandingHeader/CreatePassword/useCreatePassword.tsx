@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
@@ -24,6 +24,8 @@ const useCreatePassword = () => {
   });
 
   const { t } = useTranslation('forms');
+
+  const { push } = useRouter();
 
   const {
     formState: { errors },
@@ -62,7 +64,7 @@ const useCreatePassword = () => {
   };
 
   const backToLogin = () => {
-    dispatch(showModalActions.setModalValue('login'));
+    push('/?type=login');
   };
 
   const resetPasswordHandler = async (data: {
