@@ -32,10 +32,10 @@ const Login: React.FC<LoginProps> = (props) => {
             <Input
               options={loginOptions}
               containerClass='mt-8'
-              label={t('logIn.email')}
+              label={t('logIn.emailOrUsername')}
               type='text'
               name='login'
-              placeholder={t('logIn.emailPlaceholder')!}
+              placeholder={t('logIn.emailOrUserNamePlaceholder')!}
             />
             <div className='h-7 mt-1'>
               <ErrorMessage
