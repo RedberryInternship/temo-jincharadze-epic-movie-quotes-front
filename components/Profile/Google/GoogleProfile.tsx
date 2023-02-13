@@ -82,7 +82,7 @@ const GoogleProfile = (props: {
         {emailModal.showAddEmailSuccess && (
           <>
             <div
-              className='bg-dashboard-color opacity-60 fixed w-full h-full z-[1] top-20'
+              className='bg-dashboard-color opacity-60 lg:opacity-0 fixed w-full h-full z-[1] top-20'
               onClick={closeEmailAddSuccess}
             />
             <div className='px-8 absolute top-10 w-full z-[1] lg:right-12 lg:w-max'>
@@ -111,7 +111,7 @@ const GoogleProfile = (props: {
         {emailModal.primaryChanged && (
           <>
             <div
-              className='bg-dashboard-color opacity-60 fixed w-full h-screen z-[1] top-0'
+              className='bg-dashboard-color opacity-60 lg:opacity-0 fixed w-full h-screen z-[1] top-0'
               onClick={closePrimaryChangeSuccess}
             />
             <div className='px-8 absolute top-10 w-full z-[1] lg:right-12 lg:w-max'>
