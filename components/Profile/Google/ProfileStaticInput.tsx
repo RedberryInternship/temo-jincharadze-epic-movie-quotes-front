@@ -23,7 +23,9 @@ const ProfileStaticInput = (props: ProfileStaticInputProps) => {
               inputClass='min-w-[362px] placeholder-custom-neutral-800'
             />
             <div
-              className='text-lg lg:text-xl font-normal text-custom-gray-300 ml-8 hidden lg:block cursor-pointer'
+              className={`text-lg lg:text-xl font-normal text-custom-gray-300 ml-8 hidden lg:block cursor-pointer ${
+                !props.disabled && 'lg:hidden'
+              }`}
               onClick={props.disabledHandler}
             >
               {props.edit}
