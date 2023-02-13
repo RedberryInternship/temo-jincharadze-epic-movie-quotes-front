@@ -1,4 +1,4 @@
-# Covid Questionaire
+# Epic Movie Quotes
 
 In Epic Movie Quotes App you can find quotes of movies.
 
