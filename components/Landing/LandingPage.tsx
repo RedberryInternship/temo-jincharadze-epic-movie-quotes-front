@@ -66,11 +66,12 @@ const LandingPage = () => {
       )}
 
       {modalForm.isOpen && (
-        <Modal onClose={closeModalHandler}>
+        <Modal onClose={closeModalHandler} mode='mobile modal'>
           {modalForm.value === 'email sent' && (
             <FormWrapper
               onClose={closeModalHandler}
-              className='md:h-[26rem] md:w-[33.5rem]'
+              className='md:h-[26rem] md:w-[33.5rem] pt-[4.5rem] pb-[6.5rem] rounded-xl md:pb-0 md:pt-0 left-1/2 -translate-x-1/2 top-20'
+              mode='mobile modal'
             >
               <EmailVerification />
             </FormWrapper>
@@ -78,7 +79,8 @@ const LandingPage = () => {
           {modalForm.value === 'accountVerified' && (
             <FormWrapper
               onClose={closeModalHandler}
-              className='md:h-[26rem] md:w-[33.5rem]'
+              className='md:h-[26rem] md:w-[33.5rem] pt-[4.5rem] pb-[6.5rem] rounded-xl md:pb-0 md:pt-0 left-1/2 -translate-x-1/2 top-20'
+              mode='mobile modal'
             >
               <EmailVerified />
             </FormWrapper>
@@ -87,7 +89,8 @@ const LandingPage = () => {
           {modalForm.value === 'accountAlreadyVerified' && (
             <FormWrapper
               onClose={closeModalHandler}
-              className='md:h-[26rem] md:w-[33.5rem]'
+              className='md:h-[26rem] md:w-[33.5rem] pt-[4.5rem] pb-[6.5rem] rounded-xl md:pb-0 md:pt-0 left-1/2 -translate-x-1/2 top-20'
+              mode='mobile modal'
             >
               <EmailAlreadyVerified />
             </FormWrapper>
@@ -96,9 +99,10 @@ const LandingPage = () => {
           {modalForm.value === 'password reset sent' && (
             <FormWrapper
               onClose={closeModalHandler}
-              className='md:h-[26rem] md:w-[33.5rem]'
+              className='md:h-[26rem] md:w-[33.5rem] pt-8 pb-6 rounded-xl md:pb-0 md:pt-0 left-1/2 -translate-x-1/2 top-20 px-0 lg:px-4'
+              mode='mobile modal'
             >
-              <PasswordVerification />
+              <PasswordVerification mode='password sent' />
             </FormWrapper>
           )}
 
@@ -114,9 +118,10 @@ const LandingPage = () => {
           {modalForm.value === 'password changed' && (
             <FormWrapper
               onClose={closeModalHandler}
-              className='md:h-[26rem] md:w-[33.5rem]'
+              className='md:h-[26rem] md:w-[33.5rem] pt-8 pb-16 rounded-xl md:pb-0 md:pt-0 left-1/2 -translate-x-1/2 top-20 px-0 lg:px-4'
+              mode='mobile modal'
             >
-              <PasswordVerified />
+              <PasswordVerified mode='password verified' />
             </FormWrapper>
           )}
 
