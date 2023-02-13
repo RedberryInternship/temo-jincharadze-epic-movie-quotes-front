@@ -59,7 +59,7 @@ const UserProfile = () => {
           <p className='text-base lg:text-xl font-normal'>
             {t('profile.email')}
           </p>
-          <div onClick={openEmailModal}>
+          <div onClick={openEmailModal} className='cursor-pointer'>
             <ArrowRight width='12' height='12' />
           </div>
         </div>
