@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = (props) => {
           name={props.name}
           placeholder={props.placeholder}
           className={`text-custom-gray-500 rounded h-[2.4rem] ${
-            props.type === 'password' ? 'pr-14' : 'pr-8'
+            props.type === 'password' ? 'pr-11' : 'pr-8'
           }  pl-3 w-full border focus:ring-0 ${
             invalid
               ? 'border-custom-red-600 focus:border-custom-red-600'
@@ -53,18 +53,18 @@ const Input: React.FC<InputProps> = (props) => {
           </div>
         )}
         {props.hasEye === true && (
-          <>
+          <div className='flex items-center'>
             {!invalid && isDirty && (
-              <div className='absolute top-[0.7rem] right-10 z-[2]'>
+              <div className='absolute top-[0.7rem] right-2 z-[2]'>
                 <Valid />
               </div>
             )}
             {invalid && (
-              <div className='absolute top-[0.7rem] right-10'>
+              <div className='absolute top-[0.7rem] right-2'>
                 <InputError />
               </div>
             )}
-            <div className='absolute top-0 pt-[0.8rem] right-0 pr-[0.9rem] cursor-pointer'>
+            <div className='absolute top-0 pt-[0.9rem] right-4 pr-[0.7rem] cursor-pointer'>
               {props.name === 'password' && (
                 <div onClick={props.onPasswordShow}>
                   {!props.showPassword ? <Eye /> : <ShowEye />}
@@ -76,7 +76,7 @@ const Input: React.FC<InputProps> = (props) => {
                 </div>
               )}
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
