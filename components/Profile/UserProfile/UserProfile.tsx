@@ -166,7 +166,7 @@ const UserProfile = () => {
 
             <div
               onClick={openAddEmail}
-              className='flex items-center rounded lg:w-max lg:px-4 border mt-6 border-solid border-custom-zinc-300 py-2 justify-center'
+              className='flex items-center cursor-pointer rounded lg:w-max lg:px-4 border mt-6 border-solid border-custom-zinc-300 py-2 justify-center'
             >
               <AddEmail />
               <span className='ml-2 lg:hidden'>{t('profile.add')}</span>

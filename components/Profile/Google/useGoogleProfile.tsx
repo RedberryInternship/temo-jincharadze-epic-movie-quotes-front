@@ -220,6 +220,7 @@ const useGoogleProfile = () => {
       setValue('image', '');
       setValue('password', '');
       setValue('confirm_password', '');
+      push('/profile');
       setDisabledInput(true);
       setShowSuccess(true);
       setSaveChanges(false);
