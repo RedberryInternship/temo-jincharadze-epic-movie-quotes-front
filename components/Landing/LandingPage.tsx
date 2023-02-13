@@ -136,7 +136,7 @@ const LandingPage = () => {
         </Modal>
       )}
 
-      <div className='bg-starting-gradient absolute z-[2] top-0 w-screen h-screen' />
+      <div className='bg-starting-gradient absolute z-[2] top-0 h-screen w-full' />
       <LandingHeader
         onSignUpClick={onSignUpHandler}
         onLoginClick={onLoginHandler}

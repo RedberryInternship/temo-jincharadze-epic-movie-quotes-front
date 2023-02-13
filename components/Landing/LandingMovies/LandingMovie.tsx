@@ -5,7 +5,7 @@ const LandingMovie: React.FC<PropsTypes> = (props) => {
     <div className={`h-screen relative ${props.wrapperClass}`}>
       <div className='bg-movies-gradient w-full h-full absolute z-[2]' />
       <div
-        className={`absolute h-full w-screen z-[1] bg-no-repeat bg-cover bg-center ${props.image}`}
+        className={`absolute h-full w-full z-[1] bg-no-repeat bg-cover bg-center ${props.image}`}
       />
 
       <div className='top-[20rem] absolute flex z-[2] ml-9 md:ml-40'>
