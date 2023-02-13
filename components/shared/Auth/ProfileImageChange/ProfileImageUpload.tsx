@@ -2,7 +2,7 @@ import { useProfileImageUpload } from 'components';
 import Image from 'next/image';
 
 const ProfileImageUpload = () => {
-  const { onFileDrop, preview, avatar, image } = useProfileImageUpload();
+  const { onFileDrop, preview, avatar, image, t } = useProfileImageUpload();
 
   return (
     <>
@@ -50,6 +50,19 @@ const ProfileImageUpload = () => {
               />
             </>
           )}
+        </div>
+        <div className='text-xl font-normal w-full bottom-0 relative text-center text-white mt-2'>
+          <input
+            onChange={onFileDrop}
+            name='image'
+            type='file'
+            accept='image/*'
+            className='opacity-0 absolute top-0 left-0 w-full h-full cursor-pointer'
+            id='file_input'
+          />
+          <label htmlFor='file_input' className='relative z-[2] cursor-pointer'>
+            {t('profile.uploadNewPhoto')}
+          </label>
         </div>
       </div>
     </>

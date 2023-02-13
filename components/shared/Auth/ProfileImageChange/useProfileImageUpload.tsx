@@ -1,4 +1,5 @@
 import { useProfile } from 'hooks';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
@@ -7,6 +8,8 @@ const useProfileImageUpload = () => {
   const form = useFormContext();
   const { getValues, setValue, register } = form;
   const avatar = getValues('image');
+
+  const { t } = useTranslation('forms');
 
   const [preview, setPreview] = useState<string>('');
 
@@ -37,6 +40,7 @@ const useProfileImageUpload = () => {
     register,
     getValues,
     avatarLoader,
+    t,
   };
 };
 

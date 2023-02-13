@@ -207,9 +207,6 @@ const GoogleProfile = (props: {
                       }`}
                     >
                       <ProfileImageUpload />
-                      <p className='text-xl font-normal text-center text-white mt-2'>
-                        {t('profile.uploadNewPhoto')}
-                      </p>
                     </div>
                   </div>
                   <div
