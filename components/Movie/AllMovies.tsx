@@ -57,10 +57,14 @@ const AllMovies = () => {
                     onSubmit={handleSubmit(handleSearch)}
                   >
                     <div className='flex items-center'>
-                      <Button type='submit'>
+                      <Button type='submit' className='block lg:hidden'>
                         <Search />
                       </Button>
+                      <label htmlFor='search' className='hidden lg:block'>
+                        <Search />
+                      </label>
                       <input
+                        id='search'
                         {...register('search')}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setIsFocused(false)}
