@@ -1,12 +1,12 @@
-import { useGetUserData } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery, useQueryClient } from 'react-query';
 import { getUserMovies } from 'services';
 
 const useMovie = () => {
-  const { isFocused, setIsFocused } = useGetUserData();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const { i18n, t } = useTranslation('forms');
   const { replace, query } = useRouter();
 
