@@ -108,12 +108,12 @@ const useSignUp = () => {
       dispatch(showModalActions.setModalValue('email sent'));
     } catch (err: any) {
       setIsLoading(false);
-      err.response.data.errors.name &&
+      err.response.data.errors?.name &&
         setError('username', {
           message: t('unique.name')!,
         });
 
-      err.response.data.errors.email &&
+      err.response.data.errors?.email &&
         setError('email', {
           message: t('unique.email')!,
         });

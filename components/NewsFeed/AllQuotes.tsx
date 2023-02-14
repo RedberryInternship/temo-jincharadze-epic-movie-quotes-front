@@ -82,7 +82,7 @@ const AllQuotes = () => {
                               width={40}
                               height={40}
                               alt='avatar'
-                              className='rounded-full'
+                              className='rounded-full w-10 h-10 lg:w-[3.2rem] lg:h-[3.2rem] object-cover'
                               unoptimized={true}
                             />
                             <h2 className='text-white ml-4 font-normal text-base md:text-xl'>
@@ -113,8 +113,8 @@ const AllQuotes = () => {
                           <div>
                             <div className='grid grid-cols-3 mt-8'>
                               <Image
-                                src={quote.movie.image}
-                                loader={() => quote.movie.image}
+                                src={quote.image}
+                                loader={() => quote.image}
                                 alt='quote image'
                                 className='rounded-xl w-full h-full object-cover col-span-3'
                                 width={358}
@@ -172,7 +172,7 @@ const AllQuotes = () => {
                                       <div className='flex items-center'>
                                         <Image
                                           src={comment.user.image}
-                                          className='rounded-full object-cover'
+                                          className='rounded-full object-cover w-10 h-10 lg:w-[3.2rem] lg:h-[3.2rem]'
                                           alt='user image'
                                           width={40}
                                           height={40}
@@ -192,17 +192,19 @@ const AllQuotes = () => {
                               )}
 
                             <div className='border-b border-solid border-movie-border mt-6' />
-                            <div className='mt-4 flex'>
+                            <div className='mt-4 flex items-center'>
                               {image && (
-                                <Image
-                                  src={image}
-                                  className='rounded-full object-cover'
-                                  alt='user image'
-                                  width={40}
-                                  height={40}
-                                  loader={avatarLoader}
-                                  unoptimized={true}
-                                />
+                                <div className='w-10 h-10 md:min-w-[3.2rem] md:min-h-[3.2rem]'>
+                                  <Image
+                                    src={image}
+                                    className='rounded-full object-cover w-full h-full'
+                                    alt='user image'
+                                    width={40}
+                                    height={40}
+                                    loader={avatarLoader}
+                                    unoptimized={true}
+                                  />
+                                </div>
                               )}
                               <CommentInput
                                 name='comment'
