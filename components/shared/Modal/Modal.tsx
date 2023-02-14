@@ -6,7 +6,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   return typeof window === 'object' ? (
     <>
       {createPortal(
-        <BackDrop onClose={props.onClose} />,
+        <BackDrop onClose={props.onClose} mode={props.mode} />,
         document.getElementById('backdrop')!
       )}
       {createPortal(

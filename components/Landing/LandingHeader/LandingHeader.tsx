@@ -1,4 +1,5 @@
 import { Button, LanguageSelector, useLandingHeader } from 'components';
+import Link from 'next/link';
 import { LandingHeaderProps } from './types';
 
 const LandingHeader: React.FC<LandingHeaderProps> = (props) => {
@@ -8,9 +9,11 @@ const LandingHeader: React.FC<LandingHeaderProps> = (props) => {
     <div className='fixed z-[4] text-white px-9 py-6 w-full'>
       <header>
         <div className='flex items-center justify-between'>
-          <h1 className='uppercase text-base font-medium text-custom-orange-200'>
-            Movie quotes
-          </h1>
+          <Link href='/'>
+            <h1 className='uppercase text-base font-medium text-custom-orange-200'>
+              Movie quotes
+            </h1>
+          </Link>
           <div className='flex items-center'>
             <LanguageSelector />
             <div className='pr-4 hidden md:flex'>
