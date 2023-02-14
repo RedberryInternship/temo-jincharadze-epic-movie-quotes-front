@@ -17,6 +17,8 @@ In Epic Movie Quotes App you can find quotes of movies.
 ## Prerequisites
 
 - npm@8
+- typescript@4
+- nodejs@18
 
 ##
 
@@ -31,7 +33,6 @@ In Epic Movie Quotes App you can find quotes of movies.
 - [React Infinite Scroll Component@2.x](https://www.npmjs.com/package/react-infinite-scroll-component) - library provides a component that will trigger an event when the user scrolls to the bottom of the page
 - [Redux Toolkit@1.x](https://redux-toolkit.js.org/) - set of tools that helps simplify Redux development
 - [Laravel Echo@1.x](https://www.npmjs.com/package/laravel-echo) - library that makes it painless to subscribe to channels and listen for events broadcast by your server-side broadcasting driver
-- [Typescript@4.x](https://www.typescriptlang.org/) - typescript is a syntactic superset of JavaScript which adds static typing
 
 ##
 
