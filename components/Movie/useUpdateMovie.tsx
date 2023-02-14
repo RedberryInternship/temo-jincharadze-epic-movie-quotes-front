@@ -75,6 +75,10 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
       dispatch(showModalActions.setModalIsOpen(false));
       dispatch(showModalActions.setModalValue(''));
     },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
+    },
   });
 
   const handleSubmitData = async (data: AddMovieTypes) => {

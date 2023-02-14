@@ -70,6 +70,10 @@ const useEditQuote = (singleQuote: EditQuoteTypes) => {
       dispatch(showModalActions.setModalValue(''));
       push(`/movie-list/${query.movieId}`);
     },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
+    },
   });
 
   const handleQuoteUpadate = (data: AddQuoteTypes) => {

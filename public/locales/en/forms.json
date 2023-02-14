@@ -51,7 +51,8 @@
     "number": "Please enter a valid year",
     "year": "Please enter a valid year",
     "budget": "Should be numbers",
-    "file": "File should be image"
+    "file": "File should be image",
+    "tooLarge": "Content too large"
   },
   "unique": {
     "email": "The email has already been taken.",

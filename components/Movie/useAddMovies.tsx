@@ -63,6 +63,10 @@ const useAddMovies = () => {
       queryClient.invalidateQueries('user movies');
       push('/movie-list');
     },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
+    },
   });
 
   const handleSubmitData = async (data: AddMovieTypes) => {

@@ -68,6 +68,10 @@ const useWriteQuote = () => {
       dispatch(showModalActions.setModalValue(''));
       push(`/news-feed`);
     },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
+    },
   });
 
   useWatch({
