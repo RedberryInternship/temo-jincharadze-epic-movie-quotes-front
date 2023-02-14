@@ -17,7 +17,12 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
     name,
     image,
     avatarLoader,
-    requiredOptions,
+    movieNameEn,
+    movieNameKa,
+    directorEn,
+    directorKa,
+    movieTextEn,
+    movieTextKa,
     errors,
     form,
     budgetOption,
@@ -66,7 +71,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
             <FormProvider {...form}>
               <form onSubmit={handleSubmit(handleSubmitData)}>
                 <MovieInput
-                  options={requiredOptions}
+                  options={movieNameEn}
                   name='nameEn'
                   type='text'
                   placeholder='Movie name'
@@ -80,7 +85,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={movieNameKa}
                   containerClass='mt-1'
                   name='nameKa'
                   type='text'
@@ -104,7 +109,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={directorEn}
                   containerClass='mt-1'
                   name='directorEn'
                   type='text'
@@ -119,7 +124,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={directorKa}
                   containerClass='mt-1'
                   name='directorKa'
                   type='text'
@@ -135,7 +140,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                 </div>
                 <MovieInput
                   mode='textarea'
-                  options={requiredOptions}
+                  options={movieTextEn}
                   containerClass='mt-1'
                   name='descriptionEn'
                   placeholder='Movie description'
@@ -150,7 +155,7 @@ const UpdateMovie = (props: { movieInfo: UpdateMovieTypes }) => {
                 </div>
                 <MovieInput
                   mode='textarea'
-                  options={requiredOptions}
+                  options={movieTextKa}
                   containerClass='mt-1'
                   name='descriptionKa'
                   placeholder='ფილმის აღწერა'

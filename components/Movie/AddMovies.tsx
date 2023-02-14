@@ -17,7 +17,6 @@ const AddMovies = () => {
     name,
     image,
     avatarLoader,
-    requiredOptions,
     errors,
     form,
     budgetOption,
@@ -25,6 +24,12 @@ const AddMovies = () => {
     handleSubmitData,
     handleSubmit,
     t,
+    movieNameEn,
+    movieNameKa,
+    directorEn,
+    directorKa,
+    movieTextEn,
+    movieTextKa,
   } = useAddMovies();
 
   return (
@@ -63,7 +68,7 @@ const AddMovies = () => {
             <FormProvider {...form}>
               <form onSubmit={handleSubmit(handleSubmitData)}>
                 <MovieInput
-                  options={requiredOptions}
+                  options={movieNameEn}
                   name='nameEn'
                   type='text'
                   placeholder='Movie name'
@@ -77,7 +82,7 @@ const AddMovies = () => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={movieNameKa}
                   containerClass='mt-1'
                   name='nameKa'
                   type='text'
@@ -100,7 +105,7 @@ const AddMovies = () => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={directorEn}
                   containerClass='mt-1'
                   name='directorEn'
                   type='text'
@@ -115,7 +120,7 @@ const AddMovies = () => {
                   />
                 </div>
                 <MovieInput
-                  options={requiredOptions}
+                  options={directorKa}
                   containerClass='mt-1'
                   name='directorKa'
                   type='text'
@@ -131,7 +136,7 @@ const AddMovies = () => {
                 </div>
                 <MovieInput
                   mode='textarea'
-                  options={requiredOptions}
+                  options={movieTextEn}
                   containerClass='mt-1'
                   name='descriptionEn'
                   placeholder='Movie description'
@@ -146,7 +151,7 @@ const AddMovies = () => {
                 </div>
                 <MovieInput
                   mode='textarea'
-                  options={requiredOptions}
+                  options={movieTextKa}
                   containerClass='mt-1'
                   name='descriptionKa'
                   placeholder='ფილმის აღწერა'

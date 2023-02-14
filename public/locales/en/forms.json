@@ -73,6 +73,8 @@
   "selectGenre": "Select genre",
   "quotesEn": "Please fill in English",
   "quotesKa": "Please fill in Georgian",
+  "moviesEn": "Please fill in English",
+  "moviesKa": "Please fill in Georgian",
   "logout": "Log out",
   "movies": {
     "editProfile": "Edit your profile",
