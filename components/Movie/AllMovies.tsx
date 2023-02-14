@@ -95,16 +95,19 @@ const AllMovies = () => {
             {data?.data.map((movie: AllMoveTypes) => {
               return (
                 <div key={movie.id} className='mb-16 col-span-3 md:col-span-1'>
-                  <Image
-                    src={movie.image}
-                    loader={() => movie.image}
-                    width={440}
-                    height={371}
-                    unoptimized={true}
-                    alt='img'
-                    style={{ width: '100%', height: '302px' }}
-                    className='rounded-xl object-cover w-full'
-                  />
+                  <Link href={`/movie-list/${movie.id}`}>
+                    <Image
+                      src={movie.image}
+                      loader={() => movie.image}
+                      width={440}
+                      height={371}
+                      unoptimized={true}
+                      alt='img'
+                      style={{ width: '100%', height: '302px' }}
+                      className='rounded-xl object-cover w-full'
+                    />
+                  </Link>
+
                   <Link href={`/movie-list/${movie.id}`}>
                     <h1 className='text-2xl font-medium text-white mt-4 truncate md:uppercase'>
                       {i18n.language === 'ka' ? movie.name.ka : movie.name.en}
