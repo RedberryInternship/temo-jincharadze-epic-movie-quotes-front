@@ -63,8 +63,6 @@ cp .env.example .env
 NEXT_PUBLIC_SERVER_API_URL = *******
 DOMAINS = *******
 
-NEXT_PUBLIC_PUSHER_APP_KEY=*******
-NEXT_PUBLIC_PUSHER_APP_CLUSTER=*******
 ```
 
 ##
