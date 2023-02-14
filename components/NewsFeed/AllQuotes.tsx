@@ -183,7 +183,7 @@ const AllQuotes = () => {
                                           {comment.user.name}
                                         </div>
                                       </div>
-                                      <p className='font-normal text-base md:text-xl mt-3 break-all text-white'>
+                                      <p className='font-normal text-base md:text-xl mt-3 break-all text-white ml-[3.5rem] md:ml-[3.5rem] lg:ml-[4.2rem]'>
                                         {comment.comment}
                                       </p>
                                     </div>

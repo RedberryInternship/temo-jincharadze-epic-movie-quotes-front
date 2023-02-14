@@ -159,11 +159,11 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                                 loader={() => comment.user.image}
                                 unoptimized={true}
                               />
-                              <div className='text-white ml-4 text-base md:text-xl font-medium break-all'>
+                              <div className='text-white  ml-4 text-base md:text-xl font-medium break-all'>
                                 {comment.user.name}
                               </div>
                             </div>
-                            <p className='font-normal text-base md:text-xl mt-3 break-all'>
+                            <p className='font-normal text-base md:text-xl mt-3 break-all w-max ml-[3.5rem] md:ml-[4.5rem]'>
                               {comment.comment}
                             </p>
                           </div>
