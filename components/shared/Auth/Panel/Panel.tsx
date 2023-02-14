@@ -27,34 +27,33 @@ const Panel = () => {
             >
               <Close />
             </div>
-            <Link href='/profile' onClick={panelCloseHandler}>
-              <div className='flex items-center hover:opacity-80'>
-                <div>
-                  {image && (
-                    <Image
-                      src={image}
-                      className={`rounded-full h-10 lg:h-[3.75rem] lg:w-[3.75rem] object-cover ${
-                        pathname === '/profile' &&
-                        'border border-custom-red-600'
-                      }`}
-                      alt='user image'
-                      width={40}
-                      height={40}
-                      loader={avatarLoader}
-                      unoptimized={true}
-                    />
-                  )}
-                </div>
-                <div className='ml-5'>
-                  <h2 className='text-xl lg:text-2xl font-normal text-white'>
-                    {name}
-                  </h2>
+            <div className='flex items-center'>
+              <div>
+                {image && (
+                  <Image
+                    src={image}
+                    className={`rounded-full h-10 lg:h-[3.75rem] lg:w-[3.75rem] object-cover ${
+                      pathname === '/profile' && 'border border-custom-red-600'
+                    }`}
+                    alt='user image'
+                    width={40}
+                    height={40}
+                    loader={avatarLoader}
+                    unoptimized={true}
+                  />
+                )}
+              </div>
+              <div className='ml-5'>
+                <h2 className='text-xl lg:text-2xl font-normal text-white'>
+                  {name}
+                </h2>
+                <Link href='/profile' onClick={panelCloseHandler}>
                   <p className='text-custom-gray-300 text-sm lg:text-base'>
                     {t('movies.editProfile')}
                   </p>
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
             <Link
               href='/news-feed'
               onClick={panelCloseHandler}

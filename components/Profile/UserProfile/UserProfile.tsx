@@ -59,7 +59,7 @@ const UserProfile = () => {
           <p className='text-base lg:text-xl font-normal'>
             {t('profile.email')}
           </p>
-          <div onClick={openEmailModal}>
+          <div onClick={openEmailModal} className='cursor-pointer'>
             <ArrowRight width='12' height='12' />
           </div>
         </div>
@@ -166,7 +166,7 @@ const UserProfile = () => {
 
             <div
               onClick={openAddEmail}
-              className='flex items-center rounded lg:w-max lg:px-4 border mt-6 border-solid border-custom-zinc-300 py-2 justify-center'
+              className='flex items-center cursor-pointer rounded lg:w-max lg:px-4 border mt-6 border-solid border-custom-zinc-300 py-2 justify-center'
             >
               <AddEmail />
               <span className='ml-2 lg:hidden'>{t('profile.add')}</span>

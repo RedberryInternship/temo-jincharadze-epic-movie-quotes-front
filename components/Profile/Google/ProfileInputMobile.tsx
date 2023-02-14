@@ -26,14 +26,16 @@ const ProfileInputMobile = (props: ProfileInputMobileProps) => {
             <div className='flex items-center pt-4'>
               <div
                 className={`w-1 h-1 rounded-full bg-custom-neutral-400 ${
-                  props.length! === 8
+                  props.length! >= 8 && props.length! < 15
                     ? 'bg-custom-green-700'
                     : 'bg-custom-neutral-400 '
                 }`}
               />
               <p
                 className={`text-sm font-normal ml-[0.4rem] ${
-                  props.length! === 8 ? 'text-white' : 'text-custom-neutral-400'
+                  props.length! >= 8 && props.length! < 15
+                    ? 'text-white'
+                    : 'text-custom-neutral-400'
                 }`}
               >
                 8 {t('profile.orMoreCharacters')}
@@ -43,14 +45,14 @@ const ProfileInputMobile = (props: ProfileInputMobileProps) => {
             <div className='flex items-center mt-1'>
               <div
                 className={`w-1 h-1 rounded-full ${
-                  props.length! <= 15 && props.length! > 8
+                  props.length! === 15
                     ? 'bg-custom-green-700'
                     : 'bg-custom-neutral-400 '
                 }`}
               />
               <p
                 className={`text-sm font-normal ml-[0.4rem] ${
-                  props.length! <= 15 && props.length! > 8
+                  props.length! === 15
                     ? 'text-white'
                     : 'text-custom-neutral-400'
                 }`}

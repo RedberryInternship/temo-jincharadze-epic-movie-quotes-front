@@ -68,9 +68,12 @@ const useUserProfile = () => {
     onSuccess: () => {
       setValue('email', '');
       queryClient.invalidateQueries('user emails');
+      push('/profile?mode=show-email');
+      dispatch(showEmailActions.setShowAddEmailSuccess(true));
     },
-    onError: () => {
-      setError('email', { message: t('unique.email')! });
+    onError: (error: any) => {
+      error.response.data.message === 'validation.unique' &&
+        setError('email', { message: t('unique.email')! });
     },
   });
 
@@ -96,14 +99,16 @@ const useUserProfile = () => {
       await checkEmail({ email: getValues('email') });
       push('/profile?mode=email-confirm');
     } catch (error: any) {
-      setError('email', { message: t('errors.required')! });
+      error.response.data.message === 'validation.unique' &&
+        setError('email', { message: t('unique.email')! });
     }
   };
 
   const addEmailHandler = () => {
+    !getValues('email') &&
+      setError('email', { message: t('errors.required')! });
+
     addEmailInstance({ email: getValues('email'), locale: i18n.language });
-    push('/profile?mode=show-email');
-    dispatch(showEmailActions.setShowAddEmailSuccess(true));
   };
 
   const closeEmailPrompt = () => {

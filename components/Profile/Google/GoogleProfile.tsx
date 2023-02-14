@@ -68,8 +68,8 @@ const GoogleProfile = (props: {
     <Dashboard>
       <div className='relative'>
         <div className='py-6 pl-10 w-max lg:hidden'>
-          <div className='md:hidden'>
-            <Link href='/news-feed'>
+          <div className='lg:hidden'>
+            <Link href='/profile'>
               <ArrowLeft />
             </Link>
           </div>
@@ -82,7 +82,7 @@ const GoogleProfile = (props: {
         {emailModal.showAddEmailSuccess && (
           <>
             <div
-              className='bg-dashboard-color opacity-60 fixed w-full h-full z-[1] top-20'
+              className='bg-dashboard-color opacity-60 lg:opacity-0 fixed w-full h-full z-[1] top-20'
               onClick={closeEmailAddSuccess}
             />
             <div className='px-8 absolute top-10 w-full z-[1] lg:right-12 lg:w-max'>
@@ -111,7 +111,7 @@ const GoogleProfile = (props: {
         {emailModal.primaryChanged && (
           <>
             <div
-              className='bg-dashboard-color opacity-60 fixed w-full h-screen z-[1] top-0'
+              className='bg-dashboard-color opacity-60 lg:opacity-0 fixed w-full h-screen z-[1] top-0'
               onClick={closePrimaryChangeSuccess}
             />
             <div className='px-8 absolute top-10 w-full z-[1] lg:right-12 lg:w-max'>
@@ -207,9 +207,6 @@ const GoogleProfile = (props: {
                       }`}
                     >
                       <ProfileImageUpload />
-                      <p className='text-xl font-normal text-center text-white mt-2'>
-                        {t('profile.uploadNewPhoto')}
-                      </p>
                     </div>
                   </div>
                   <div

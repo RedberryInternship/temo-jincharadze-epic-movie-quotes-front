@@ -4,7 +4,7 @@ const Updated = (props: { close: React.MouseEventHandler; text: string }) => {
   return (
     <>
       <div
-        className='bg-dashboard-color opacity-60 absolute w-full h-full z-[1] top-0'
+        className='bg-dashboard-color opacity-60 lg:opacity-0 absolute w-full h-full z-[1] top-0'
         onClick={props.close}
       />
       <div className='px-8 absolute top-10 w-full z-[1] lg:right-12 lg:w-max'>
