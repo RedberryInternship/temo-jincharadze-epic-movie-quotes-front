@@ -107,7 +107,7 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                         src={quote.image}
                         loader={() => quote.image}
                         alt='image'
-                        className='rounded-xl object-cover col-span-3 h-full w-full'
+                        className='rounded-xl object-cover col-span-3  w-full h-[19rem] lg:h-[31rem]'
                         unoptimized={true}
                       />
                     </div>

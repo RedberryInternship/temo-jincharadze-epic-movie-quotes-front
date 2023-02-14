@@ -116,7 +116,7 @@ const AllQuotes = () => {
                                 src={quote.image}
                                 loader={() => quote.image}
                                 alt='quote image'
-                                className='rounded-xl w-full object-cover col-span-3 h-52 md:h-80 lg:h-[31rem]'
+                                className='rounded-xl w-full object-cover col-span-3 h-52 md:h-[19rem] lg:h-[31rem]'
                                 width={358}
                                 height={302}
                                 unoptimized={true}

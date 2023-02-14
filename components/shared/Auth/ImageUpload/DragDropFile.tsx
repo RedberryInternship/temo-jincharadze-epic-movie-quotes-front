@@ -83,7 +83,7 @@ const DragDropFile = (props: { mode?: string }) => {
             unoptimized={true}
             width={358}
             height={302}
-            className='rounded-[0.6rem] object-cover w-full h-full'
+            className='rounded-[0.6rem] object-cover w-full h-[19rem] lg:h-[31rem]'
           />
         </div>
       )}
@@ -114,7 +114,7 @@ const DragDropFile = (props: { mode?: string }) => {
             unoptimized={true}
             width={358}
             height={302}
-            className='rounded-[0.6rem] object-cover w-full h-full'
+            className='rounded-[0.6rem] object-cover w-full h-[19rem] lg:h-[31rem]'
           />
         </div>
       )}
