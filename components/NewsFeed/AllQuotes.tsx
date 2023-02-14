@@ -14,6 +14,7 @@ import { useNewsFeed } from 'hooks';
 import Image from 'next/image';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const AllQuotes = () => {
   const {
@@ -32,6 +33,9 @@ const AllQuotes = () => {
 
   return (
     <>
+      <Head>
+        <title>News Feed</title>
+      </Head>
       {query.show === 'write-quote' && <WriteQuote />}
       <Dashboard>
         {quotesData && isSuccess && (

@@ -12,6 +12,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
 import { AllMoveTypes } from './types';
+import Head from 'next/head';
 
 const AllMovies = () => {
   const {
@@ -29,6 +30,9 @@ const AllMovies = () => {
 
   return (
     <>
+      <Head>
+        <title>All Movies</title>
+      </Head>
       {query.show === 'add-movie' && <AddMovies />}
 
       <Dashboard>

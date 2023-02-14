@@ -18,6 +18,7 @@ import { Tags } from 'types';
 import Link from 'next/link';
 import { formatNumber } from 'helper';
 import { UserMovieTypes } from './types';
+import Head from 'next/head';
 
 const UserMovie = () => {
   const {
@@ -42,6 +43,9 @@ const UserMovie = () => {
 
   return (
     <>
+      <Head>
+        <title>Movie</title>
+      </Head>
       {modalForm.isOpen && modalForm.value === 'update movie' && data?.data && (
         <>
           <Link
