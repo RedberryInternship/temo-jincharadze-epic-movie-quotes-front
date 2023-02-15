@@ -78,13 +78,17 @@ const useLogin = () => {
   };
 
   const handleGoogleAuth = async () => {
+    dispatch(showModalActions.setIsLoading(false));
+
     try {
+      dispatch(showModalActions.setIsLoading(true));
       dispatch(showModalActions.setModalIsOpen(true));
       await googleCallBack(asPath, locale as string, 'login');
       setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
       replace('/news-feed');
     } catch (error) {
+      dispatch(showModalActions.setIsLoading(false));
       dispatch(showModalActions.setModalValue('login'));
       setError('login', { message: t('unique.email')! });
     }

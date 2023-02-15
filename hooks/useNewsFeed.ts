@@ -1,8 +1,11 @@
 import { useGetUserData, useLike, useProfile } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useInfiniteQuery } from 'react-query';
+import { useDispatch } from 'react-redux';
 import { allQuotes } from 'services';
+import { showModalActions } from 'store';
 
 const useNewsFeed = () => {
   useGetUserData();
@@ -10,9 +13,15 @@ const useNewsFeed = () => {
 
   const { mutate: likeInstance } = useLike();
 
+  const dispatch = useDispatch();
+
   const { query } = useRouter();
 
   const { i18n, t } = useTranslation('forms');
+
+  useEffect(() => {
+    dispatch(showModalActions.setIsLoading(false));
+  }, [dispatch]);
 
   const {
     fetchNextPage,

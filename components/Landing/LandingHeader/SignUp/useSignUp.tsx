@@ -129,12 +129,14 @@ const useSignUp = () => {
 
   const handleGoogleAuth = async () => {
     try {
+      dispatch(showModalActions.setIsLoading(true));
       dispatch(showModalActions.setModalIsOpen(true));
       await googleCallBack(asPath, locale as string, 'register');
       setCookie('isAuth', true);
       dispatch(showModalActions.setModalIsOpen(false));
       replace('/news-feed');
     } catch (error) {
+      dispatch(showModalActions.setIsLoading(false));
       dispatch(showModalActions.setModalValue('register'));
       setError('email', { message: t('unique.email')! });
     }

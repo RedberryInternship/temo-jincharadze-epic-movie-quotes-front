@@ -36,7 +36,7 @@ const LandingPage = () => {
         <title>Epic Movies</title>
       </Head>
       {type === 'login' && (
-        <>
+        <div className={modalForm.isLoading ? 'hidden' : 'block'}>
           <Link
             onClick={closeModalHandler}
             href='/'
@@ -51,10 +51,10 @@ const LandingPage = () => {
               onForgotPassword={onForgotPasswordHandler}
             />
           </FormWrapper>
-        </>
+        </div>
       )}
       {type === 'register' && (
-        <>
+        <div className={modalForm.isLoading ? 'hidden' : 'block'}>
           <Link
             onClick={closeModalHandler}
             href='/'
@@ -66,7 +66,7 @@ const LandingPage = () => {
           >
             <SignUp onLoginClick={onLoginHandler} />
           </FormWrapper>
-        </>
+        </div>
       )}
 
       {modalForm.isOpen && (
