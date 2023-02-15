@@ -1,4 +1,8 @@
-const ShowEye = (props: { width: string; height: string; color: string }) => {
+const ShowEye = (props: {
+  width?: string;
+  height?: string;
+  color?: string;
+}) => {
   return (
     <svg
       width={props.width ? props.width : '14'}
