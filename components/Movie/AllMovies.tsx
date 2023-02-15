@@ -5,12 +5,14 @@ import {
   Search,
   AddMovie,
   Quote,
+  SsrWrapper,
 } from 'components';
 import { useMovie } from 'hooks';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FormProvider } from 'react-hook-form';
 import { AllMoveTypes } from './types';
+import Head from 'next/head';
 
 const AllMovies = () => {
   const {
@@ -28,6 +30,9 @@ const AllMovies = () => {
 
   return (
     <>
+      <Head>
+        <title>All Movies</title>
+      </Head>
       {query.show === 'add-movie' && <AddMovies />}
 
       <Dashboard>
@@ -52,10 +57,14 @@ const AllMovies = () => {
                     onSubmit={handleSubmit(handleSearch)}
                   >
                     <div className='flex items-center'>
-                      <Button type='submit'>
+                      <Button type='submit' className='block lg:hidden'>
                         <Search />
                       </Button>
+                      <label htmlFor='search' className='hidden lg:block'>
+                        <Search />
+                      </label>
                       <input
+                        id='search'
                         {...register('search')}
                         onFocus={() => setIsFocused(true)}
                         onBlur={() => setIsFocused(false)}
@@ -75,15 +84,18 @@ const AllMovies = () => {
                 </FormProvider>
               </div>
               <Link href='/movie-list?show=add-movie' className='ml-8'>
-                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-32 md:w-[9.6rem] h-10 md:h-12'>
-                  <AddMovie />
-                  <p
-                    className={`text-white font-normal text-base md:text-xl ml-2 ${
-                      i18n.language === 'ka' && 'text-xs md:text-base'
-                    }`}
-                  >
-                    {t('movies.addMovie')}
-                  </p>
+                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-max h-10 md:h-12'>
+                  <SsrWrapper>
+                    <div
+                      className={`text-white flex items-center font-normal text-base md:text-xl px-3 md:px-4 ${
+                        i18n.language === 'ka' && 'text-xs md:text-base'
+                      }`}
+                    >
+                      <AddMovie />
+
+                      <p className='ml-2'>{t('movies.addMovie')}</p>
+                    </div>
+                  </SsrWrapper>
                 </div>
               </Link>
             </div>
@@ -95,16 +107,19 @@ const AllMovies = () => {
             {data?.data.map((movie: AllMoveTypes) => {
               return (
                 <div key={movie.id} className='mb-16 col-span-3 md:col-span-1'>
-                  <Image
-                    src={movie.image}
-                    loader={() => movie.image}
-                    width={440}
-                    height={371}
-                    unoptimized={true}
-                    alt='img'
-                    style={{ width: '100%', height: '302px' }}
-                    className='rounded-xl object-cover w-full'
-                  />
+                  <Link href={`/movie-list/${movie.id}`}>
+                    <Image
+                      src={movie.image}
+                      loader={() => movie.image}
+                      width={440}
+                      height={371}
+                      unoptimized={true}
+                      alt='img'
+                      style={{ width: '100%', height: '302px' }}
+                      className='rounded-xl object-cover w-full'
+                    />
+                  </Link>
+
                   <Link href={`/movie-list/${movie.id}`}>
                     <h1 className='text-2xl font-medium text-white mt-4 truncate md:uppercase'>
                       {i18n.language === 'ka' ? movie.name.ka : movie.name.en}

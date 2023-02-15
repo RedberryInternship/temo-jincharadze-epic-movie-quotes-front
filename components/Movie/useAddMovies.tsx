@@ -42,8 +42,49 @@ const useAddMovies = () => {
     name: ['tags'],
   });
 
-  const requiredOptions = {
+  const movieNameEn = {
     required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9 ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const movieNameKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ0-9 ]*$/,
+      message: t('moviesKa'),
+    },
+  };
+
+  const directorEn = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const directorKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ ]*$/,
+      message: t('moviesKa'),
+    },
+  };
+
+  const movieTextEn = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9",.?!() ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const movieTextKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ0-9",.?!() ]*$/,
+      message: t('moviesKa'),
+    },
   };
 
   const budgetOption = {
@@ -62,6 +103,10 @@ const useAddMovies = () => {
     onSuccess: () => {
       queryClient.invalidateQueries('user movies');
       push('/movie-list');
+    },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
     },
   });
 
@@ -88,7 +133,6 @@ const useAddMovies = () => {
   };
 
   return {
-    requiredOptions,
     errors,
     form,
     name,
@@ -99,6 +143,12 @@ const useAddMovies = () => {
     handleSubmitData,
     handleSubmit,
     t,
+    movieNameEn,
+    movieNameKa,
+    directorEn,
+    directorKa,
+    movieTextEn,
+    movieTextKa,
   };
 };
 

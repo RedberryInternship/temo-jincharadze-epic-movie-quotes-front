@@ -8,9 +8,9 @@ import {
   Comment,
   Heart,
   Dots,
-  Eye,
   ViewQuote,
   EditQuote,
+  ShowEye,
 } from 'components';
 import useSelectedMovie from 'hooks/useSelectedMovie';
 import Image from 'next/image';
@@ -18,6 +18,7 @@ import { Tags } from 'types';
 import Link from 'next/link';
 import { formatNumber } from 'helper';
 import { UserMovieTypes } from './types';
+import Head from 'next/head';
 
 const UserMovie = () => {
   const {
@@ -42,6 +43,9 @@ const UserMovie = () => {
 
   return (
     <>
+      <Head>
+        <title>Movie</title>
+      </Head>
       {modalForm.isOpen && modalForm.value === 'update movie' && data?.data && (
         <>
           <Link
@@ -312,7 +316,7 @@ const UserMovie = () => {
                         href={`/movie-list/${query.movieId}?show=view-quote&id=${selectedQuote}`}
                       >
                         <div className='flex items-center cursor-pointer hover:opacity-70'>
-                          <Eye color='#FFFFFF' width='20' height='13.75' />
+                          <ShowEye color='#fff' width='20' height='13.75' />
                           <span className='text-white text-base font-normal ml-4'>
                             {t('quotes.viewQuote')}
                           </span>

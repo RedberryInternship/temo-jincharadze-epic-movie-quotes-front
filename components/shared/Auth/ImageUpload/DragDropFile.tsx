@@ -54,7 +54,7 @@ const DragDropFile = (props: { mode?: string }) => {
         </div>
       </div>
       {preview && (
-        <div className='w-full md:h-[32rem] mt-6 relative'>
+        <div className='w-full  mt-6 relative'>
           <div
             className={`rounded-xl absolute flex left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 px-4 pt-5 pb-4 flex-col items-center bg-top-gradient opacity-80 cursor-pointer ${
               !props.mode && 'hidden'
@@ -83,13 +83,13 @@ const DragDropFile = (props: { mode?: string }) => {
             unoptimized={true}
             width={358}
             height={302}
-            className='rounded-[0.6rem] object-cover w-full h-full'
+            className='rounded-[0.6rem] object-cover w-full h-[19rem] lg:h-[31rem]'
           />
         </div>
       )}
 
       {typeof getValues('image') === 'string' && getValues('image') && (
-        <div className='w-full md:h-[32rem] mt-6 relative'>
+        <div className='w-full  mt-6 relative'>
           <div
             className={`rounded-xl absolute flex left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 px-4 pt-5 pb-4 flex-col items-center bg-top-gradient opacity-80 cursor-pointer ${
               !props.mode && 'hidden'
@@ -114,7 +114,7 @@ const DragDropFile = (props: { mode?: string }) => {
             unoptimized={true}
             width={358}
             height={302}
-            className='rounded-[0.6rem] object-cover w-full h-full'
+            className='rounded-[0.6rem] object-cover w-full h-[19rem] lg:h-[31rem]'
           />
         </div>
       )}

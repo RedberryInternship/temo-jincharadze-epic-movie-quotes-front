@@ -53,8 +53,49 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
     name: ['tags'],
   });
 
-  const requiredOptions = {
+  const movieNameEn = {
     required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9 ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const movieNameKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ0-9 ]*$/,
+      message: t('moviesKa'),
+    },
+  };
+
+  const directorEn = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const directorKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ ]*$/,
+      message: t('moviesKa'),
+    },
+  };
+
+  const movieTextEn = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[a-zA-Z0-9",.?!() ]*$/,
+      message: t('moviesEn'),
+    },
+  };
+  const movieTextKa = {
+    required: { value: true, message: t('errors.required') },
+    pattern: {
+      value: /^[ა-ჰ0-9",.?!() ]*$/,
+      message: t('moviesKa'),
+    },
   };
 
   const budgetOption = {
@@ -74,6 +115,10 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
       queryClient.invalidateQueries('selected movie');
       dispatch(showModalActions.setModalIsOpen(false));
       dispatch(showModalActions.setModalValue(''));
+    },
+    onError: (error: any) => {
+      error?.response.status === 413 &&
+        setError('image', { message: t('errors.tooLarge')! });
     },
   });
 
@@ -100,7 +145,12 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
   };
 
   return {
-    requiredOptions,
+    movieNameEn,
+    movieNameKa,
+    directorEn,
+    directorKa,
+    movieTextEn,
+    movieTextKa,
     errors,
     form,
     name,

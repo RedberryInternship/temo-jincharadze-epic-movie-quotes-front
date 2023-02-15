@@ -34,9 +34,11 @@ const Navigation = () => {
       <div className='bg-header-rgba w-screen h-[5.4rem] flex items-center'>
         <div className='flex items-center justify-between px-10 w-full'>
           <div className='hidden md:flex'>
-            <h1 className='uppercase text-base font-medium text-custom-orange-200'>
-              Movie quotes
-            </h1>
+            <Link href='/news-feed'>
+              <h1 className='uppercase text-base font-medium text-custom-orange-200'>
+                Movie quotes
+              </h1>
+            </Link>
           </div>
           <div
             onClick={panelToggleHandler}
@@ -60,7 +62,7 @@ const Navigation = () => {
             <div className='cursor-pointer relative' ref={refRing}>
               <Ring />
               {filterHasNew?.length ? (
-                <div className='bg-custom-red-600 rounded-full w-6 flex justify-center text-white text-base font-medium absolute -top-1 left-4'>
+                <div className='bg-custom-darker-red-600 rounded-full w-6 flex justify-center text-white text-base font-medium absolute -top-1 left-4'>
                   {filterHasNew.length}
                 </div>
               ) : null}

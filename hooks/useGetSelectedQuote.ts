@@ -3,7 +3,7 @@ import { getQuote } from 'services';
 
 const useGetSelectedQuote = (id: number) => {
   const { data } = useQuery({
-    queryKey: ['selected quote'],
+    queryKey: ['selected quote', id],
     queryFn: () => getQuote(id),
     refetchOnWindowFocus: false,
     enabled: !!id,

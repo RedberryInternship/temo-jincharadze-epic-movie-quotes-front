@@ -107,7 +107,7 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                         src={quote.image}
                         loader={() => quote.image}
                         alt='image'
-                        className='rounded-xl object-cover col-span-3 h-full w-full'
+                        className='rounded-xl object-cover col-span-3  w-full h-[19rem] lg:h-[31rem]'
                         unoptimized={true}
                       />
                     </div>
@@ -152,29 +152,29 @@ const ViewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
                             <div className='flex items-center'>
                               <Image
                                 src={comment.user.image}
-                                className='rounded-full object-cover'
+                                className='rounded-full object-cover w-10 h-10  md:w-14 md:h-14'
                                 alt='user image'
                                 width={40}
                                 height={40}
                                 loader={() => comment.user.image}
                                 unoptimized={true}
                               />
-                              <div className='text-white ml-4 text-base md:text-xl font-medium break-all'>
+                              <div className='text-white  ml-4 text-base md:text-xl font-medium break-all'>
                                 {comment.user.name}
                               </div>
                             </div>
-                            <p className='font-normal text-base md:text-xl mt-3 break-all'>
+                            <p className='font-normal text-base md:text-xl mt-3 break-all w-max ml-[3.5rem] md:ml-[4.5rem]'>
                               {comment.comment}
                             </p>
                           </div>
                         );
                       })}
                     <div className='border-b border-solid border-movie-border mt-6' />
-                    <div className='mt-4 flex'>
+                    <div className='mt-4 flex items-center'>
                       {image && (
                         <Image
                           src={image}
-                          className='rounded-full object-cover'
+                          className='rounded-full object-cover w-10 h-10 md:w-14 md:h-14'
                           alt='user image'
                           width={40}
                           height={40}

@@ -110,7 +110,7 @@ const EditQuote = (props: { singleQuote: AddNewQuoteTypes }) => {
                     type='submit'
                     className=' bg-custom-red-600 text-center w-full py-2 rounded cursor-pointer text-xl font-normal hover:bg-custom-red-700 mt-10'
                   >
-                    {t('quotes.addQuote')}
+                    {t('profile.saveChanges')}
                   </Button>
                 </form>
               </FormProvider>

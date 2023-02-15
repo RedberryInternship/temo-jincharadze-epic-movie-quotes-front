@@ -16,6 +16,7 @@ import {
   CreatePassword,
   Login,
 } from 'components';
+import Head from 'next/head';
 import Link from 'next/link';
 
 const LandingPage = () => {
@@ -31,6 +32,9 @@ const LandingPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Epic Movies</title>
+      </Head>
       {type === 'login' && (
         <>
           <Link
