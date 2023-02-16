@@ -70,7 +70,7 @@ const AllMovies = () => {
                         onBlur={() => setIsFocused(false)}
                         placeholder={t('movies.search')!}
                         type='text'
-                        className={`p-0 ml-4 text-xl w-16 bg-transparent border-0 focus:ring-0 focus:border-0 text-search-border ${
+                        className={`p-0 ml-4 text-xl w-16 bg-transparent  border-0 focus:ring-0 focus:border-0 text-custom-gray-300 ${
                           isFocused
                             ? 'w-44 ml:w-[15rem] lg:w-80 xl:w-[43rem] duration-[0.4s] ease-in-out'
                             : ''
@@ -84,10 +84,10 @@ const AllMovies = () => {
                 </FormProvider>
               </div>
               <Link href='/movie-list?show=add-movie' className='ml-8'>
-                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-max h-10 md:h-12'>
+                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-max px-3 md:px-4 h-10 md:h-12'>
                   <SsrWrapper>
                     <div
-                      className={`text-white flex items-center font-normal text-base md:text-xl px-3 md:px-4 ${
+                      className={`text-white flex items-center font-normal text-base md:text-xl ${
                         i18n.language === 'ka' && 'text-xs md:text-base'
                       }`}
                     >

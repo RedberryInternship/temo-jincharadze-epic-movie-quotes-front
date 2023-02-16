@@ -100,7 +100,7 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
 
   const budgetOption = {
     required: { value: true, message: t('errors.required') },
-    pattern: { value: /^[0-9]*$/, message: t('errors.number') },
+    pattern: { value: /^[0-9]*$/, message: t('errors.budget') },
   };
 
   const yearOption = {

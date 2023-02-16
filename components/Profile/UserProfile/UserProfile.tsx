@@ -178,7 +178,7 @@ const UserProfile = () => {
         </div>
       </div>
       {query.mode === 'add-email' && (
-        <div className='max-w-[62.5rem] lg:max-w-[39rem] w-full rounded-xl absolute lg:z-[3] lg:bg-custom-neutral-900 lg:pl-12 top-0 left-0 lg:left-1/2 lg:-translate-x-1/2 lg:top-52'>
+        <div className='max-w-[62.5rem] lg:max-w-[39rem] w-full rounded-xl absolute lg:fixed lg:z-[3] lg:bg-custom-neutral-900 lg:pl-12 top-0 left-0 lg:left-1/2 lg:-translate-x-1/2 lg:top-52'>
           <FormProvider {...form}>
             <ProfileInputMobile
               addEmail={addEmailHandler}

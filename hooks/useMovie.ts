@@ -17,8 +17,6 @@ const useMovie = () => {
     },
   });
 
-  const { setValue } = form;
-
   const { data } = useQuery({
     queryKey: ['user movies', query],
     queryFn: () => getUserMovies(query),
@@ -32,7 +30,6 @@ const useMovie = () => {
   const handleSearch = (data: { search: string }) => {
     replace({ query: data });
     queryClient.invalidateQueries({ queryKey: 'user movies' });
-    setValue('search', '');
   };
 
   return {

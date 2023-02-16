@@ -54,6 +54,7 @@ const Input: React.FC<InputProps> = (props) => {
             <Valid />
           </div>
         )}
+
         {props.hasEye === true && (
           <div className='flex items-center'>
             {!invalid && isDirty && (

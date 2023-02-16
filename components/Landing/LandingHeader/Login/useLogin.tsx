@@ -12,8 +12,11 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { useQuery } from 'react-query';
 import { showModalActions } from 'store';
+import { useEffect, useState } from 'react';
 
 const useLogin = () => {
+  const [inputError, setInputError] = useState('');
+
   const form = useForm<LoginForm>({
     mode: 'all',
     defaultValues: { login: '', password: '', remember: '' },
@@ -44,6 +47,20 @@ const useLogin = () => {
     required: { value: true, message: t('errors.required') },
   };
 
+  useEffect(() => {
+    inputError === 'Email not found!' &&
+      setError('login', { message: t('exists.email')! });
+
+    inputError === 'Username not found!' &&
+      setError('login', { message: t('exists.name')! });
+
+    inputError === 'Your email is not verified.' &&
+      setError('login', { message: t('verify.email')! });
+
+    inputError === 'Invalid Credentials' &&
+      setError('password', { message: t('password')! });
+  }, [inputError, setError, t]);
+
   const handleLogin = async (data: LoginForm) => {
     const newFormData = {
       ...data,
@@ -55,16 +72,16 @@ const useLogin = () => {
       replace('/news-feed');
     } catch (error: any) {
       error.response.data.message === 'Email not found!' &&
-        setError('login', { message: t('exists.email')! });
+        setInputError('Email not found!');
 
       error.response.data.message === 'Username not found!' &&
-        setError('login', { message: t('exists.name')! });
+        setInputError('Username not found!');
 
       error.response.data.message === 'Your email is not verified.' &&
-        setError('login', { message: t('verify.email')! });
+        setInputError('Your email is not verified.');
 
       error.response.data.message === 'Invalid Credentials' &&
-        setError('password', { message: t('password')! });
+        setInputError('Invalid Credentials');
 
       deleteCookie('XSRF-TOKEN');
     }

@@ -51,7 +51,7 @@ const useSelectedMovie = () => {
   const id = query.movieId;
 
   const { data } = useQuery({
-    queryKey: ['selected movie'],
+    queryKey: ['selected movie', id],
     queryFn: () => getSelectedMovie(id!.toString()),
     retry: 0,
     refetchOnWindowFocus: false,
