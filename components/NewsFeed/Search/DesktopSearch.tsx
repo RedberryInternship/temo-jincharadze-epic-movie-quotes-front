@@ -35,11 +35,19 @@ const DesktopSearch = () => {
               </div>
             </Link>
           </div>
-          <div className={`flex ${isFocused && 'w-full'} ml-8`}>
-            <Button type='submit'>
+          <div
+            className={`flex relative items-center ${
+              isFocused && 'w-full'
+            } ml-8`}
+          >
+            <Button type='submit' className='lg:hidden block'>
               <Search />
             </Button>
+            <label htmlFor='search' className='lg:block hidden'>
+              <Search />
+            </label>
             <input
+              id='search'
               {...register('search')}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
@@ -51,11 +59,11 @@ const DesktopSearch = () => {
                 isFocused ? 'w-full duration-[0.4s] ease-in-out' : 'w-[6rem]'
               }`}
             />
+            {isFocused && (
+              <div className='border-search-border border-b absolute left-0 bottom-0 w-full top-10' />
+            )}
           </div>
         </div>
-        {isFocused && (
-          <div className='border-search-border border-b absolute left-0 bottom-0 w-full top-6' />
-        )}
       </form>
     </FormProvider>
   );

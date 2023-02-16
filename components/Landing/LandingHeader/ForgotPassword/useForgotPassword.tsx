@@ -45,6 +45,11 @@ const useForgotPassword = () => {
       dispatch(showModalActions.setModalValue('password reset sent'));
     } catch (err: any) {
       setIsLoading(false);
+
+      err.response.data.message === 'Cannot reset password on google email' &&
+        setError('email', {
+          message: t('forgotPassword.googleEmail')!,
+        });
       err.response.data.errors?.email &&
         setError('email', {
           message: t('exists.email')!,

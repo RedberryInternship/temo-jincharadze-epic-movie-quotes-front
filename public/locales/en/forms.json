@@ -37,7 +37,8 @@
     "email": "Email",
     "emailPlaceholder": "Enter your email",
     "btn": "Send instructions",
-    "backToLogin": "Back to log in"
+    "backToLogin": "Back to log in",
+    "googleEmail": "Cannot reset password on google email"
   },
   "errors": {
     "required": "The field is required",

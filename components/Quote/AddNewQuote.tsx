@@ -69,11 +69,11 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
               src={props.quoteInfo.data.image}
               loader={() => props.quoteInfo.data.image}
               alt='image'
-              className='rounded-xl object-cover col-span-1 h-full'
+              className='rounded-xl object-cover col-span-1 h-20 md:h-40'
               unoptimized={true}
             />
             <div className='ml-3 md:ml-7 min-w-[8rem] col-span-2  md:flex md:flex-col md:justify-center'>
-              <h1 className='font-normal text-custom-orange-200 break-all flex items-center justify-between flex-wrap mt-2 text-base md:text-2xl md:font-medium'>
+              <h1 className='font-normal text-custom-orange-200 break-all flex items-center justify-between flex-wrap  text-base md:text-2xl md:font-medium'>
                 <div>
                   {i18n.language === 'ka'
                     ? props.quoteInfo.data.name.ka

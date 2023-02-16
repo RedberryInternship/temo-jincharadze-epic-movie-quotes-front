@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ModalForm } from 'types';
 
 const initialState: ModalForm = {
-  modal: { isOpen: false, value: '' },
+  modal: { isOpen: false, value: '', isLoading: false },
 };
 
 export const showModalSlice = createSlice({
@@ -14,6 +14,10 @@ export const showModalSlice = createSlice({
     },
     setModalIsOpen(state, action) {
       state.modal.isOpen = action.payload;
+    },
+
+    setIsLoading(state, action) {
+      state.modal.isLoading = action.payload;
     },
   },
 });
