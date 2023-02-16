@@ -53,7 +53,7 @@
     "year": "Please enter a valid year",
     "budget": "Should be numbers",
     "file": "File should be image",
-    "tooLarge": "Content too large"
+    "tooLarge": "Content too large (10mb limit)"
   },
   "unique": {
     "email": "The email has already been taken.",
