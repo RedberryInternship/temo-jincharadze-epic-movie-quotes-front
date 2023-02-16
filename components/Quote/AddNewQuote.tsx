@@ -43,7 +43,7 @@ const AddNewQuote = (props: { quoteInfo: AddNewQuoteTypes }) => {
         <div className='border-b border-solid border-movie-border mt-7' />
 
         <div className='px-9 mt-9 pb-20'>
-          <div className='flex items-center hover:opacity-80'>
+          <div className='flex items-center'>
             <div>
               {image && (
                 <Image
