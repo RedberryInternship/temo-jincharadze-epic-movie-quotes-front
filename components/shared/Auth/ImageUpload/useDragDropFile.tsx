@@ -28,6 +28,12 @@ const useDragDropFile = () => {
 
   const onFileDrop = (e: { target: HTMLInputElement }) => {
     const newFile = e.target.files![0];
+
+    if (newFile && newFile.size > 10 * 1024 * 1024) {
+      setError('image', { message: t('errors.tooLarge')! });
+      return;
+    }
+
     if (newFile && !newFile.type.startsWith('image/')) {
       setValue('image', '');
       setError('image', { message: t('errors.file')! });
