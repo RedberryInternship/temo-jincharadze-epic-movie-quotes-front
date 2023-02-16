@@ -55,7 +55,7 @@ const DesktopSearch = () => {
                 isFocused ? t('quotes.desktopSearch')! : t('quotes.searchBy')!
               }
               type='text'
-              className={`p-0 ml-4 text-xl  bg-transparent border-0 focus:ring-0 focus:border-0 text-custom-gray-300 ${
+              className={`p-0 ml-4 text-xl bg-transparent border-0 focus:ring-0 focus:border-0 text-custom-gray-300 ${
                 isFocused ? 'w-full duration-[0.4s] ease-in-out' : 'w-[6rem]'
               }`}
             />
