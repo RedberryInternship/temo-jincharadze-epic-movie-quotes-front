@@ -37,7 +37,7 @@ const useAddNewQuote = (quoteInfo: { data: { id: string } }) => {
   const quoteEnOptions = {
     required: { value: true, message: t('errors.required') },
     pattern: {
-      value: /^[a-zA-Z0-9",.?!() ]*$/,
+      value: /^[a-zA-Z0-9",.?!():- ]*$/,
       message: t('quotesEn'),
     },
   };
@@ -45,7 +45,7 @@ const useAddNewQuote = (quoteInfo: { data: { id: string } }) => {
   const quoteKaOptions = {
     required: { value: true, message: t('errors.required') },
     pattern: {
-      value: /^[ა-ჰ0-9",.?!() ]*$/,
+      value: /^[ა-ჰ0-9",.?!():- ]*$/,
       message: t('quotesKa'),
     },
   };

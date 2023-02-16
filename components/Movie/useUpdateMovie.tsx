@@ -56,14 +56,14 @@ const useUpdateMovie = (movieInfo: UpdateMovieTypes) => {
   const movieNameEn = {
     required: { value: true, message: t('errors.required') },
     pattern: {
-      value: /^[a-zA-Z0-9:- ]*$/,
+      value: /^[a-zA-Z0-9 ]*$/,
       message: t('moviesEn'),
     },
   };
   const movieNameKa = {
     required: { value: true, message: t('errors.required') },
     pattern: {
-      value: /^[ა-ჰ0-9:- ]*$/,
+      value: /^[ა-ჰ0-9 ]*$/,
       message: t('moviesKa'),
     },
   };
