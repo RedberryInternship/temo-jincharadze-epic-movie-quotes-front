@@ -70,7 +70,7 @@ const AllMovies = () => {
                         onBlur={() => setIsFocused(false)}
                         placeholder={t('movies.search')!}
                         type='text'
-                        className={`p-0 ml-4 text-xl w-16 bg-transparent border-0 focus:ring-0 focus:border-0 text-search-border ${
+                        className={`p-0 ml-4 text-xl w-16 bg-transparent placeholder-custom-gray-300 border-0 focus:ring-0 focus:border-0 text-search-border ${
                           isFocused
                             ? 'w-44 ml:w-[15rem] lg:w-80 xl:w-[43rem] duration-[0.4s] ease-in-out'
                             : ''

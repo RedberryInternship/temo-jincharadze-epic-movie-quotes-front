@@ -15,14 +15,13 @@ const useMobileSearch = () => {
     defaultValues: { search: '' },
   });
 
-  const { register, handleSubmit, setValue } = form;
+  const { register, handleSubmit } = form;
 
   const queryClient = useQueryClient();
 
   const handleSearch = (data: { search: string }) => {
     replace({ query: data });
     queryClient.invalidateQueries('all quotes');
-    setValue('search', '');
   };
 
   return {
