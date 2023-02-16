@@ -84,10 +84,10 @@ const AllMovies = () => {
                 </FormProvider>
               </div>
               <Link href='/movie-list?show=add-movie' className='ml-8'>
-                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-max h-10 md:h-12'>
+                <div className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-max px-3 md:px-4 h-10 md:h-12'>
                   <SsrWrapper>
                     <div
-                      className={`text-white flex items-center font-normal text-base md:text-xl px-3 md:px-4 ${
+                      className={`text-white flex items-center font-normal text-base md:text-xl ${
                         i18n.language === 'ka' && 'text-xs md:text-base'
                       }`}
                     >
