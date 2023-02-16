@@ -74,7 +74,7 @@ const GoogleProfile = (props: {
         <div className='relative'>
           <div className='py-6 pl-10 w-max lg:hidden'>
             <div className='lg:hidden'>
-              <Link href='/profile'>
+              <Link href={`${!query.mode ? '/news-feed' : '/profile'}`}>
                 <ArrowLeft />
               </Link>
             </div>
