@@ -41,6 +41,7 @@ const useLogin = () => {
 
   const loginOptions = {
     required: { value: true, message: t('errors.required') },
+    minLength: { value: 3, message: t('errors.min') },
   };
 
   const passwordOptions = {

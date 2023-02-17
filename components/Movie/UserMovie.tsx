@@ -190,7 +190,7 @@ const UserMovie = () => {
                   </div>
 
                   <div
-                    className='bg-custom-red-600 hover:bg-custom-red-700 flex items-center justify-center rounded w-32 md:w-[9.6rem] h-10 md:h-12'
+                    className='bg-custom-red-600 hover:bg-custom-red-700 px-3 md:px-4 w-max  flex items-center justify-center rounded  h-10 md:h-12'
                     onClick={openQuoteAddModal}
                   >
                     <AddMovie />
